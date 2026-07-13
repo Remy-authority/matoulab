@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Content brief — mot-clé → brief (entrée du LLM de génération)",
+  "type": "object",
+  "required": ["keyword", "intent", "pillar", "clusterParent", "ymyl", "outline", "wordTarget"],
+  "properties": {
+    "keyword": { "type": "string", "description": "Requête cible (longue traîne AUT-3)" },
+    "secondaryKeywords": { "type": "array", "items": { "type": "string" } },
+    "intent": { "enum": ["informational", "commercial", "transactional", "navigational"] },
+    "serpAngle": { "type": "string", "description": "Gap SERP à exploiter (ex: 'brand listicles thin → guide expérientiel')" },
+    "pillar": { "enum": ["comportement", "alimentation", "choisir-accueillir", "hygiene-prevention"] },
+    "clusterParent": { "type": "string", "description": "slug de la page pilier (cocon)" },
+    "ymyl": { "type": "boolean", "description": "true => déclenche Gate 2 véto + disclaimer obligatoires" },
+    "medLevel": { "enum": ["none", "MED"], "default": "none" },
+    "outline": {
+      "type": "array",
+      "description": "Plan Hn imposé au LLM",
+      "items": { "type": "object", "required": ["h", "level"], "properties": {
+        "h": { "type": "string" }, "level": { "enum": ["h2", "h3"] } } }
+    },
+    "paaQuestions": { "type": "array", "items": { "type": "string" }, "description": "People-Also-Ask à couvrir" },
+    "entities": { "type": "array", "items": { "type": "string" }, "description": "Entités/termes de la sémantique du sujet" },
+    "internalLinks": {
+      "type": "array",
+      "description": "Maillage interne cible (cocon) — slugs à lier",
+      "items": { "type": "object", "properties": { "slug": { "type": "string" }, "anchor": { "type": "string" } } }
+    },
+    "affiliate": { "type": "boolean", "default": false, "description": "true => AffiliateDisclosure + rel=sponsored" },
+    "wordTarget": { "type": "integer", "minimum": 600 },
+    "sourcesRequired": { "type": "boolean", "default": true, "description": "Zéro invention : affirmations sourcées" },
+    "author": { "type": "string", "description": "slug auteur nommé (E-E-A-T)" }
+  }
+}

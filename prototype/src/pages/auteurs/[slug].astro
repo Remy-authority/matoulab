@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import authorsData from '../../data/authors.json';
+
+// Page auteur (E-E-A-T "Authoritativeness"). Les liens AuthorBox pointent ici,
+// donc chaque slug d'auteur référencé dans le contenu doit avoir une page (pas
+// de 404). GARDE-FOU : on n'invente jamais d'identité ni de diplôme. Un profil
+// non confirmé affiche un bandeau et reste noindex jusqu'à validation humaine.
+export async function getStaticPaths() {
+  const [piliers, articles] = await Promise.all([
+    getCollection('piliers'),
+    getCollection('articles'),
+  ]);
+  const bySlug = new Map();
+  for (const e of [...piliers, ...articles]) {
+    const a = e.data.author;
+    if (a?.slug && !bySlug.has(a.slug)) {
+      bySlug.set(a.slug, { name: a.name, slug: a.slug, credentials: a.credentials });
+    }
+  }
+  return [...bySlug.values()].map((ref) => {
+    const profile = authorsData.authors?.[ref.slug];
+    return { params: { slug: ref.slug }, props: { ref, profile: profile ?? null } };
+  });
+}
+
+const { ref, profile } = Astro.props;
+const confirmed = Boolean(profile?.confirmed);
+const name = profile?.name ?? ref.name;
+const credentials = profile?.credentials ?? ref.credentials;
+---
+<BaseLayout title={name} description={`Profil de ${name}, auteur sur Matoulab.`} noindex={!confirmed}>
+  <main class="author-page" itemscope itemtype="https://schema.org/Person">
+    <h1 itemprop="name">{name}</h1>
+    {credentials && <p class="credentials" itemprop="description">{credentials}</p>}
+
+    {!confirmed && (
+      <p class="notice-draft" role="note">
+        Profil à compléter et à valider par la personne réelle avant publication
+        (règle E-E-A-T : aucune identité ni compétence n'est affichée sans confirmation).
+      </p>
+    )}
+
+    {confirmed && profile?.bio && <div class="author-bio" itemprop="description" set:html={profile.bio} />}
+  </main>
+</BaseLayout>

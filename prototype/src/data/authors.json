@@ -1,0 +1,12 @@
+{
+  "_note": "Profils auteurs, E-E-A-T. Personne réelle (le fondateur). Bio honnête : fondateur passionné, PAS un faux vétérinaire/expert diplômé. Les contenus santé citent leurs sources et ne prétendent aucune relecture véto inexistante.",
+  "authors": {
+    "remy-zaoui": {
+      "name": "Rémy Zaoui",
+      "slug": "remy-zaoui",
+      "confirmed": true,
+      "credentials": "Fondateur de Matoulab, passionné de chats",
+      "bio": "<p>Rémy Zaoui est le fondateur de Matoulab. Passionné de chats, il a lancé ce média pour rassembler des conseils clairs, testés et fiables sur le bien-être félin, en s'appuyant sur des sources vétérinaires et scientifiques reconnues, toujours citées.</p><p>Rémy n'est pas vétérinaire. Les contenus santé de Matoulab sont informatifs, citent leurs sources et <strong>ne remplacent pas une consultation vétérinaire</strong>.</p>"
+    }
+  }
+}

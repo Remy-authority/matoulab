@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="1000" height="430" role="img" aria-label="La checklist avant de laisser son chat seul : de l'eau en quantité, idéalement une fontaine ; assez de nourriture, avec un distributeur si besoin ; des litières propres et en nombre suffisant ; de quoi s'occuper avec des jeux et des points en hauteur ; et le passage d'une personne au-delà d'une journée.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="dot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .h{font-weight:800;font-size:19px;fill:#21232b;}
+      .d{font-weight:500;font-size:16px;fill:#5a616e;}
+      .chk{stroke:#fff;stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){.s{opacity:0;animation:pop .45s ease forwards}.r2{animation-delay:.12s}.r3{animation-delay:.24s}.r4{animation-delay:.36s}.r5{animation-delay:.48s}}
+    </style>
+  </defs>
+  <rect width="1000" height="430" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="50" text-anchor="middle">Avant de le laisser seul : la checklist</text>
+
+  <g class="s"><rect x="120" y="76" width="760" height="52" rx="14" fill="#fff" stroke="#ece7fb" stroke-width="2"/><circle cx="158" cy="102" r="18" fill="url(#dot)"/><path class="chk" d="M150 102 l6 7 l12 -14"/><text class="t h" x="192" y="98">De l'eau en quantité</text><text class="t d" x="192" y="118">Plusieurs points d'eau, idéalement une fontaine</text></g>
+  <g class="s r2"><rect x="120" y="140" width="760" height="52" rx="14" fill="#fff" stroke="#ece7fb" stroke-width="2"/><circle cx="158" cy="166" r="18" fill="url(#dot)"/><path class="chk" d="M150 166 l6 7 l12 -14"/><text class="t h" x="192" y="162">Assez de nourriture</text><text class="t d" x="192" y="182">Un distributeur automatique si besoin</text></g>
+  <g class="s r3"><rect x="120" y="204" width="760" height="52" rx="14" fill="#fff" stroke="#ece7fb" stroke-width="2"/><circle cx="158" cy="230" r="18" fill="url(#dot)"/><path class="chk" d="M150 230 l6 7 l12 -14"/><text class="t h" x="192" y="226">Litières propres</text><text class="t d" x="192" y="246">Un bac par chat, plus un, bien nettoyés</text></g>
+  <g class="s r4"><rect x="120" y="268" width="760" height="52" rx="14" fill="#fff" stroke="#ece7fb" stroke-width="2"/><circle cx="158" cy="294" r="18" fill="url(#dot)"/><path class="chk" d="M150 294 l6 7 l12 -14"/><text class="t h" x="192" y="290">De quoi s'occuper</text><text class="t d" x="192" y="310">Jeux, points en hauteur, une vue sur l'extérieur</text></g>
+  <g class="s r5"><rect x="120" y="332" width="760" height="52" rx="14" fill="#fff" stroke="#ece7fb" stroke-width="2"/><circle cx="158" cy="358" r="18" fill="#c98a4b"/><path class="chk" d="M150 358 l6 7 l12 -14"/><text class="t h" x="192" y="354">Un passage au-delà d'une journée</text><text class="t d" x="192" y="374">Un proche ou un cat-sitter qui vient voir</text></g>
+
+  <text class="t" x="880" y="410" font-size="14" fill="#6a7180" text-anchor="end">matoulab.com</text>
+</svg>

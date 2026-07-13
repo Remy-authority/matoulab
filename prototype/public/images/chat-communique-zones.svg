@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="1000" height="320" role="img" aria-label="Le chat communique avec tout son corps : la queue, les oreilles, les yeux et la posture d'ensemble. On lit toujours la combinaison de ces signaux, jamais un seul.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="ic" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .h{font-weight:800;font-size:19px;fill:#4a2fa8;}
+      .d{font-weight:500;font-size:15px;fill:#5a616e;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){.s{opacity:0;animation:pop .5s ease forwards}.b{animation-delay:.15s}.c{animation-delay:.3s}.e{animation-delay:.45s}}
+    </style>
+  </defs>
+  <rect width="1000" height="320" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="52" text-anchor="middle">Le chat parle avec tout son corps</text>
+
+  <g class="s" transform="translate(140,160)"><circle cx="0" cy="0" r="44" fill="url(#ic)"/><text class="t h" x="0" y="6" text-anchor="middle" fill="#fff">Queue</text><text class="t d" x="0" y="78" text-anchor="middle">L'humeur</text></g>
+  <g class="s b" transform="translate(380,160)"><circle cx="0" cy="0" r="44" fill="url(#ic)"/><text class="t h" x="0" y="6" text-anchor="middle" fill="#fff">Oreilles</text><text class="t d" x="0" y="78" text-anchor="middle">L'émotion</text></g>
+  <g class="s c" transform="translate(620,160)"><circle cx="0" cy="0" r="44" fill="url(#ic)"/><text class="t h" x="0" y="6" text-anchor="middle" fill="#fff">Yeux</text><text class="t d" x="0" y="78" text-anchor="middle">La confiance</text></g>
+  <g class="s e" transform="translate(860,160)"><circle cx="0" cy="0" r="44" fill="url(#ic)"/><text class="t h" x="0" y="6" text-anchor="middle" fill="#fff">Posture</text><text class="t d" x="0" y="78" text-anchor="middle">L'ensemble</text></g>
+
+  <text class="t d" x="500" y="252" text-anchor="middle" fill="#8b6b3f">On lit toujours la combinaison des signaux, jamais un seul.</text>
+  <text class="t" x="880" y="300" font-size="14" fill="#6a7180" text-anchor="end">matoulab.com</text>
+</svg>

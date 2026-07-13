@@ -1,0 +1,14 @@
+# Cache-Control Cloudflare Pages.
+# HTML : revalidation systématique -> les mises à jour sont visibles immédiatement
+# (fini le "je vois l'ancienne version").
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Assets Astro à nom hashé : immuables, cache long.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images/SVG : cache court (10 min) -> si une image fraîche est temporairement absente
+# d'un edge au moment du déploiement, un éventuel cache négatif s'auto-corrige vite.
+/images/*
+  Cache-Control: public, max-age=600, must-revalidate

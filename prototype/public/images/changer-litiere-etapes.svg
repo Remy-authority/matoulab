@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 340" width="1000" height="340" role="img" aria-label="Changer de litière en 3 étapes : 1 partir d'une agglomérante fine non parfumée, 2 changer un seul paramètre à la fois, 3 faire la transition en douceur sur une semaine.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="num" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:30px;fill:#21232b;}
+      .num{font-weight:800;font-size:34px;fill:#fff;}
+      .step{font-weight:600;font-size:19px;fill:#21232b;}
+      .chev{stroke:#c98a4b;stroke-width:6;stroke-linecap:round;fill:none;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){
+        .s{opacity:0;animation:pop .5s ease forwards;}
+        .s2{animation-delay:.2s}.s3{animation-delay:.4s}
+      }
+    </style>
+  </defs>
+  <rect width="1000" height="340" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="54" text-anchor="middle">Changer de litière en 3 étapes</text>
+
+  <!-- Step 1 -->
+  <g class="s">
+    <circle cx="180" cy="150" r="42" fill="url(#num)"/>
+    <text class="t num" x="180" y="162" text-anchor="middle">1</text>
+    <text class="t step" x="180" y="230" text-anchor="middle">Agglomérante fine,</text>
+    <text class="t step" x="180" y="255" text-anchor="middle">non parfumée</text>
+  </g>
+  <path class="chev" d="M330 135 L360 150 L330 165"/>
+
+  <!-- Step 2 -->
+  <g class="s s2">
+    <circle cx="500" cy="150" r="42" fill="url(#num)"/>
+    <text class="t num" x="500" y="162" text-anchor="middle">2</text>
+    <text class="t step" x="500" y="230" text-anchor="middle">Un seul changement</text>
+    <text class="t step" x="500" y="255" text-anchor="middle">à la fois</text>
+  </g>
+  <path class="chev" d="M650 135 L680 150 L650 165"/>
+
+  <!-- Step 3 -->
+  <g class="s s3">
+    <circle cx="820" cy="150" r="42" fill="url(#num)"/>
+    <text class="t num" x="820" y="162" text-anchor="middle">3</text>
+    <text class="t step" x="820" y="230" text-anchor="middle">Transition douce</text>
+    <text class="t step" x="820" y="255" text-anchor="middle">sur 1 semaine</text>
+  </g>
+
+  <text class="t" x="500" y="315" font-size="17" fill="#6a7180" text-anchor="middle">matoulab.com</text>
+</svg>

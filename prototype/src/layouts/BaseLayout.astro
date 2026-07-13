@@ -1,0 +1,70 @@
+---
+import Analytics from '../components/Analytics.astro';
+import Logo from '../components/Logo.astro';
+import '../styles/global.css';
+
+// Coquille HTML commune à toutes les pages (accueil, piliers, articles, légal,
+// auteurs). Porte le <head> SEO, la navigation, le pied de page avec les liens
+// légaux obligatoires, et l'analytics cookieless.
+const { title, description, noindex = false, image } = Astro.props;
+const siteName = 'Matoulab';
+const fullTitle = title ? `${title}, ${siteName}` : `${siteName}, le chat, sérieusement`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = image ? new URL(image, Astro.site).href : undefined;
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogImage && <meta name="twitter:card" content="summary_large_image" />}
+    <meta property="og:locale" content="fr_FR" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: siteName,
+      url: Astro.site?.href,
+      inLanguage: 'fr-FR',
+      publisher: { '@type': 'Organization', name: siteName, url: Astro.site?.href },
+    })} />
+    <Analytics />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="/" class="brand" rel="home"><Logo /></a>
+      <nav aria-label="Guides">
+        <a href="/comportement">Comportement</a>
+        <a href="/alimentation">Alimentation</a>
+        <a href="/hygiene-prevention">Hygiène &amp; prévention</a>
+        <a href="/choisir-accueillir">Choisir &amp; accueillir</a>
+      </nav>
+    </header>
+
+    <slot />
+
+    <footer class="site-footer">
+      <p class="footer-affiliation">
+        Matoulab peut percevoir une commission d'affiliation sur certains liens,
+        sans surcoût pour vous. <a href="/politique-affiliation">En savoir plus</a>.
+      </p>
+      <nav aria-label="Informations légales">
+        <a href="/a-propos">À propos</a>
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/politique-confidentialite">Confidentialité</a>
+        <a href="/politique-affiliation">Affiliation</a>
+        <a href="/disclaimer-veterinaire">Avertissement santé</a>
+      </nav>
+      <p class="footer-copy">© 2026 Matoulab · Contenu informatif, ne remplace pas une consultation vétérinaire. · Illustrations générées par IA.</p>
+    </footer>
+  </body>
+</html>

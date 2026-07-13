@@ -1,0 +1,14 @@
+keyword,pillar,clusterParent,intent,ymyl,affiliate,status,volume_kwp,notes
+comportement du chat,comportement,comportement,informational,false,false,queued,TBD,page pilier P1
+chat qui miaule la nuit,comportement,comportement,informational,false,false,queued,TBD,seed AUT-3
+pourquoi mon chat griffe le canape,comportement,comportement,informational,false,true,queued,TBD,arbre a chat UPD/Zooplus
+langage du chat miaulements,comportement,comportement,informational,false,false,queued,TBD,
+litiere hygiene chat,hygiene-prevention,litiere-hygiene,informational,false,true,queued,TBD,page pilier P4
+meilleure litiere pour chat,hygiene-prevention,litiere-hygiene,commercial,false,true,queued,TBD,comparatif affiliation
+nettoyer les yeux de son chat,hygiene-prevention,litiere-hygiene,informational,false,true,queued,TBD,
+habituer chaton litiere,comportement,comportement,informational,false,true,queued,TBD,
+choisir accueillir un chat,choisir-accueillir,choisir-accueillir,informational,false,false,queued,TBD,page pilier P3
+quel chat pour un appartement,choisir-accueillir,choisir-accueillir,commercial,false,false,queued,TBD,lifestyle-match
+kit demarrage adoption chaton,choisir-accueillir,choisir-accueillir,commercial,false,true,queued,TBD,SanteVet lead + checklist
+combien nourrir un chat calculateur,alimentation,alimentation,informational,false,true,queued,TBD,outil + UPD
+antiparasitaire chat,hygiene-prevention,litiere-hygiene,informational,true,true,blocked_MED,TBD,PHASE 2 - exige veto veterinaire

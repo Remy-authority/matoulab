@@ -1,0 +1,110 @@
+---
+import AuthorBox from '../components/AuthorBox.astro';
+import VetReview from '../components/VetReview.astro';
+import Disclaimer from '../components/Disclaimer.astro';
+import UpdatedDate from '../components/UpdatedDate.astro';
+import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
+
+// Gabarit ARTICLE CLUSTER. Assemble tous les blocs E-E-A-T.
+// L'ordre reflète les garde-fous : disclosure + disclaimer AVANT le corps.
+const { entry } = Astro.props;
+const d = entry.data;
+
+// URLs absolues (recommandé par Google pour les données structurées).
+const abs = (path) => (Astro.site ? new URL(path, Astro.site).href : path);
+const articleUrl = abs(`/${entry.slug}`);
+const siteName = 'Matoulab';
+
+// JSON-LD Article (dont dateModified + author + reviewedBy si YMYL).
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': d.medLevel === 'MED' ? 'MedicalWebPage' : 'Article',
+  headline: d.title,
+  description: d.description,
+  inLanguage: 'fr-FR',
+  mainEntityOfPage: articleUrl,
+  ...(d.cover && { image: abs(d.cover) }),
+  dateModified: d.updatedAt,
+  datePublished: d.publishedAt,
+  author: { '@type': 'Person', name: d.author.name, url: abs(`/auteurs/${d.author.slug}`) },
+  publisher: { '@type': 'Organization', name: siteName, url: Astro.site?.href },
+  ...(d.vetReview && {
+    reviewedBy: { '@type': 'Person', name: d.vetReview.reviewerName, jobTitle: 'Vétérinaire' },
+    lastReviewed: d.vetReview.reviewedAt,
+  }),
+};
+
+// SEO/GEO : fil d'Ariane structuré (rich result Google + structure lisible par les IA).
+const crumbs = [{ name: 'Accueil', url: abs('/') }];
+if (d.clusterParent) crumbs.push({ name: d.pillar, url: abs(`/${d.clusterParent}`) });
+crumbs.push({ name: d.title, url: articleUrl });
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.name,
+    item: c.url,
+  })),
+};
+
+// GEO : FAQPage schema (format très cité par les IA + rich results Google).
+const faqLd = d.faq && d.faq.length ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: d.faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+} : null;
+---
+<article>
+  <h1>{d.title}</h1>
+  {d.cover && (
+    <figure class="cover">
+      <img src={d.cover} alt={d.coverAlt ?? d.title} width="1200" height="630" fetchpriority="high" />
+    </figure>
+  )}
+  <UpdatedDate updatedAt={d.updatedAt} publishedAt={d.publishedAt} />
+  <AuthorBox {...d.author} />
+
+  {(d.ymyl || d.medLevel === 'MED') && d.vetReview && <VetReview {...d.vetReview} />}
+  {d.affiliate && <AffiliateDisclosure />}
+  {d.disclaimer && <Disclaimer />}
+
+  {/* GEO : réponse rapide citable en tête */}
+  {d.tldr && (
+    <aside class="tldr" aria-label="Réponse rapide">
+      <p class="tldr-label">Réponse rapide</p>
+      <p>{d.tldr}</p>
+    </aside>
+  )}
+
+  <slot />  {/* corps de l'article (markdown rendu) */}
+
+  {/* GEO : FAQ structurée (citée par les IA, rich results Google) */}
+  {d.faq && d.faq.length > 0 && (
+    <section class="faq" aria-label="Questions fréquentes">
+      <h2>Questions fréquentes</h2>
+      {d.faq.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </section>
+  )}
+
+  {/* Maillage interne / cocon : lien remontant vers la page pilier */}
+  {d.clusterParent && (
+    <nav class="cocon-up" aria-label="Guide complet">
+      <a href={`/${d.clusterParent}`}>← Retour au guide complet : {d.pillar}</a>
+    </nav>
+  )}
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+  {faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />}
+</article>

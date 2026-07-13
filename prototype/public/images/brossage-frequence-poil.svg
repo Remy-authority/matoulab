@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="1000" height="320" role="img" aria-label="La fréquence de brossage selon le poil : poil court, une fois par semaine suffit ; poil long ou mi-long, tous les jours ou presque pour éviter les noeuds ; en période de mue, au printemps et à l'automne, brossez plus souvent.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="ic" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .k{font-weight:800;font-size:18px;fill:#fff;}
+      .h{font-weight:800;font-size:19px;fill:#4a2fa8;}
+      .d{font-weight:500;font-size:15px;fill:#5a616e;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){.s{opacity:0;animation:pop .5s ease forwards}.b{animation-delay:.2s}.c{animation-delay:.4s}}
+    </style>
+  </defs>
+  <rect width="1000" height="320" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="52" text-anchor="middle">À quelle fréquence brosser son chat</text>
+
+  <g class="s" transform="translate(180,165)">
+    <circle cx="0" cy="0" r="54" fill="url(#ic)"/><text class="t k" x="0" y="-2" text-anchor="middle">Poil</text><text class="t k" x="0" y="20" text-anchor="middle">court</text>
+    <text class="t h" x="0" y="92" text-anchor="middle">1 fois / semaine</text>
+    <text class="t d" x="0" y="116" text-anchor="middle">Suffit en temps normal</text>
+  </g>
+  <g class="s b" transform="translate(500,165)">
+    <circle cx="0" cy="0" r="54" fill="url(#ic)"/><text class="t k" x="0" y="-2" text-anchor="middle">Poil</text><text class="t k" x="0" y="20" text-anchor="middle">long</text>
+    <text class="t h" x="0" y="92" text-anchor="middle">Tous les jours</text>
+    <text class="t d" x="0" y="116" text-anchor="middle">Pour éviter les noeuds</text>
+  </g>
+  <g class="s c" transform="translate(820,165)">
+    <circle cx="0" cy="0" r="54" fill="#c98a4b"/><text class="t k" x="0" y="6" text-anchor="middle">Mue</text>
+    <text class="t h" x="0" y="92" text-anchor="middle">Plus souvent</text>
+    <text class="t d" x="0" y="116" text-anchor="middle">Printemps et automne</text>
+  </g>
+
+  <text class="t" x="880" y="306" font-size="14" fill="#6a7180" text-anchor="end">matoulab.com</text>
+</svg>

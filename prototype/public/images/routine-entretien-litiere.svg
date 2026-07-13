@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 340" width="1000" height="340" role="img" aria-label="La routine d'entretien de la litière à trois niveaux : chaque jour, retirer les souillures une à deux fois ; chaque semaine à deux semaines, vider et laver le bac à l'eau chaude ; régulièrement, remplacer le bac quand il est rayé ou usé.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="ic" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .k{font-weight:800;font-size:19px;fill:#fff;}
+      .h{font-weight:800;font-size:19px;fill:#4a2fa8;}
+      .d{font-weight:500;font-size:15px;fill:#5a616e;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){.s{opacity:0;animation:pop .5s ease forwards}.b{animation-delay:.2s}.c{animation-delay:.4s}}
+    </style>
+  </defs>
+  <rect width="1000" height="340" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="52" text-anchor="middle">La routine d'entretien de la litière</text>
+
+  <g class="s" transform="translate(180,168)">
+    <circle cx="0" cy="0" r="52" fill="url(#ic)"/><text class="t k" x="0" y="-4" text-anchor="middle">Chaque</text><text class="t k" x="0" y="18" text-anchor="middle">jour</text>
+    <text class="t d" x="0" y="90" text-anchor="middle">Retirer les souillures</text><text class="t d" x="0" y="110" text-anchor="middle">1 à 2 fois</text>
+  </g>
+  <g class="s b" transform="translate(500,168)">
+    <circle cx="0" cy="0" r="52" fill="url(#ic)"/><text class="t k" x="0" y="-4" text-anchor="middle">1 à 2</text><text class="t k" x="0" y="18" text-anchor="middle">sem.</text>
+    <text class="t d" x="0" y="90" text-anchor="middle">Vider et laver le bac</text><text class="t d" x="0" y="110" text-anchor="middle">à l'eau chaude</text>
+  </g>
+  <g class="s c" transform="translate(820,168)">
+    <circle cx="0" cy="0" r="52" fill="url(#ic)"/><text class="t k" x="0" y="6" text-anchor="middle">Au besoin</text>
+    <text class="t d" x="0" y="90" text-anchor="middle">Remplacer le bac</text><text class="t d" x="0" y="110" text-anchor="middle">rayé ou usé</text>
+  </g>
+
+  <text class="t" x="880" y="326" font-size="14" fill="#6a7180" text-anchor="end">matoulab.com</text>
+</svg>

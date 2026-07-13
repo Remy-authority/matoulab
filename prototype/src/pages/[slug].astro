@@ -1,0 +1,69 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PilierLayout from '../layouts/PilierLayout.astro';
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import { isPublished } from '../lib/published.js';
+
+// Route racine unifiée : piliers (/comportement), articles cluster
+// (/chat-qui-miaule-la-nuit) et pages légales (/mentions-legales) partagent le
+// même espace d'URL, comme un blog classique. Chaque type est rendu avec son
+// gabarit ; les pages légales n'ont pas de garde-fou E-E-A-T.
+export async function getStaticPaths() {
+  const [piliers, articles, legal] = await Promise.all([
+    getCollection('piliers'),
+    getCollection('articles'),
+    getCollection('legal'),
+  ]);
+
+  const pilierPaths = piliers.map((entry) => ({
+    params: { slug: entry.slug },
+    props: {
+      type: 'pilier',
+      entry,
+      // Cocon : les clusters d'un pilier = articles dont le champ `pillar`
+      // correspond au slug du pilier. On ne maille QUE vers des articles publiés
+      // (AUT-10) : un brouillon reste construit en noindex mais n'est jamais lié.
+      clusters: articles
+        .filter((a) => a.data.pillar === entry.slug && isPublished(a))
+        .map((a) => ({ slug: a.slug, title: a.data.title })),
+    },
+  }));
+
+  const articlePaths = articles.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { type: 'article', entry },
+  }));
+
+  const legalPaths = legal.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { type: 'legal', entry },
+  }));
+
+  return [...pilierPaths, ...articlePaths, ...legalPaths];
+}
+
+const { type, entry, clusters = [] } = Astro.props;
+const { Content } = await entry.render();
+const d = entry.data;
+// Tant qu'une page n'est pas "published", on la marque noindex (garde-fou :
+// aucun brouillon YMYL/légal non validé ne doit être indexé).
+const noindex = d.status !== 'published';
+---
+<BaseLayout title={d.title} description={d.description} noindex={noindex} image={d.cover}>
+  {type === 'pilier' && (
+    <PilierLayout entry={entry} clusters={clusters}>
+      <Content />
+    </PilierLayout>
+  )}
+  {type === 'article' && (
+    <ArticleLayout entry={entry}>
+      <Content />
+    </ArticleLayout>
+  )}
+  {type === 'legal' && (
+    <main class="legal">
+      <Content />
+    </main>
+  )}
+</BaseLayout>

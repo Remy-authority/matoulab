@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="1000" height="470" role="img" aria-label="Les 4 types de litière : agglomérante (facile), végétale (écolo), silice (anti-odeur), minérale (économique).">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:32px;fill:#21232b;}
+      .name{font-weight:800;font-size:21px;fill:#21232b;}
+      .verdict{font-weight:700;font-size:18px;fill:#6d4bd6;}
+      @keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+      /* Contenu visible par défaut ; l'animation ne s'applique que si le navigateur
+         la supporte ET que l'utilisateur ne demande pas moins d'animation. */
+      .card{transform-box:fill-box;}
+      @media (prefers-reduced-motion: no-preference){
+        .card{opacity:0;animation:pop .5s ease forwards;}
+        .c2{animation-delay:.12s}.c3{animation-delay:.24s}.c4{animation-delay:.36s}
+      }
+    </style>
+  </defs>
+  <rect width="1000" height="470" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="56" text-anchor="middle">Les 4 types de litière</text>
+
+  <!-- Card 1 : Agglomérante -->
+  <g class="card">
+    <rect x="40" y="100" width="205" height="300" rx="16" fill="#fff" stroke="#e7e5ef" stroke-width="2"/>
+    <text class="t name" x="142" y="140" text-anchor="middle">Agglomérante</text>
+    <g transform="translate(115,175)">
+      <rect x="0" y="30" width="54" height="18" rx="5" fill="#7c5cff"/>
+      <rect x="8" y="8" width="40" height="16" rx="5" fill="#b14bd6"/>
+      <rect x="16" y="-12" width="28" height="14" rx="5" fill="#6d4bd6"/>
+    </g>
+    <text class="t verdict" x="142" y="360" text-anchor="middle">Facile</text>
+  </g>
+
+  <!-- Card 2 : Végétale -->
+  <g class="card c2">
+    <rect x="285" y="100" width="205" height="300" rx="16" fill="#fff" stroke="#e7e5ef" stroke-width="2"/>
+    <text class="t name" x="387" y="140" text-anchor="middle">Végétale</text>
+    <path d="M387 175 C 347 195, 347 250, 387 265 C 427 250, 427 195, 387 175 Z" fill="#57b894"/>
+    <path d="M387 180 L387 260" stroke="#2f7a5e" stroke-width="3"/>
+    <text class="t verdict" x="387" y="360" text-anchor="middle">Écolo</text>
+  </g>
+
+  <!-- Card 3 : Silice -->
+  <g class="card c3">
+    <rect x="530" y="100" width="205" height="300" rx="16" fill="#fff" stroke="#e7e5ef" stroke-width="2"/>
+    <text class="t name" x="632" y="140" text-anchor="middle">Silice</text>
+    <g fill="#6fbfe0">
+      <circle cx="612" cy="210" r="13"/><circle cx="645" cy="200" r="10"/><circle cx="655" cy="230" r="14"/>
+      <circle cx="620" cy="238" r="9"/><circle cx="636" cy="222" r="8"/>
+    </g>
+    <text class="t verdict" x="632" y="360" text-anchor="middle">Anti-odeur</text>
+  </g>
+
+  <!-- Card 4 : Minérale -->
+  <g class="card c4">
+    <rect x="775" y="100" width="205" height="300" rx="16" fill="#fff" stroke="#e7e5ef" stroke-width="2"/>
+    <text class="t name" x="877" y="140" text-anchor="middle">Minérale</text>
+    <g fill="#c98a4b">
+      <circle cx="855" cy="205" r="5"/><circle cx="872" cy="200" r="6"/><circle cx="888" cy="208" r="5"/>
+      <circle cx="862" cy="220" r="6"/><circle cx="880" cy="222" r="5"/><circle cx="896" cy="218" r="6"/>
+      <circle cx="852" cy="234" r="5"/><circle cx="870" cy="236" r="6"/><circle cx="890" cy="234" r="5"/>
+    </g>
+    <text class="t verdict" x="877" y="360" text-anchor="middle">Économique</text>
+  </g>
+
+  <text class="t" x="500" y="440" font-size="18" fill="#6a7180" text-anchor="middle">matoulab.com</text>
+</svg>

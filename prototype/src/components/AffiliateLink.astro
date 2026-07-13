@@ -1,0 +1,25 @@
+---
+// Lien affilié conforme : rel="sponsored nofollow noopener" (Google link-qualification).
+// La disclosure de page est portée par AffiliateDisclosure.astro.
+//
+// Deux modes :
+//  1) Direct        : <AffiliateLink href="..." label="..." />
+//  2) Via registre  : <AffiliateLink partner="amazon" url="https://www.amazon.fr/..." label="..." />
+//     -> l'URL trackée est construite depuis src/data/affiliates.ts. Si le partenaire
+//        est désactivé (pas encore d'identifiant de Rémy), on affiche le libellé en
+//        texte simple : jamais de lien non tracké ou incomplet en ligne.
+import { AFFILIATES, buildAffiliateUrl } from '../data/affiliates';
+
+const { href, label, partner, url } = Astro.props;
+
+let finalHref = href ?? null;
+let rel = 'sponsored nofollow noopener';
+
+if (partner && url) {
+  finalHref = buildAffiliateUrl(partner, url); // null si partenaire inactif
+  rel = AFFILIATES[partner]?.rel ?? rel;
+}
+---
+{finalHref
+  ? <a href={finalHref} rel={rel} target="_blank" data-affiliate="true">{label}</a>
+  : <span data-affiliate="pending">{label}</span>}

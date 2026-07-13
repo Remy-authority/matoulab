@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="1000" height="430" role="img" aria-label="Que faire face à un chat qui réclame : fractionner la ration en plusieurs petits repas, utiliser un distributeur ou une gamelle ludique, ne pas céder à chaque miaulement pour ne pas renforcer l'habitude, et enrichir sa journée avec du jeu et des activités.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="dot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .h{font-weight:800;font-size:20px;fill:#21232b;}
+      .d{font-weight:500;font-size:16px;fill:#5a616e;}
+      .chk{stroke:#fff;stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){.s{opacity:0;animation:pop .5s ease forwards}.b{animation-delay:.15s}.c{animation-delay:.3s}.e{animation-delay:.45s}}
+    </style>
+  </defs>
+  <rect width="1000" height="430" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="52" text-anchor="middle">Chat qui réclame : que faire</text>
+
+  <g class="s">
+    <rect x="60" y="86" width="420" height="120" rx="18" fill="#fff" stroke="#ece7fb" stroke-width="2"/>
+    <circle cx="120" cy="146" r="22" fill="url(#dot)"/><path class="chk" d="M110 146 l7 8 l14 -16"/>
+    <text class="t h" x="160" y="140">Fractionner la ration</text><text class="t d" x="160" y="170">Plusieurs petits repas dans la journée</text>
+  </g>
+  <g class="s b">
+    <rect x="520" y="86" width="420" height="120" rx="18" fill="#fff" stroke="#ece7fb" stroke-width="2"/>
+    <circle cx="580" cy="146" r="22" fill="url(#dot)"/><path class="chk" d="M570 146 l7 8 l14 -16"/>
+    <text class="t h" x="620" y="140">Distributeur ou gamelle ludique</text><text class="t d" x="620" y="170">Il travaille pour sa nourriture</text>
+  </g>
+  <g class="s c">
+    <rect x="60" y="224" width="420" height="120" rx="18" fill="#fff" stroke="#ece7fb" stroke-width="2"/>
+    <circle cx="120" cy="284" r="22" fill="url(#dot)"/><path class="chk" d="M110 284 l7 8 l14 -16"/>
+    <text class="t h" x="160" y="278">Ne pas céder au miaulement</text><text class="t d" x="160" y="308">Sinon on renforce l'habitude</text>
+  </g>
+  <g class="s e">
+    <rect x="520" y="224" width="420" height="120" rx="18" fill="#fff" stroke="#ece7fb" stroke-width="2"/>
+    <circle cx="580" cy="284" r="22" fill="url(#dot)"/><path class="chk" d="M570 284 l7 8 l14 -16"/>
+    <text class="t h" x="620" y="278">Enrichir sa journée</text><text class="t d" x="620" y="308">Jeu, chasse, activités : moins d'ennui</text>
+  </g>
+
+  <text class="t d" x="500" y="392" text-anchor="middle" fill="#8b6b3f">On respecte la ration totale : réclamer n'est pas toujours avoir faim.</text>
+  <text class="t" x="880" y="416" font-size="14" fill="#6a7180" text-anchor="end">matoulab.com</text>
+</svg>

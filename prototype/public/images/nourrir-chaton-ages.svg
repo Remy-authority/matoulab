@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330" width="1000" height="330" role="img" aria-label="Nourrir un chaton selon son âge : de 0 à 4 semaines le lait maternel, de 4 à 8 semaines le sevrage avec une pâtée pour chaton, de 2 à 12 mois un aliment de croissance en 3 à 4 repas par jour, et vers 12 mois le passage à l'alimentation adulte.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="num" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .k{font-weight:800;font-size:17px;fill:#fff;}
+      .h{font-weight:700;font-size:16px;fill:#21232b;}
+      .chev{stroke:#c98a4b;stroke-width:6;stroke-linecap:round;fill:none;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){.s{opacity:0;animation:pop .5s ease forwards}.b{animation-delay:.2s}.c{animation-delay:.4s}.e{animation-delay:.6s}}
+    </style>
+  </defs>
+  <rect width="1000" height="330" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="52" text-anchor="middle">Nourrir un chaton selon son âge</text>
+
+  <g class="s"><circle cx="150" cy="150" r="52" fill="url(#num)"/><text class="t k" x="150" y="146" text-anchor="middle">0-4</text><text class="t k" x="150" y="166" text-anchor="middle">sem.</text><text class="t h" x="150" y="230" text-anchor="middle">Lait</text><text class="t h" x="150" y="250" text-anchor="middle">maternel</text></g>
+  <path class="chev" d="M252 135 L282 150 L252 165"/>
+  <g class="s b"><circle cx="390" cy="150" r="52" fill="url(#num)"/><text class="t k" x="390" y="146" text-anchor="middle">4-8</text><text class="t k" x="390" y="166" text-anchor="middle">sem.</text><text class="t h" x="390" y="230" text-anchor="middle">Sevrage,</text><text class="t h" x="390" y="250" text-anchor="middle">pâtée chaton</text></g>
+  <path class="chev" d="M492 135 L522 150 L492 165"/>
+  <g class="s c"><circle cx="630" cy="150" r="52" fill="url(#num)"/><text class="t k" x="630" y="146" text-anchor="middle">2-12</text><text class="t k" x="630" y="166" text-anchor="middle">mois</text><text class="t h" x="630" y="230" text-anchor="middle">Croissance,</text><text class="t h" x="630" y="250" text-anchor="middle">3-4 repas/j</text></g>
+  <path class="chev" d="M732 135 L762 150 L732 165"/>
+  <g class="s e"><circle cx="870" cy="150" r="52" fill="#c98a4b"/><text class="t k" x="870" y="155" text-anchor="middle">~12 mois</text><text class="t h" x="870" y="230" text-anchor="middle">Passage</text><text class="t h" x="870" y="250" text-anchor="middle">à l'adulte</text></g>
+
+  <text class="t" x="880" y="312" font-size="14" fill="#6a7180" text-anchor="end">matoulab.com</text>
+</svg>

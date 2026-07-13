@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" role="img" aria-label="Pourquoi un chat miaule la nuit : six causes fréquentes, l'ennui et le manque de stimulation, la faim, le besoin de chaleur et de réconfort, une routine décalée, la demande d'attention apprise, et un signal de santé surtout chez le chat âgé.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="num" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:30px;fill:#21232b;}
+      .n{font-weight:800;font-size:22px;fill:#fff;}
+      .h{font-weight:800;font-size:20px;fill:#21232b;}
+      .d{font-weight:500;font-size:16px;fill:#5a616e;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){
+        .s{opacity:0;animation:pop .5s ease forwards}
+        .r2{animation-delay:.15s}.r3{animation-delay:.3s}
+      }
+    </style>
+  </defs>
+  <rect width="1000" height="560" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="54" text-anchor="middle">Chat qui miaule la nuit : 6 causes</text>
+
+  <g class="s">
+    <rect x="60" y="86" width="420" height="120" rx="18" fill="#fff" stroke="#ece7fb" stroke-width="2"/>
+    <circle cx="120" cy="146" r="28" fill="url(#num)"/><text class="t n" x="120" y="154" text-anchor="middle">1</text>
+    <text class="t h" x="166" y="138">Ennui</text><text class="t d" x="166" y="166">Manque de stimulation en journée</text>
+  </g>
+  <g class="s">
+    <rect x="520" y="86" width="420" height="120" rx="18" fill="#fff" stroke="#ece7fb" stroke-width="2"/>
+    <circle cx="580" cy="146" r="28" fill="url(#num)"/><text class="t n" x="580" y="154" text-anchor="middle">2</text>
+    <text class="t h" x="626" y="138">Faim</text><text class="t d" x="626" y="166">Dernier repas trop tôt le soir</text>
+  </g>
+  <g class="s r2">
+    <rect x="60" y="222" width="420" height="120" rx="18" fill="#fff" stroke="#ece7fb" stroke-width="2"/>
+    <circle cx="120" cy="282" r="28" fill="url(#num)"/><text class="t n" x="120" y="290" text-anchor="middle">3</text>
+    <text class="t h" x="166" y="274">Chaleur, réconfort</text><text class="t d" x="166" y="302">Couchage froid ou peu rassurant</text>
+  </g>
+  <g class="s r2">
+    <rect x="520" y="222" width="420" height="120" rx="18" fill="#fff" stroke="#ece7fb" stroke-width="2"/>
+    <circle cx="580" cy="282" r="28" fill="url(#num)"/><text class="t n" x="580" y="290" text-anchor="middle">4</text>
+    <text class="t h" x="626" y="274">Routine décalée</text><text class="t d" x="626" y="302">Trop de sommeil en soirée</text>
+  </g>
+  <g class="s r3">
+    <rect x="60" y="358" width="420" height="120" rx="18" fill="#fff" stroke="#ece7fb" stroke-width="2"/>
+    <circle cx="120" cy="418" r="28" fill="url(#num)"/><text class="t n" x="120" y="426" text-anchor="middle">5</text>
+    <text class="t h" x="166" y="410">Demande d'attention</text><text class="t d" x="166" y="438">Comportement appris, à ne pas nourrir</text>
+  </g>
+  <g class="s r3">
+    <rect x="520" y="358" width="420" height="120" rx="18" fill="#fff" stroke="#f0d9c4" stroke-width="2"/>
+    <circle cx="580" cy="418" r="28" fill="#c98a4b"/><text class="t n" x="580" y="426" text-anchor="middle">6</text>
+    <text class="t h" x="626" y="410">Signal de santé</text><text class="t d" x="626" y="438">Surtout chez le chat âgé : véto</text>
+  </g>
+
+  <text class="t d" x="500" y="516" text-anchor="middle" fill="#8b6b3f">Miaulements soudains ou intenses : demandez conseil à un vétérinaire.</text>
+  <text class="t" x="500" y="544" font-size="16" fill="#6a7180" text-anchor="middle">matoulab.com</text>
+</svg>

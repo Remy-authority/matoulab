@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="1000" height="320" role="img" aria-label="L'hygiène du chat repose sur trois piliers : une litière propre et bien choisie, un brossage régulier adapté au poil, et des gestes de prévention au quotidien.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="ic" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .n{font-weight:800;font-size:26px;fill:#fff;}
+      .h{font-weight:800;font-size:20px;fill:#4a2fa8;}
+      .d{font-weight:500;font-size:15px;fill:#5a616e;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){.s{opacity:0;animation:pop .5s ease forwards}.b{animation-delay:.2s}.c{animation-delay:.4s}}
+    </style>
+  </defs>
+  <rect width="1000" height="320" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="52" text-anchor="middle">L'hygiène du chat en 3 piliers</text>
+
+  <g class="s" transform="translate(180,155)">
+    <circle cx="0" cy="0" r="46" fill="url(#ic)"/><text class="t n" x="0" y="9" text-anchor="middle">1</text>
+    <text class="t h" x="0" y="82" text-anchor="middle">Litière</text>
+    <text class="t d" x="0" y="108" text-anchor="middle">Bien choisie et propre</text>
+  </g>
+  <g class="s b" transform="translate(500,155)">
+    <circle cx="0" cy="0" r="46" fill="url(#ic)"/><text class="t n" x="0" y="9" text-anchor="middle">2</text>
+    <text class="t h" x="0" y="82" text-anchor="middle">Brossage</text>
+    <text class="t d" x="0" y="108" text-anchor="middle">Régulier, adapté au poil</text>
+  </g>
+  <g class="s c" transform="translate(820,155)">
+    <circle cx="0" cy="0" r="46" fill="url(#ic)"/><text class="t n" x="0" y="9" text-anchor="middle">3</text>
+    <text class="t h" x="0" y="82" text-anchor="middle">Prévention</text>
+    <text class="t d" x="0" y="108" text-anchor="middle">Observer au quotidien</text>
+  </g>
+
+  <text class="t" x="880" y="304" font-size="14" fill="#6a7180" text-anchor="end">matoulab.com</text>
+</svg>

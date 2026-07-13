@@ -1,0 +1,127 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PillarIcon from '../components/PillarIcon.astro';
+import { isPublished } from '../lib/published.js';
+
+// On ne liste sur l'accueil que les contenus PUBLIÉS (AUT-10). Les brouillons
+// (draft/in_review/vet_review/approved) et les pages de démonstration (status
+// draft) sont ainsi exclus des liens internes : pas de lien vers une page noindex.
+const piliers = (await getCollection('piliers')).filter(isPublished);
+const articles = (await getCollection('articles')).filter(isPublished);
+
+// Libellés courts par thème (pour les sections d'accueil).
+const topicLabels = {
+  'comportement': 'Comportement',
+  'hygiene-prevention': 'Hygiène & prévention',
+  'alimentation': 'Alimentation',
+  'choisir-accueillir': 'Choisir & accueillir',
+};
+// Articles regroupés par thème (pilier), pour sectionner l'accueil.
+const topics = piliers
+  .map((p) => ({
+    pillar: p.data.pillar,
+    label: topicLabels[p.data.pillar] ?? p.data.title,
+    guideSlug: p.slug,
+    articles: articles.filter((a) => a.data.pillar === p.data.pillar),
+  }))
+  .filter((t) => t.articles.length > 0);
+---
+<BaseLayout
+  title={null}
+  description="Matoulab : le média de référence sur le chat. Comportement, alimentation, hygiène et bien-être félin, des guides clairs, vérifiés et sourcés."
+>
+  <main class="home">
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Média félin indépendant</p>
+        <h1>Tout comprendre à votre chat.</h1>
+        <p class="lede">
+          Des guides clairs et rigoureux sur le comportement, l'alimentation et le
+          bien-être du chat, appuyés sur des sources vétérinaires et scientifiques,
+          toujours citées.
+        </p>
+        <a class="btn" href="#guides">Explorer les guides</a>
+      </div>
+      <figure class="hero-img">
+        <img src="/images/home-cover-v3.webp" alt="Portrait d'un chat au regard curieux" width="1200" height="630" fetchpriority="high" />
+      </figure>
+    </section>
+
+    <section class="trust" aria-label="Notre méthode">
+      <div class="trust-item">
+        <h3>Sources citées</h3>
+        <p>Chaque conseil s'appuie sur des références vétérinaires et scientifiques reconnues.</p>
+      </div>
+      <div class="trust-item">
+        <h3>Rédaction indépendante</h3>
+        <p>Aucun contenu sponsorisé déguisé. Nos liens affiliés sont signalés clairement.</p>
+      </div>
+      <div class="trust-item">
+        <h3>Mis à jour</h3>
+        <p>Nos guides sont datés et révisés pour rester fiables dans le temps.</p>
+      </div>
+    </section>
+
+    <section id="guides" aria-label="Nos guides">
+      <h2>Nos guides</h2>
+      <ul class="pillar-grid">
+        {piliers.map((p) => (
+          <li>
+            <a href={`/${p.slug}`}>
+              {p.data.cover && (
+                <span class="card-img">
+                  <img src={p.data.cover} alt={p.data.coverAlt ?? p.data.title} width="860" height="452" loading="lazy" />
+                </span>
+              )}
+              <span class="card-body">
+                <span class="ico" aria-hidden="true"><PillarIcon pillar={p.data.pillar} /></span>
+                <h3>{p.data.title}</h3>
+                <p>{p.data.description}</p>
+                <span class="card-cta">Lire le guide →</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    {topics.map((t) => (
+      <section class="topic" aria-label={t.label}>
+        <div class="topic-head">
+          <span class="ico" aria-hidden="true"><PillarIcon pillar={t.pillar} /></span>
+          <h2>{t.label}</h2>
+          <a class="topic-all" href={`/${t.guideSlug}`}>Voir le guide →</a>
+        </div>
+        <ul class="article-cards">
+          {t.articles.map((a) => (
+            <li>
+              <a href={`/${a.slug}`}>
+                {a.data.cover && (
+                  <span class="ac-img"><img src={a.data.cover} alt={a.data.coverAlt ?? a.data.title} width="860" height="484" loading="lazy" /></span>
+                )}
+                <span class="ac-body">
+                  <h3>{a.data.title}</h3>
+                  <p>{a.data.description}</p>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <section class="promise" aria-label="Notre promesse">
+      <h2>Une info féline en qui vous pouvez avoir confiance</h2>
+      <p>
+        Matoulab est un média dédié <strong>exclusivement au chat</strong>. Nous croyons
+        qu'un sujet traité en profondeur vaut mieux que dix survolés : c'est pourquoi nous
+        nous concentrons sur une seule espèce, pour vous offrir des réponses vraiment utiles.
+      </p>
+      <p>
+        Notre contenu est informatif et ne remplace jamais l'avis d'un vétérinaire.
+        <a href="/auteurs/remy-zaoui">En savoir plus sur nous →</a>
+      </p>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="1000" height="320" role="img" aria-label="Le rituel du soir qui endort un chaton : jouer 15 à 20 minutes, puis un petit repas, puis sa toilette, puis le sommeil. C'est le rythme naturel du chat.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="num" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .h{font-weight:800;font-size:21px;fill:#fff;}
+      .d{font-weight:600;font-size:16px;fill:#5a616e;}
+      .chev{stroke:#c98a4b;stroke-width:6;stroke-linecap:round;fill:none;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){
+        .s{opacity:0;animation:pop .5s ease forwards}
+        .b{animation-delay:.2s}.c{animation-delay:.4s}.e{animation-delay:.6s}
+      }
+    </style>
+  </defs>
+  <rect width="1000" height="320" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="52" text-anchor="middle">Le rituel du soir qui endort un chaton</text>
+
+  <g class="s"><circle cx="150" cy="150" r="58" fill="url(#num)"/><text class="t h" x="150" y="158" text-anchor="middle">Jouer</text><text class="t d" x="150" y="240" text-anchor="middle">15 à 20 min</text><text class="t d" x="150" y="262" text-anchor="middle">canne, balle</text></g>
+  <path class="chev" d="M258 135 L288 150 L258 165"/>
+  <g class="s b"><circle cx="390" cy="150" r="58" fill="url(#num)"/><text class="t h" x="390" y="158" text-anchor="middle">Manger</text><text class="t d" x="390" y="240" text-anchor="middle">un petit</text><text class="t d" x="390" y="262" text-anchor="middle">repas</text></g>
+  <path class="chev" d="M498 135 L528 150 L498 165"/>
+  <g class="s c"><circle cx="630" cy="150" r="58" fill="url(#num)"/><text class="t h" x="630" y="158" text-anchor="middle">Toilette</text><text class="t d" x="630" y="240" text-anchor="middle">il se lave</text><text class="t d" x="630" y="262" text-anchor="middle">seul</text></g>
+  <path class="chev" d="M738 135 L768 150 L738 165"/>
+  <g class="s e"><circle cx="870" cy="150" r="58" fill="url(#num)"/><text class="t h" x="870" y="158" text-anchor="middle">Dormir</text><text class="t d" x="870" y="240" text-anchor="middle">coin chaud</text><text class="t d" x="870" y="262" text-anchor="middle">et calme</text></g>
+
+  <text class="t" x="500" y="300" font-size="16" fill="#6a7180" text-anchor="middle">matoulab.com</text>
+</svg>

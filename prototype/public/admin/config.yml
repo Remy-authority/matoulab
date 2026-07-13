@@ -1,0 +1,90 @@
+# Decap CMS — configuration de l'espace éditorial (revue humaine par PR).
+# Validé en AUT-4 : chaque contenu passe par un workflow Brouillon → En revue →
+# Prêt, matérialisé par une Pull Request. La fusion (= publication) est faite par
+# un éditeur humain. Sur contenu YMYL, la revue véto est OBLIGATOIRE avant fusion.
+# Doc : https://decapcms.org/docs/configuration-options/
+
+# GARDE-FOU CLÉ : editorial_workflow impose l'étape de revue avant publication.
+publish_mode: editorial_workflow
+
+# Backend Git. `[[À COMPLÉTER]]` au go-live : dépôt réel + auth (GitHub OAuth via
+# Cloudflare, ou git-gateway). Rien n'est connecté tant que le repo n'existe pas.
+backend:
+  name: github
+  repo: "[[À COMPLÉTER : owner/repo au go-live]]"
+  branch: main
+
+media_folder: "prototype/public/uploads"
+public_folder: "/uploads"
+
+locale: fr
+
+collections:
+  # --- Articles cluster -----------------------------------------------------
+  - name: "articles"
+    label: "Articles"
+    folder: "prototype/src/content/articles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Titre", widget: "string" }
+      - { name: "description", label: "Meta description (≤160)", widget: "string", pattern: ['^.{1,160}$', '160 caractères max'] }
+      - { name: "pillar", label: "Pilier", widget: "select", options: ["comportement", "alimentation", "choisir-accueillir", "hygiene-prevention"] }
+      - name: "author"
+        label: "Auteur"
+        widget: "object"
+        fields:
+          - { name: "name", label: "Nom", widget: "string" }
+          - { name: "slug", label: "Slug auteur", widget: "string" }
+          - { name: "credentials", label: "Fonction / compétences", widget: "string", required: false }
+      - { name: "updatedAt", label: "Mis à jour le", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { name: "publishedAt", label: "Publié le", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: false }
+      - { name: "ymyl", label: "Contenu santé (YMYL) ?", widget: "boolean", default: false, hint: "Si OUI : revue vétérinaire + disclaimer OBLIGATOIRES avant publication." }
+      - { name: "medLevel", label: "Niveau médical", widget: "select", options: ["none", "MED"], default: "none" }
+      - name: "vetReview"
+        label: "Revue vétérinaire (obligatoire si YMYL/MED)"
+        widget: "object"
+        required: false
+        fields:
+          - { name: "reviewerName", label: "Nom du vétérinaire", widget: "string" }
+          - { name: "reviewerCredential", label: "N° ordre / titre", widget: "string" }
+          - { name: "reviewedAt", label: "Revu le", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { name: "disclaimer", label: "Afficher le disclaimer véto", widget: "boolean", default: false }
+      - { name: "affiliate", label: "Contient des liens affiliés", widget: "boolean", default: false }
+      - { name: "clusterParent", label: "Pilier parent (slug)", widget: "string", required: false }
+      - { name: "status", label: "Statut", widget: "select", options: ["draft", "in_review", "vet_review", "approved", "published"], default: "draft" }
+      - { name: "body", label: "Contenu", widget: "markdown" }
+
+  # --- Pages piliers --------------------------------------------------------
+  - name: "piliers"
+    label: "Pages piliers"
+    folder: "prototype/src/content/piliers"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Titre", widget: "string" }
+      - { name: "description", label: "Meta description (≤160)", widget: "string" }
+      - { name: "pillar", label: "Pilier", widget: "select", options: ["comportement", "alimentation", "choisir-accueillir", "hygiene-prevention"] }
+      - name: "author"
+        label: "Auteur"
+        widget: "object"
+        fields:
+          - { name: "name", label: "Nom", widget: "string" }
+          - { name: "slug", label: "Slug auteur", widget: "string" }
+          - { name: "credentials", label: "Fonction / compétences", widget: "string", required: false }
+      - { name: "updatedAt", label: "Mis à jour le", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { name: "status", label: "Statut", widget: "select", options: ["draft", "in_review", "approved", "published"], default: "draft" }
+      - { name: "body", label: "Contenu", widget: "markdown" }
+
+  # --- Pages légales --------------------------------------------------------
+  - name: "legal"
+    label: "Pages légales"
+    folder: "prototype/src/content/legal"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Titre", widget: "string" }
+      - { name: "description", label: "Meta description", widget: "string" }
+      - { name: "updatedAt", label: "Mis à jour le", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { name: "status", label: "Statut", widget: "select", options: ["draft", "approved", "published"], default: "draft" }
+      - { name: "body", label: "Contenu", widget: "markdown" }

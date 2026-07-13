@@ -1,0 +1,17 @@
+---
+// Icônes piliers — SVG trait fin, sobres (aucun emoji). Héritent de currentColor.
+const { pillar } = Astro.props;
+const common = { width: 26, height: 26, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': 1.6, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'aria-hidden': 'true' };
+---
+{pillar === 'comportement' && (
+  <svg {...common}><path d="M4 9V5l3 2.5a7 7 0 0 1 10 0L20 5v4a8 8 0 0 1-16 0Z"/><path d="M9 12h.01M15 12h.01"/><path d="M10.5 15.5a2 2 0 0 0 3 0"/></svg>
+)}
+{pillar === 'hygiene-prevention' && (
+  <svg {...common}><path d="M12 3s6 5.5 6 10a6 6 0 0 1-12 0c0-4.5 6-10 6-10Z"/><path d="M9.5 13.5a2.5 2.5 0 0 0 2.5 2.5"/></svg>
+)}
+{pillar === 'alimentation' && (
+  <svg {...common}><path d="M4 11a8 8 0 0 1 16 0Z"/><path d="M3 11h18"/><path d="M12 15v5"/></svg>
+)}
+{pillar === 'choisir-accueillir' && (
+  <svg {...common}><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>
+)}

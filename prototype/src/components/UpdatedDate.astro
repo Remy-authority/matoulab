@@ -1,0 +1,9 @@
+---
+// Date de mise à jour visible (E-E-A-T "freshness") + JSON-LD dateModified.
+const { updatedAt, publishedAt } = Astro.props;
+const fmt = (s) => new Date(s).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<p class="dates">
+  {publishedAt && <span>Publié le <time datetime={publishedAt}>{fmt(publishedAt)}</time>. </span>}
+  <span>Mis à jour le <time datetime={updatedAt} itemprop="dateModified">{fmt(updatedAt)}</time>.</span>
+</p>

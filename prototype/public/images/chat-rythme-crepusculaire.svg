@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360" role="img" aria-label="Le chat est crépusculaire : son activité connaît deux pics naturels, un à l'aube et un au crépuscule, avec des creux la nuit et en milieu de journée. C'est pourquoi il vous réveille tôt le matin.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c5cff" stop-opacity="0.55"/><stop offset="1" stop-color="#b14bd6" stop-opacity="0.08"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .peak{font-weight:800;font-size:19px;fill:#4a2fa8;}
+      .ax{font-weight:600;font-size:15px;fill:#6a7180;}
+      .curve{fill:none;stroke:#6d4bd6;stroke-width:4;}
+      @keyframes fade{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){.an{opacity:0;animation:fade .8s ease forwards .2s}}
+    </style>
+  </defs>
+  <rect width="1000" height="360" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="52" text-anchor="middle">Le chat est crépusculaire</text>
+
+  <line x1="100" y1="280" x2="900" y2="280" stroke="#d9d2ef" stroke-width="2"/>
+  <g class="an">
+    <path class="t" d="M100,250 C180,245 240,130 300,115 C360,130 460,215 500,220 C560,215 660,125 720,112 C780,125 850,240 900,248 L900,280 L100,280 Z" fill="url(#area)"/>
+    <path class="t curve" d="M100,250 C180,245 240,130 300,115 C360,130 460,215 500,220 C560,215 660,125 720,112 C780,125 850,240 900,248"/>
+  </g>
+  <circle cx="300" cy="115" r="7" fill="#6d4bd6"/><circle cx="720" cy="112" r="7" fill="#6d4bd6"/>
+  <text class="t peak" x="300" y="98" text-anchor="middle">Aube</text>
+  <text class="t peak" x="720" y="95" text-anchor="middle">Crépuscule</text>
+
+  <text class="t ax" x="100" y="302" text-anchor="middle">0 h</text>
+  <text class="t ax" x="300" y="302" text-anchor="middle">6 h</text>
+  <text class="t ax" x="500" y="302" text-anchor="middle">12 h</text>
+  <text class="t ax" x="700" y="302" text-anchor="middle">18 h</text>
+  <text class="t ax" x="900" y="302" text-anchor="middle">minuit</text>
+
+  <text class="t ax" x="500" y="336" text-anchor="middle" fill="#8b6b3f">Ses pics d'activité tombent tôt le matin : d'où le réveil.</text>
+  <text class="t" x="500" y="356" font-size="15" fill="#6a7180" text-anchor="middle">matoulab.com</text>
+</svg>

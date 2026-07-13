@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" width="1000" height="300" role="img" aria-label="Combien de temps un chaton miaule la nuit : les nuits 1 à 3 il miaule, c'est normal, il découvre ; les nuits 4 à 7 les miaulements s'espacent ; en une à deux semaines les nuits sont calmes.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .step{font-weight:800;font-size:19px;fill:#4a2fa8;}
+      .d{font-weight:500;font-size:16px;fill:#5a616e;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){
+        .s{opacity:0;animation:pop .5s ease forwards}.b{animation-delay:.25s}.c{animation-delay:.5s}
+      }
+    </style>
+  </defs>
+  <rect width="1000" height="300" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="54" text-anchor="middle">Combien de temps ça dure ?</text>
+
+  <rect x="120" y="150" width="760" height="6" rx="3" fill="url(#line)"/>
+  <g class="s"><circle cx="200" cy="153" r="16" fill="#7c5cff"/><text class="t step" x="200" y="110" text-anchor="middle">Nuits 1 à 3</text><text class="t d" x="200" y="200" text-anchor="middle">Il miaule, c'est normal</text><text class="t d" x="200" y="222" text-anchor="middle">il découvre tout</text></g>
+  <g class="s b"><circle cx="500" cy="153" r="16" fill="#9350e0"/><text class="t step" x="500" y="110" text-anchor="middle">Nuits 4 à 7</text><text class="t d" x="500" y="200" text-anchor="middle">Les miaulements</text><text class="t d" x="500" y="222" text-anchor="middle">s'espacent</text></g>
+  <g class="s c"><circle cx="800" cy="153" r="16" fill="#b14bd6"/><text class="t step" x="800" y="110" text-anchor="middle">1 à 2 semaines</text><text class="t d" x="800" y="200" text-anchor="middle">Nuits calmes,</text><text class="t d" x="800" y="222" text-anchor="middle">rythme calé</text></g>
+
+  <text class="t" x="500" y="280" font-size="16" fill="#6a7180" text-anchor="middle">matoulab.com</text>
+</svg>

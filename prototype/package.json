@@ -1,0 +1,21 @@
+{
+  "name": "autoblog-chat-prototype",
+  "type": "module",
+  "private": true,
+  "description": "Prototype LOCAL du blog chat (AUT-4). 0 dépense, 0 publication. Ne pas déployer avant validation Rémy (AUT-5).",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.0",
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^4.0.0",
+    "sharp": "^0.33.0"
+  },
+  "_notes": "Dépendances OSS gratuites (MIT/Apache). CMS revue humaine = Decap CMS (à ajouter au build AUT-5). Hébergement cible = Cloudflare Pages (gratuit). Aucune installation/déploiement dans cette phase.",
+  "devDependencies": {
+    "wrangler": "^4.110.0"
+  }
+}

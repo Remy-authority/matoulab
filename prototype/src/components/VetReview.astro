@@ -1,0 +1,11 @@
+---
+// "Révisé par un vétérinaire" (E-E-A-T "Expertise/Trust" sur pages YMYL/MED).
+// Ne s'affiche que si une revue véto existe. Obligatoire sur pages santé (voir content.config.ts).
+const { reviewerName, reviewerCredential, reviewedAt } = Astro.props;
+const d = new Date(reviewedAt).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<div class="vet-review" role="note">
+  <span class="badge">Contenu révisé par un vétérinaire</span>
+  <p><strong>{reviewerName}</strong> — {reviewerCredential}</p>
+  <p><small>Revue médicale effectuée le <time datetime={reviewedAt}>{d}</time>.</small></p>
+</div>

@@ -1,0 +1,13 @@
+---
+// Bloc auteur nommé (E-E-A-T "Authoritativeness"). Rendu + JSON-LD Person.
+// Avatar = monogramme (initiales) pour éviter toute image cassée et rester branché.
+const { name, slug, credentials } = Astro.props;
+const initials = name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2).toUpperCase();
+---
+<aside class="author-box" itemscope itemtype="https://schema.org/Person">
+  <span class="avatar" aria-hidden="true">{initials}</span>
+  <div>
+    <p>Écrit par <a href={`/auteurs/${slug}`} rel="author"><span itemprop="name">{name}</span></a></p>
+    {credentials && <p class="credentials" itemprop="description">{credentials}</p>}
+  </div>
+</aside>

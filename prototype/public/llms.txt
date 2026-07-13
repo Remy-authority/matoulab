@@ -1,0 +1,25 @@
+# Matoulab
+
+> Média indépendant francophone dédié au chat : comportement, hygiène, litière et
+> bien-être félin. Contenus originaux, rédigés à partir de sources vétérinaires et
+> scientifiques reconnues et citées. Les contenus santé sont informatifs et ne
+> remplacent pas une consultation vétérinaire.
+
+Auteur / éditeur : Rémy Zaoui, fondateur de Matoulab (non vétérinaire).
+Langue : français (fr-FR). Site : https://matoulab.com
+
+## Guides (piliers)
+- [Comportement du chat](https://matoulab.com/comportement) : communication, besoins, troubles du quotidien.
+- [Hygiène et prévention](https://matoulab.com/hygiene-prevention) : litière, brossage, entretien.
+
+## Articles
+- [Chat qui miaule la nuit : causes et solutions](https://matoulab.com/chat-qui-miaule-la-nuit)
+- [Chaton qui miaule la nuit : la première semaine](https://matoulab.com/chaton-miaule-nuit-premiere-semaine)
+- [Griffades sur le canapé : comprendre et rediriger](https://matoulab.com/griffades-canape-chat)
+- [Langage corporel du chat](https://matoulab.com/langage-corporel-chat)
+- [Comment choisir la litière de son chat](https://matoulab.com/choisir-litiere-chat)
+- [Bac à litière : combien et où le placer](https://matoulab.com/bac-litiere-nombre-emplacement)
+- [Quel bac à litière pour un grand chat (Maine Coon)](https://matoulab.com/bac-litiere-grand-chat)
+
+## À propos
+- [À propos et méthode éditoriale](https://matoulab.com/a-propos)

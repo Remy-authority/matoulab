@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="1000" height="430" role="img" aria-label="La règle de taille pour un grand chat : le bac doit mesurer au moins une fois et demie la longueur du chat, du nez à la base de la queue, avec des bords hauts et une entrée basse.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:30px;fill:#21232b;}
+      .big{font-weight:800;font-size:46px;fill:#4a2fa8;}
+      .lbl{font-weight:700;font-size:19px;fill:#21232b;}
+      .d{font-weight:500;font-size:17px;fill:#5a616e;}
+      .measure{stroke:#c98a4b;stroke-width:3;}
+      @keyframes grow{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
+      @media (prefers-reduced-motion: no-preference){
+        .barA{transform-origin:150px 0;opacity:0;animation:grow .6s ease forwards .2s}
+        .barB{transform-origin:150px 0;opacity:0;animation:grow .7s ease forwards .5s}
+      }
+    </style>
+  </defs>
+  <rect width="1000" height="430" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="54" text-anchor="middle">Quelle taille de bac pour un grand chat ?</text>
+
+  <!-- longueur du chat -->
+  <text class="t lbl" x="150" y="132" text-anchor="start">Longueur du chat</text>
+  <g class="barA"><rect x="150" y="146" width="360" height="26" rx="8" fill="#cbb8f7"/></g>
+  <line class="measure" x1="150" y1="185" x2="510" y2="185"/>
+  <text class="t d" x="330" y="205" text-anchor="middle">du nez à la base de la queue</text>
+
+  <!-- longueur du bac -->
+  <text class="t lbl" x="150" y="258" text-anchor="start">Longueur du bac idéal</text>
+  <g class="barB"><rect x="150" y="272" width="540" height="26" rx="8" fill="url(#accent)"/></g>
+  <line class="measure" x1="150" y1="311" x2="690" y2="311"/>
+
+  <text class="t big" x="800" y="250" text-anchor="middle">×1,5</text>
+  <text class="t d" x="800" y="282" text-anchor="middle">minimum</text>
+
+  <text class="t d" x="500" y="360" text-anchor="middle" fill="#8b6b3f">Bords hauts contre les débordements · entrée basse pour l'accès · bac ouvert de préférence.</text>
+  <text class="t d" x="500" y="388" text-anchor="middle">Astuce : un bac de rangement spacieux fait souvent aussi bien qu'un modèle « spécial ».</text>
+  <text class="t" x="500" y="414" font-size="16" fill="#6a7180" text-anchor="middle">matoulab.com</text>
+</svg>

@@ -1,0 +1,89 @@
+{
+  "_note": "File de sujets pour le robot auto-publish. Le robot prend le 1er dont le slug n'existe pas encore dans src/content/articles. Source = docs/12 (backlog SEO priorise). Quand il reste < 6 sujets, declencher un reapprovisionnement (recherche mots-cles).",
+  "topics": [
+    {
+      "slug": "fontaine-a-eau-chat",
+      "title": "Fontaine à eau pour chat : vraiment utile ? Comment choisir",
+      "pillar": "hygiene-prevention",
+      "keyword": "fontaine à eau chat utile",
+      "scene": "un chat qui boit à une fontaine à eau moderne dans une cuisine claire, bien centré"
+    },
+    {
+      "slug": "bac-litiere-ouvert-ou-ferme",
+      "title": "Bac à litière ouvert ou fermé : lequel choisir",
+      "pillar": "hygiene-prevention",
+      "keyword": "bac à litière ouvert ou fermé",
+      "scene": "un chat assis bien au centre entre un bac ouvert et une maison de toilette fermée, intérieur clair"
+    },
+    {
+      "slug": "chat-s-ennuie-appartement",
+      "title": "Chat qui s'ennuie en appartement : les signes et les solutions",
+      "pillar": "comportement",
+      "keyword": "chat qui s'ennuie appartement",
+      "scene": "un chat qui regarde par la fenêtre d'un appartement lumineux, bien centré, air pensif"
+    },
+    {
+      "slug": "croquettes-sans-cereales",
+      "title": "Croquettes sans céréales pour chat : utile ou marketing ?",
+      "pillar": "alimentation",
+      "keyword": "croquettes chat sans céréales choisir",
+      "scene": "un chat en bonne santé assis bien au centre près d'une gamelle de croquettes, cuisine lumineuse"
+    },
+    {
+      "slug": "gamelle-anti-glouton",
+      "title": "Gamelle anti-glouton : pour quels chats et comment la choisir",
+      "pillar": "alimentation",
+      "keyword": "gamelle anti glouton chat",
+      "scene": "un chat qui mange dans une gamelle anti-glouton à picots, cuisine claire, bien centré"
+    },
+    {
+      "slug": "adopter-chat-appartement",
+      "title": "Adopter un chat en appartement : est-ce une bonne idée ?",
+      "pillar": "choisir-accueillir",
+      "keyword": "adopter chat appartement",
+      "scene": "un chat serein et heureux dans un bel appartement lumineux, bien centré, arbre à chat en arrière-plan"
+    },
+    {
+      "slug": "pourquoi-mon-chat-me-suit",
+      "title": "Pourquoi mon chat me suit partout dans la maison ?",
+      "pillar": "comportement",
+      "keyword": "pourquoi mon chat me suit partout",
+      "scene": "un chat qui suit de près une personne dans un couloir lumineux, le chat bien centré"
+    },
+    {
+      "slug": "croquettes-a-volonte",
+      "title": "Peut-on laisser des croquettes à volonté à son chat ?",
+      "pillar": "alimentation",
+      "keyword": "croquettes à volonté chat",
+      "scene": "un chat assis bien au centre près d'un distributeur de croquettes, cuisine lumineuse"
+    },
+    {
+      "slug": "ou-adopter-un-chat",
+      "title": "Où adopter un chat : refuge, éleveur ou particulier ?",
+      "pillar": "choisir-accueillir",
+      "keyword": "où adopter un chat",
+      "scene": "un chat câlin dans les bras accueillants d'une personne dans une pièce lumineuse, le chat bien centré"
+    },
+    {
+      "slug": "frequence-changer-litiere",
+      "title": "À quelle fréquence changer entièrement la litière du chat ?",
+      "pillar": "hygiene-prevention",
+      "keyword": "à quelle fréquence changer la litière du chat",
+      "scene": "un chat propre assis bien au centre près d'un bac à litière impeccable, salle de bain claire"
+    },
+    {
+      "slug": "combien-d-eau-boit-un-chat",
+      "title": "Combien d'eau un chat doit-il boire par jour ?",
+      "pillar": "alimentation",
+      "keyword": "combien d'eau boit un chat",
+      "scene": "un chat qui boit à un bol d'eau dans une cuisine lumineuse, bien centré"
+    },
+    {
+      "slug": "pourquoi-mon-chat-petrit",
+      "title": "Pourquoi mon chat pétrit avec ses pattes (fait sa patoune) ?",
+      "pillar": "comportement",
+      "keyword": "pourquoi mon chat pétrit",
+      "scene": "un chat qui pétrit une couverture douce sur un canapé clair, bien centré, air apaisé"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="1000" height="430" role="img" aria-label="Sécuriser la maison avant l'arrivée d'un chaton : protéger les fenêtres et le balcon, ranger ou cacher les fils électriques, retirer les plantes toxiques, et mettre hors de portée les petits objets qu'il pourrait avaler.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fdf6f4"/><stop offset="1" stop-color="#fdf9f0"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .h{font-weight:800;font-size:20px;fill:#21232b;}
+      .d{font-weight:500;font-size:16px;fill:#5a616e;}
+      .ex{stroke:#fff;stroke-width:5;stroke-linecap:round;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){.s{opacity:0;animation:pop .5s ease forwards}.b{animation-delay:.15s}.c{animation-delay:.3s}.e{animation-delay:.45s}}
+    </style>
+  </defs>
+  <rect width="1000" height="430" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="52" text-anchor="middle">Sécuriser la maison</text>
+
+  <g class="s">
+    <rect x="60" y="86" width="420" height="120" rx="18" fill="#fff" stroke="#f2dcdc" stroke-width="2"/>
+    <circle cx="120" cy="146" r="22" fill="#e0973f"/><path class="ex" d="M120 136 v13 M120 158 v1"/>
+    <text class="t h" x="160" y="140">Fenêtres et balcon</text><text class="t d" x="160" y="170">Filets ou ouverture surveillée</text>
+  </g>
+  <g class="s b">
+    <rect x="520" y="86" width="420" height="120" rx="18" fill="#fff" stroke="#f2dcdc" stroke-width="2"/>
+    <circle cx="580" cy="146" r="22" fill="#e0973f"/><path class="ex" d="M580 136 v13 M580 158 v1"/>
+    <text class="t h" x="620" y="140">Fils électriques</text><text class="t d" x="620" y="170">Rangés ou protégés, il adore mordiller</text>
+  </g>
+  <g class="s c">
+    <rect x="60" y="224" width="420" height="120" rx="18" fill="#fff" stroke="#f2dcdc" stroke-width="2"/>
+    <circle cx="120" cy="284" r="22" fill="#e0973f"/><path class="ex" d="M120 274 v13 M120 296 v1"/>
+    <text class="t h" x="160" y="278">Plantes toxiques</text><text class="t d" x="160" y="308">Lys, dieffenbachia... hors de portée</text>
+  </g>
+  <g class="s e">
+    <rect x="520" y="224" width="420" height="120" rx="18" fill="#fff" stroke="#f2dcdc" stroke-width="2"/>
+    <circle cx="580" cy="284" r="22" fill="#e0973f"/><path class="ex" d="M580 274 v13 M580 296 v1"/>
+    <text class="t h" x="620" y="278">Petits objets</text><text class="t d" x="620" y="308">Fils, élastiques, médicaments : risque d'ingestion</text>
+  </g>
+
+  <text class="t d" x="500" y="392" text-anchor="middle" fill="#8b6b3f">Un chaton explore tout : on se met à sa hauteur pour repérer les dangers.</text>
+  <text class="t" x="880" y="416" font-size="14" fill="#6a7180" text-anchor="end">matoulab.com</text>
+</svg>

@@ -1,0 +1,15 @@
+---
+// Cloudflare Web Analytics — SANS COOKIE, sans données perso → PAS de bandeau
+// de consentement requis (contrairement à GA4). Décision validée en AUT-4.
+// Le token est injecté par variable d'environnement au build (Cloudflare Pages),
+// JAMAIS commité. Tant qu'il est absent (dev/local), on n'émet aucun script.
+// Doc : https://developers.cloudflare.com/web-analytics/
+const token = import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN;
+---
+{token && (
+  <script
+    defer
+    src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon={JSON.stringify({ token })}
+  ></script>
+)}

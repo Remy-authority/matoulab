@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="1000" height="320" role="img" aria-label="Les signes qu'une transition alimentaire va trop vite : selles molles ou diarrhée, vomissements, ou refus de manger la nouvelle nourriture. Dans ces cas, on revient à l'étape précédente et on ralentit.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fdf6f4"/><stop offset="1" stop-color="#fdf9f0"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .h{font-weight:800;font-size:19px;fill:#21232b;}
+      .d{font-weight:500;font-size:15px;fill:#5a616e;}
+      .ex{stroke:#fff;stroke-width:4;stroke-linecap:round;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){.s{opacity:0;animation:pop .5s ease forwards}.b{animation-delay:.2s}.c{animation-delay:.4s}}
+    </style>
+  </defs>
+  <rect width="1000" height="320" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="52" text-anchor="middle">Les signes qu'il faut ralentir</text>
+
+  <g class="s" transform="translate(180,160)"><circle cx="0" cy="0" r="46" fill="#d9645f"/><path class="ex" d="M-14 -14 l28 28 M14 -14 l-28 28"/><text class="t h" x="0" y="80" text-anchor="middle">Selles molles</text><text class="t d" x="0" y="104" text-anchor="middle">ou diarrhée</text></g>
+  <g class="s b" transform="translate(500,160)"><circle cx="0" cy="0" r="46" fill="#d9645f"/><path class="ex" d="M-14 -14 l28 28 M14 -14 l-28 28"/><text class="t h" x="0" y="80" text-anchor="middle">Vomissements</text><text class="t d" x="0" y="104" text-anchor="middle">après le repas</text></g>
+  <g class="s c" transform="translate(820,160)"><circle cx="0" cy="0" r="46" fill="#d9645f"/><path class="ex" d="M-14 -14 l28 28 M14 -14 l-28 28"/><text class="t h" x="0" y="80" text-anchor="middle">Refus</text><text class="t d" x="0" y="104" text-anchor="middle">de la gamelle</text></g>
+
+  <text class="t d" x="500" y="250" text-anchor="middle" fill="#8b6b3f">On revient à l'étape précédente et on ralentit. Si ça persiste : vétérinaire.</text>
+  <text class="t" x="880" y="304" font-size="14" fill="#6a7180" text-anchor="end">matoulab.com</text>
+</svg>

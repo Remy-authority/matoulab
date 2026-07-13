@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330" width="1000" height="330" role="img" aria-label="Présenter un deuxième chat en 4 étapes : installer le nouveau dans une pièce séparée, échanger les odeurs entre les deux chats, permettre un premier contact visuel à travers une barrière, puis organiser des rencontres courtes et surveillées.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="num" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .n{font-weight:800;font-size:24px;fill:#fff;}
+      .h{font-weight:700;font-size:17px;fill:#21232b;}
+      .chev{stroke:#c98a4b;stroke-width:6;stroke-linecap:round;fill:none;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){.s{opacity:0;animation:pop .5s ease forwards}.b{animation-delay:.2s}.c{animation-delay:.4s}.e{animation-delay:.6s}}
+    </style>
+  </defs>
+  <rect width="1000" height="330" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="52" text-anchor="middle">Présenter un 2e chat en 4 étapes</text>
+
+  <g class="s"><circle cx="150" cy="150" r="50" fill="url(#num)"/><text class="t n" x="150" y="158" text-anchor="middle">1</text><text class="t h" x="150" y="228" text-anchor="middle">Pièce séparée</text><text class="t h" x="150" y="250" text-anchor="middle">pour le nouveau</text></g>
+  <path class="chev" d="M250 135 L280 150 L250 165"/>
+  <g class="s b"><circle cx="390" cy="150" r="50" fill="url(#num)"/><text class="t n" x="390" y="158" text-anchor="middle">2</text><text class="t h" x="390" y="228" text-anchor="middle">Échanger</text><text class="t h" x="390" y="250" text-anchor="middle">les odeurs</text></g>
+  <path class="chev" d="M490 135 L520 150 L490 165"/>
+  <g class="s c"><circle cx="630" cy="150" r="50" fill="url(#num)"/><text class="t n" x="630" y="158" text-anchor="middle">3</text><text class="t h" x="630" y="228" text-anchor="middle">Contact visuel</text><text class="t h" x="630" y="250" text-anchor="middle">à travers une grille</text></g>
+  <path class="chev" d="M730 135 L760 150 L730 165"/>
+  <g class="s e"><circle cx="870" cy="150" r="50" fill="url(#num)"/><text class="t n" x="870" y="158" text-anchor="middle">4</text><text class="t h" x="870" y="228" text-anchor="middle">Rencontres</text><text class="t h" x="870" y="250" text-anchor="middle">courtes, surveillées</text></g>
+
+  <text class="t" x="500" y="308" font-size="15" fill="#6a7180" text-anchor="middle">matoulab.com</text>
+</svg>

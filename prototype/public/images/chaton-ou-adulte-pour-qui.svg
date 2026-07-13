@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="1000" height="320" role="img" aria-label="Pour qui le chaton, pour qui l'adulte. Le chaton convient si vous êtes présent et disponible, prêt à l'éduquer et à jouer beaucoup. Le chat adulte convient si vous voulez un caractère déjà défini, plus de calme et d'autonomie, ou si vous avez moins de temps.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#9350e0"/></linearGradient>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b14bd6"/><stop offset="1" stop-color="#c98a4b"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      .title{font-weight:800;font-size:29px;fill:#21232b;}
+      .tag{font-weight:800;font-size:18px;fill:#fff;}
+      .h{font-weight:800;font-size:19px;fill:#21232b;}
+      .d{font-weight:500;font-size:16px;fill:#5a616e;}
+      @keyframes pop{from{opacity:0}to{opacity:1}}
+      @media (prefers-reduced-motion: no-preference){.s{opacity:0;animation:pop .5s ease forwards}.r{animation-delay:.2s}}
+    </style>
+  </defs>
+  <rect width="1000" height="320" rx="24" fill="url(#bg)"/>
+  <text class="t title" x="500" y="50" text-anchor="middle">Pour qui le chaton, pour qui l'adulte</text>
+
+  <g class="s">
+    <rect x="60" y="82" width="880" height="82" rx="16" fill="#fff" stroke="#ece7fb" stroke-width="2"/>
+    <rect x="76" y="98" width="130" height="50" rx="12" fill="url(#a)"/><text class="t tag" x="141" y="129" text-anchor="middle">Chaton</text>
+    <text class="t h" x="230" y="122">Vous êtes présent et disponible</text>
+    <text class="t d" x="230" y="148">Prêt à l'éduquer et à jouer beaucoup</text>
+  </g>
+  <g class="s r">
+    <rect x="60" y="178" width="880" height="82" rx="16" fill="#fff" stroke="#ece7fb" stroke-width="2"/>
+    <rect x="76" y="194" width="130" height="50" rx="12" fill="url(#b)"/><text class="t tag" x="141" y="225" text-anchor="middle">Adulte</text>
+    <text class="t h" x="230" y="218">Vous voulez du calme et de l'autonomie</text>
+    <text class="t d" x="230" y="244">Un caractère déjà défini, moins de temps requis</text>
+  </g>
+
+  <text class="t d" x="500" y="296" text-anchor="middle" fill="#8b6b3f">Adopter en refuge : des chats de tous âges, déjà identifiés et suivis.</text>
+  <text class="t" x="880" y="312" font-size="14" fill="#6a7180" text-anchor="end">matoulab.com</text>
+</svg>
