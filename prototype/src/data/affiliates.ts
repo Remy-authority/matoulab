@@ -40,8 +40,8 @@ export const AFFILIATES: Record<string, AffiliatePartner> = {
     id: 'zooplus',
     label: 'zooplus',
     network: 'awin',
-    enabled: false,
-    tracking: '', // -> awinaffid (ID éditeur Awin, commun à tous les annonceurs Awin)
+    enabled: true,
+    tracking: '2984845', // awinaffid = Publisher ID Awin de Rémy (Dyonisos Ltd), fourni 2026-07-14
     advertiserId: '7334', // zooplus FR (source: ui.awin.com/merchant-profile/7334)
     rel: 'sponsored nofollow noopener',
   },
@@ -49,8 +49,8 @@ export const AFFILIATES: Record<string, AffiliatePartner> = {
     id: 'maxizoo',
     label: 'Maxi Zoo',
     network: 'awin',
-    enabled: false,
-    tracking: '', // -> awinaffid (même ID éditeur Awin que zooplus)
+    enabled: true,
+    tracking: '2984845', // même awinaffid Awin (commun à tous les annonceurs)
     advertiserId: '68698', // Maxi Zoo FR (source: ui.awin.com/merchant-profile/68698)
     rel: 'sponsored nofollow noopener',
   },
