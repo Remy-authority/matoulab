@@ -4,6 +4,7 @@ import VetReview from '../components/VetReview.astro';
 import Disclaimer from '../components/Disclaimer.astro';
 import UpdatedDate from '../components/UpdatedDate.astro';
 import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
+import AffiliateLink from '../components/AffiliateLink.astro';
 
 // Gabarit ARTICLE CLUSTER. Assemble tous les blocs E-E-A-T.
 // L'ordre reflète les garde-fous : disclosure + disclaimer AVANT le corps.
@@ -71,7 +72,7 @@ const faqLd = d.faq && d.faq.length ? {
   <AuthorBox {...d.author} />
 
   {(d.ymyl || d.medLevel === 'MED') && d.vetReview && <VetReview {...d.vetReview} />}
-  {d.affiliate && <AffiliateDisclosure />}
+  {(d.affiliate || (d.products && d.products.length > 0)) && <AffiliateDisclosure />}
   {d.disclaimer && <Disclaimer />}
 
   {/* GEO : réponse rapide citable en tête */}
@@ -83,6 +84,21 @@ const faqLd = d.faq && d.faq.length ? {
   )}
 
   <slot />  {/* corps de l'article (markdown rendu) */}
+
+  {/* Monetisation : produits conseilles (liens affilies rel=sponsored, deep-linkes via affiliates.ts). */}
+  {d.products && d.products.length > 0 && (
+    <aside class="produits" aria-label="Produits conseillés">
+      <p class="produits-label">Produits conseillés</p>
+      <ul>
+        {d.products.map((p) => (
+          <li>
+            <AffiliateLink partner={p.partner} url={p.url} label={p.label} />
+            {p.note && <span class="produits-note"> {p.note}</span>}
+          </li>
+        ))}
+      </ul>
+    </aside>
+  )}
 
   {/* GEO : FAQ structurée (citée par les IA, rich results Google) */}
   {d.faq && d.faq.length > 0 && (

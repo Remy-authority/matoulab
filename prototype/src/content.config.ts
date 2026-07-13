@@ -37,6 +37,15 @@ const base = {
   coverAlt: z.string().optional(),            // texte alternatif de la couverture
   tldr: z.string().optional(),                // GEO : "Réponse rapide" citable par les IA
   faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(), // GEO : FAQPage schema
+  // Produits affilies recommandes : rendus par ArticleLayout en encart "Produits conseilles".
+  // `partner` = id dans src/data/affiliates.ts ; si le partenaire est inactif, le lien
+  // s'affiche en texte simple (jamais de lien non tracke). Declenche l'AffiliateDisclosure.
+  products: z.array(z.object({
+    partner: z.string(),          // id du partenaire (zooplus, maxizoo, amazon...)
+    url: z.string(),              // URL cible chez le marchand (deep-linkee via Awin)
+    label: z.string(),            // libelle du lien
+    note: z.string().optional(),  // courte justification editoriale (facultatif)
+  })).optional(),
 };
 
 const ymylGuard = (data: any, ctx: z.RefinementCtx) => {
