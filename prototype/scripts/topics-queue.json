@@ -2,13 +2,6 @@
   "_note": "File de sujets pour le robot auto-publish. Le robot prend le 1er dont le slug n'existe pas encore dans src/content/articles. Source = docs/12 (backlog SEO priorise). Quand il reste < 6 sujets, declencher un reapprovisionnement (recherche mots-cles).",
   "topics": [
     {
-      "slug": "bac-litiere-ouvert-ou-ferme",
-      "title": "Bac à litière ouvert ou fermé : lequel choisir",
-      "pillar": "hygiene-prevention",
-      "keyword": "bac à litière ouvert ou fermé",
-      "scene": "un chat assis bien au centre entre un bac ouvert et une maison de toilette fermée, intérieur clair"
-    },
-    {
       "slug": "chat-s-ennuie-appartement",
       "title": "Chat qui s'ennuie en appartement : les signes et les solutions",
       "pillar": "comportement",

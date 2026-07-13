@@ -50,6 +50,7 @@ changement. Ces habitudes simples valent mieux que n'importe quel remède.
 
 ## Dans ce guide
 
+- [Bac à litière ouvert ou fermé : lequel choisir](/bac-litiere-ouvert-ou-ferme)
 - [Fontaine à eau pour chat : vraiment utile ? Comment choisir](/fontaine-a-eau-chat)
 - [Tapis de litière anti-projection : comment le choisir](/tapis-litiere-anti-projection)
 - [Comment choisir la litière de son chat](/choisir-litiere-chat)
