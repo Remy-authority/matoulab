@@ -25,7 +25,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22" # wrangler 4.x exige Node >= 22 pour le deploiement Cloudflare Pages
 
       - name: Installer les dependances
         run: npm install
