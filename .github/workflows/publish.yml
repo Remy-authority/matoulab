@@ -4,12 +4,12 @@
 name: Matoulab auto-publish
 
 on:
-  # Planning AUTOMATIQUE desactive par defaut : rien ne se publie sans le feu vert de Remy.
-  # Pour activer le drip 3x/semaine, decommenter le bloc schedule ci-dessous
-  # (et avoir ajoute les 2 secrets GEMINI_API_KEY + CLOUDFLARE_API_TOKEN dans le depot).
-  # schedule:
-  #   - cron: "17 8 * * 1,3,5"  # lundi, mercredi, vendredi
-  workflow_dispatch: {} # lancement MANUEL uniquement pour l'instant
+  # Feu vert donne par Remy le 2026-07-13 : drip automatique 3x/semaine.
+  # Ne tournera reellement qu'une fois les 2 secrets ajoutes au depot
+  # (GEMINI_API_KEY + CLOUDFLARE_API_TOKEN). Avant ca, un run echoue sans rien publier.
+  schedule:
+    - cron: "17 8 * * 1,3,5"  # lundi, mercredi, vendredi ~08:17 UTC
+  workflow_dispatch: {} # + lancement manuel possible (onglet Actions -> Run workflow)
 
 permissions:
   contents: write # pour re-committer l'article genere + la file mise a jour
