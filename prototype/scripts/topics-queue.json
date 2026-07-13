@@ -2,13 +2,6 @@
   "_note": "File de sujets pour le robot auto-publish. Le robot prend le 1er dont le slug n'existe pas encore dans src/content/articles. Source = docs/12 (backlog SEO priorise). Quand il reste < 6 sujets, declencher un reapprovisionnement (recherche mots-cles).",
   "topics": [
     {
-      "slug": "fontaine-a-eau-chat",
-      "title": "Fontaine à eau pour chat : vraiment utile ? Comment choisir",
-      "pillar": "hygiene-prevention",
-      "keyword": "fontaine à eau chat utile",
-      "scene": "un chat qui boit à une fontaine à eau moderne dans une cuisine claire, bien centré"
-    },
-    {
       "slug": "bac-litiere-ouvert-ou-ferme",
       "title": "Bac à litière ouvert ou fermé : lequel choisir",
       "pillar": "hygiene-prevention",

@@ -4,10 +4,12 @@
 name: Matoulab auto-publish
 
 on:
-  schedule:
-    # Lundi, mercredi, vendredi ~08:17 UTC (heure decalee du :00 volontairement)
-    - cron: "17 8 * * 1,3,5"
-  workflow_dispatch: {} # permet aussi un lancement manuel
+  # Planning AUTOMATIQUE desactive par defaut : rien ne se publie sans le feu vert de Remy.
+  # Pour activer le drip 3x/semaine, decommenter le bloc schedule ci-dessous
+  # (et avoir ajoute les 2 secrets GEMINI_API_KEY + CLOUDFLARE_API_TOKEN dans le depot).
+  # schedule:
+  #   - cron: "17 8 * * 1,3,5"  # lundi, mercredi, vendredi
+  workflow_dispatch: {} # lancement MANUEL uniquement pour l'instant
 
 permissions:
   contents: write # pour re-committer l'article genere + la file mise a jour
