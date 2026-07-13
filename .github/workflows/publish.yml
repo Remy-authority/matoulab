@@ -32,33 +32,64 @@ jobs:
 
       # Auto-diagnostic : valide que les 2 secrets sont presents ET acceptes par leurs API,
       # AVANT de generer/deployer. N'affiche JAMAIS la valeur des secrets (seulement leur longueur).
-      # Objectif : si un run echoue, le log dit precisement quel secret cloche (ex: mal colle).
+      # Le resultat est ecrit DIRECTEMENT sur la page "Summary" du run (GITHUB_STEP_SUMMARY),
+      # visible sans avoir a ouvrir le detail des etapes.
       - name: Verifier les secrets (Gemini + Cloudflare)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
+          S="$GITHUB_STEP_SUMMARY"
+          say() { echo "$1"; echo "$1" >> "$S"; }
+          say "## Diagnostic des secrets Matoulab"
           fail=0
-          if [ -z "$GEMINI_API_KEY" ]; then echo "❌ GEMINI_API_KEY absent ou vide"; fail=1; else echo "✅ GEMINI_API_KEY present (longueur ${#GEMINI_API_KEY})"; fi
-          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then echo "❌ CLOUDFLARE_API_TOKEN absent ou vide"; fail=1; else echo "✅ CLOUDFLARE_API_TOKEN present (longueur ${#CLOUDFLARE_API_TOKEN})"; fi
-          if [ -n "$GEMINI_API_KEY" ]; then
+          # 1. GEMINI_API_KEY present ?
+          if [ -z "$GEMINI_API_KEY" ]; then say "- ❌ **GEMINI_API_KEY** absent ou vide dans les secrets du depot"; fail=1
+          else
+            say "- ✅ GEMINI_API_KEY present (longueur ${#GEMINI_API_KEY})"
             g=$(curl -s -o /dev/null -w "%{http_code}" "https://generativelanguage.googleapis.com/v1beta/models?key=$GEMINI_API_KEY")
-            echo "Gemini API HTTP $g"
-            if [ "$g" != "200" ]; then echo "❌ Cle Gemini refusee (HTTP $g) -> secret GEMINI_API_KEY invalide/mal colle"; fail=1; else echo "✅ Cle Gemini acceptee"; fi
+            if [ "$g" != "200" ]; then say "- ❌ **Cle Gemini refusee** (HTTP $g) : le secret GEMINI_API_KEY est invalide ou mal colle (espace/retour a la ligne, ou cle expiree)"; fail=1
+            else say "- ✅ Cle Gemini acceptee par l'API (HTTP 200)"; fi
           fi
-          if [ -n "$CLOUDFLARE_API_TOKEN" ]; then
-            c=$(curl -s "https://api.cloudflare.com/client/v4/user/tokens/verify" -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN")
-            if echo "$c" | grep -q '"status":"active"'; then echo "✅ Token Cloudflare actif"; else echo "❌ Token Cloudflare NON actif -> secret CLOUDFLARE_API_TOKEN invalide/mal colle"; fail=1; fi
+          # 2. CLOUDFLARE_API_TOKEN present ?
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then say "- ❌ **CLOUDFLARE_API_TOKEN** absent ou vide dans les secrets du depot"; fail=1
+          else
+            say "- ✅ CLOUDFLARE_API_TOKEN present (longueur ${#CLOUDFLARE_API_TOKEN})"
+            if curl -s "https://api.cloudflare.com/client/v4/user/tokens/verify" -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" | grep -q '"status":"active"'; then
+              say "- ✅ Token Cloudflare actif"
+            else say "- ❌ **Token Cloudflare non actif** : le secret CLOUDFLARE_API_TOKEN est invalide ou mal colle"; fail=1; fi
           fi
-          if [ "$fail" != "0" ]; then echo "STOP: un secret est manquant ou invalide (voir ci-dessus)."; exit 1; fi
-          echo "Tous les secrets sont valides, on continue."
+          if [ "$fail" != "0" ]; then
+            say ""
+            say "➡️ **Action** : dans GitHub, Settings → Secrets and variables → Actions, clique le secret marque ❌, **Update**, recolle la valeur (aucun espace avant/apres), puis relance le workflow."
+            echo "STOP: un secret est manquant ou invalide."
+            exit 1
+          fi
+          say ""
+          say "✅ **Les 2 secrets sont valides.** Generation + deploiement en cours."
 
       - name: Generer, construire et deployer 1 article
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: "2edbbf024d9440e907f5fd74d174d0d3"
-        run: node scripts/auto-publish.mjs
+        run: |
+          set -o pipefail
+          node scripts/auto-publish.mjs 2>&1 | tee /tmp/publish.log
+          echo "PUBLISH_OK=1" >> "$GITHUB_ENV"
+
+      # Si la generation/deploiement a echoue, on remonte les dernieres lignes sur la page Summary.
+      - name: Rapport d'echec (generation/deploiement)
+        if: failure() && env.PUBLISH_OK != '1'
+        run: |
+          S="$GITHUB_STEP_SUMMARY"
+          if [ -s /tmp/publish.log ]; then
+            echo "## ❌ Echec a l'etape generation/deploiement" >> "$S"
+            echo "Les secrets sont valides mais le robot a echoue. Dernieres lignes du log :" >> "$S"
+            echo '```' >> "$S"
+            tail -25 /tmp/publish.log >> "$S"
+            echo '```' >> "$S"
+          fi
 
       - name: Committer le nouvel article + la file
         run: |
