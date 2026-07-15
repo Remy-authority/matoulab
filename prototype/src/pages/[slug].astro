@@ -30,7 +30,9 @@ export async function getStaticPaths() {
     },
   }));
 
-  const articlePaths = articles.map((entry) => ({
+  // On ne CONSTRUIT que les articles publies : un brouillon (status: draft) ne
+  // doit jamais etre servi en ligne, meme par URL directe (evite les gabarits).
+  const articlePaths = articles.filter(isPublished).map((entry) => ({
     params: { slug: entry.slug },
     props: { type: 'article', entry },
   }));
