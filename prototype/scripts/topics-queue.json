@@ -2,13 +2,6 @@
   "_note": "File de sujets pour le robot auto-publish. Le robot prend le 1er dont le slug n'existe pas encore dans src/content/articles. Source = docs/12 (backlog SEO priorise). Quand il reste < 6 sujets, declencher un reapprovisionnement (recherche mots-cles).",
   "topics": [
     {
-      "slug": "chat-s-ennuie-appartement",
-      "title": "Chat qui s'ennuie en appartement : les signes et les solutions",
-      "pillar": "comportement",
-      "keyword": "chat qui s'ennuie appartement",
-      "scene": "un chat qui regarde par la fenêtre d'un appartement lumineux, bien centré, air pensif"
-    },
-    {
       "slug": "croquettes-sans-cereales",
       "title": "Croquettes sans céréales pour chat : utile ou marketing ?",
       "pillar": "alimentation",

@@ -57,6 +57,7 @@ combler*.
 
 ## Dans ce guide
 
+- [Chat qui s'ennuie en appartement : les signes et les solutions](/chat-s-ennuie-appartement)
 - [Mon chat se cache tout le temps : stress, adaptation ou alerte ?](/chat-qui-se-cache)
 - **[Chat qui miaule la nuit : 6 causes et solutions](/chat-qui-miaule-la-nuit)**, 
   le cas le plus fréquent, décrypté étape par étape.
