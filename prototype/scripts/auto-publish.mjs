@@ -147,15 +147,9 @@ Reponds STRICTEMENT en JSON avec ce schema :
   const fm = `---\ntitle: ${JSON.stringify(nodash(topic.title))}\ndescription: ${JSON.stringify(nodash(d.description))}\npillar: ${topic.pillar}\nkind: cluster\ncover: "/images/${topic.slug}-cover-v3.webp"\ncoverAlt: ${JSON.stringify(nodash(d.coverAlt))}\nclusterParent: "${topic.pillar}"\nauthor:\n  name: "Rémy Zaoui"\n  slug: "remy-zaoui"\n  credentials: "Fondateur de Matoulab, passionné de chats"\nupdatedAt: "${new Date().toISOString().slice(0, 10)}"\nymyl: false\nmedLevel: none\ndisclaimer: false\naffiliate: false\ntldr: ${JSON.stringify(nodash(d.tldr))}\nfaq:\n${faq}\nstatus: published\n---\n\n`;
   await writeFile(`${ART}${topic.slug}.md`, fm + body);
 
-  // 6. Ajouter au sommaire du pilier
-  const pilPath = `${PIL}${topic.pillar}.md`;
-  if (await exists(pilPath)) {
-    let p = await readFile(pilPath, 'utf8');
-    if (p.includes('## Dans ce guide') && !p.includes(`/${topic.slug})`)) {
-      p = p.replace(/(## Dans ce guide\n)/, `$1\n- [${nodash(topic.title)}](/${topic.slug})`);
-      await writeFile(pilPath, p);
-    }
-  }
+  // 6. (Le sommaire du pilier est desormais rendu automatiquement en cartes par
+  //    PilierLayout a partir des articles du pilier : plus de liste manuelle a
+  //    maintenir dans le .md du pilier.)
 
   // 7. Build (obligatoire vert)
   console.log('Build...');

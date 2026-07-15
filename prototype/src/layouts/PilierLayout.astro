@@ -21,13 +21,26 @@ const d = entry.data;
 
   <slot />  {/* introduction du pilier + sections */}
 
-  {/* Cocon sémantique : la page pilier maille vers TOUS ses clusters */}
-  <section class="cocon" aria-label="Articles de ce guide">
-    <h2>Dans ce guide</h2>
-    <ul>
-      {clusters.map((c) => (
-        <li><a href={`/${c.slug}`}>{c.title}</a></li>
-      ))}
-    </ul>
-  </section>
+  {/* Cocon sémantique : la page pilier maille vers TOUS ses clusters, en cartes
+     (image + titre + description) pour un rendu riche, jamais une page vide. */}
+  {clusters.length > 0 && (
+    <section class="cocon" aria-label="Articles de ce guide">
+      <h2>Dans ce guide</h2>
+      <ul class="article-cards">
+        {clusters.map((c) => (
+          <li>
+            <a href={`/${c.slug}`}>
+              {c.cover && (
+                <span class="ac-img"><img src={c.cover} alt={c.coverAlt ?? c.title} width="860" height="484" loading="lazy" /></span>
+              )}
+              <span class="ac-body">
+                <h3>{c.title}</h3>
+                {c.description && <p>{c.description}</p>}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 </main>

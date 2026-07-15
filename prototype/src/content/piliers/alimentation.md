@@ -56,14 +56,3 @@ Donner du **lait de vache** (beaucoup de chats le digèrent mal), des restes sal
 sucrés, ou des aliments **toxiques** (oignon, ail, chocolat, raisin) est à proscrire.
 Éviter aussi les changements **brutaux** de nourriture, qui provoquent des troubles
 digestifs : toute transition se fait en douceur, sur une semaine.
-
-## Dans ce guide
-
-- [Croquettes ou pâtée : que choisir](/croquettes-ou-patee)
-- [Combien de fois par jour nourrir son chat](/combien-de-fois-nourrir-chat)
-- [Quelle alimentation pour un chaton](/alimentation-chaton)
-- [Changer l'alimentation de son chat : la transition](/transition-alimentaire-chat)
-- [Mon chat réclame à manger sans arrêt : que faire](/chat-reclame-a-manger)
-
-*Ce guide est informatif : il ne pose aucun diagnostic et ne remplace pas l'avis d'un
-vétérinaire, en particulier pour un régime adapté à un chat malade, en surpoids ou âgé.*

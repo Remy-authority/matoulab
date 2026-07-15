@@ -47,21 +47,3 @@ Surveiller le poids, l'appétit, la propreté et le comportement permet de repé
 changement. Ces habitudes simples valent mieux que n'importe quel remède.
 
 ![Infographie : prévention, 4 choses à surveiller, le poids, l'appétit, la propreté, le comportement](/images/gestes-prevention-chat.svg)
-
-## Dans ce guide
-
-- [Bac à litière ouvert ou fermé : lequel choisir](/bac-litiere-ouvert-ou-ferme)
-- [Fontaine à eau pour chat : vraiment utile ? Comment choisir](/fontaine-a-eau-chat)
-- [Tapis de litière anti-projection : comment le choisir](/tapis-litiere-anti-projection)
-- [Comment choisir la litière de son chat](/choisir-litiere-chat)
-- [Litière agglomérante ou silice : laquelle choisir](/litiere-agglomerante-ou-silice)
-- [Litière anti-odeur : quel type choisir](/litiere-anti-odeur)
-- [Bac à litière : combien et où](/bac-litiere-nombre-emplacement)
-- [Quel bac à litière pour un grand chat (Maine Coon)](/bac-litiere-grand-chat)
-- [Comment nettoyer un bac à litière](/nettoyer-bac-litiere)
-- [Chat qui refuse sa litière : les causes](/chat-refuse-litiere)
-- [Chat qui perd ses poils : mue et brossage](/chat-perd-ses-poils)
-- [Quelle brosse choisir pour son chat](/choisir-brosse-chat)
-
-*Ce guide est informatif : il ne pose aucun diagnostic et ne remplace pas une
-consultation vétérinaire.*

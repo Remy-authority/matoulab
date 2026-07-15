@@ -50,13 +50,3 @@ Refuge, association ou éleveur sérieux : privilégiez une adoption où le chat
 **identifié**, **suivi** et cédé dans de bonnes conditions. En France, l'**identification**
 (puce ou tatouage) est obligatoire. Un chat adopté en refuge est souvent déjà stérilisé et
 vacciné, et vous offrez une seconde chance à un animal.
-
-## Dans ce guide
-
-- [Adopter un chaton ou un chat adulte](/chaton-ou-chat-adulte)
-- [Préparer l'arrivée d'un chaton](/preparer-arrivee-chaton)
-- [Arbre à chat : quelle taille et hauteur choisir](/choisir-arbre-a-chat)
-- [Combien de temps laisser un chat seul](/combien-de-temps-laisser-chat-seul)
-
-*Ce guide est informatif et ne remplace pas l'avis d'un vétérinaire ou d'un professionnel
-de l'adoption.*
