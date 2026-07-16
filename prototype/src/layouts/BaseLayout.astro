@@ -42,6 +42,8 @@ const ogImage = image ? new URL(image, Astro.site).href : undefined;
   <body>
     <header class="site-header">
       <a href="/" class="brand" rel="home"><Logo /></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
+      <label for="nav-toggle" class="nav-burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></label>
       <nav aria-label="Guides">
         <a href="/comportement">Comportement</a>
         <a href="/alimentation">Alimentation</a>

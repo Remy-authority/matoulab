@@ -78,6 +78,26 @@ body {
 }
 .site-header nav a:hover { color: var(--brand); border-color: var(--brand); }
 
+/* ---------- Menu hamburger (mobile) : regroupe les onglets, CSS pur, 0 JS ---------- */
+.nav-burger { display: none; }
+@media (max-width: 700px) {
+  .nav-burger {
+    display: inline-flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 44px; height: 40px; margin-left: auto; padding: 0 10px; cursor: pointer;
+    border: 1px solid var(--line); border-radius: 10px; background: #fff;
+  }
+  .nav-burger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .2s, opacity .2s; }
+  .site-header nav {
+    display: none; order: 3; flex-basis: 100%; width: 100%;
+    flex-direction: column; gap: 0; margin: 0.6rem 0 0;
+  }
+  .site-header nav a { padding: 0.85rem 0.3rem; border-bottom: 1px solid var(--line); font-size: 1rem; }
+  .nav-toggle:checked ~ nav { display: flex; }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
 /* ---------- Zone de contenu ---------- */
 main, article, .legal, .pilier, .author-page {
   max-width: var(--maxw); margin: 0 auto; padding: 2rem 1.5rem 4rem;
