@@ -144,7 +144,19 @@ Reponds STRICTEMENT en JSON avec ce schema :
   if (links) body += `Pour aller plus loin, voyez aussi ${links}.\n\n`;
   body += `## Pour aller plus loin (sources)\n\n- **International Cat Care** : [icatcare.org](https://icatcare.org/)\n- **ASPCA, cat care** : [aspca.org](https://www.aspca.org/pet-care/cat-care)\n\n*Ce guide est informatif et ne remplace pas l'avis d'un vétérinaire.*\n`;
 
-  const fm = `---\ntitle: ${JSON.stringify(nodash(topic.title))}\ndescription: ${JSON.stringify(nodash(d.description))}\npillar: ${topic.pillar}\nkind: cluster\ncover: "/images/${topic.slug}-cover-v3.webp"\ncoverAlt: ${JSON.stringify(nodash(d.coverAlt))}\nclusterParent: "${topic.pillar}"\nauthor:\n  name: "Rémy Zaoui"\n  slug: "remy-zaoui"\n  credentials: "Fondateur de Matoulab, passionné de chats"\nupdatedAt: "${new Date().toISOString().slice(0, 10)}"\nymyl: false\nmedLevel: none\ndisclaimer: false\naffiliate: false\ntldr: ${JSON.stringify(nodash(d.tldr))}\nfaq:\n${faq}\nstatus: published\n---\n\n`;
+  // Affiliation auto : Maxi Zoo (Awin) selon l'intention d'achat de l'article. Lien
+  // vers une CATEGORIE (honnete, jamais de faux avis). Rien sur les articles
+  // comportement/sante. Zooplus/Amazon a ajouter plus tard.
+  const asig = `${topic.slug} ${topic.keyword} ${topic.title}`.toLowerCase();
+  let affTarget = null;
+  if (/litiere|litière|bac a|maison de toilette/.test(asig)) affTarget = { url: 'https://www.maxizoo.fr/c/chat/hygiene-soin/litiere-pour-chat/', label: 'Litières et accessoires sur Maxi Zoo', note: 'Litières agglomérantes, minérales et végétales.' };
+  else if (/griffoir|arbre a chat|arbre à chat|griffade/.test(asig)) affTarget = { url: 'https://www.maxizoo.fr/c/chat/griffoirs/arbrechat/', label: 'Arbres à chat et griffoirs sur Maxi Zoo', note: 'Pour offrir au chat un support de griffades adapté.' };
+  else if (/fontaine|abreuvoir|gamelle|(boire)/.test(asig)) affTarget = { url: 'https://www.maxizoo.fr/c/chat/gamelle-pour-chat-abreuvoirs/fontaines/', label: 'Fontaines et gamelles sur Maxi Zoo', note: 'Encourage le chat à boire davantage.' };
+  else if (/croquette|patee|pâtée|nourriture|alimentation|manger|ration/.test(asig)) affTarget = { url: 'https://www.maxizoo.fr/c/chat/nourriture-pour-chat/', label: 'Nourriture pour chat sur Maxi Zoo', note: 'Croquettes et pâtées adaptées.' };
+  const affBlock = affTarget
+    ? `affiliate: true\nproducts:\n  - partner: maxizoo\n    url: "${affTarget.url}"\n    label: "${affTarget.label}"\n    note: "${affTarget.note}"`
+    : 'affiliate: false';
+  const fm = `---\ntitle: ${JSON.stringify(nodash(topic.title))}\ndescription: ${JSON.stringify(nodash(d.description))}\npillar: ${topic.pillar}\nkind: cluster\ncover: "/images/${topic.slug}-cover-v3.webp"\ncoverAlt: ${JSON.stringify(nodash(d.coverAlt))}\nclusterParent: "${topic.pillar}"\nauthor:\n  name: "Rémy Zaoui"\n  slug: "remy-zaoui"\n  credentials: "Fondateur de Matoulab, passionné de chats"\nupdatedAt: "${new Date().toISOString().slice(0, 10)}"\nymyl: false\nmedLevel: none\ndisclaimer: false\n${affBlock}\ntldr: ${JSON.stringify(nodash(d.tldr))}\nfaq:\n${faq}\nstatus: published\n---\n\n`;
   await writeFile(`${ART}${topic.slug}.md`, fm + body);
 
   // 6. (Le sommaire du pilier est desormais rendu automatiquement en cartes par
