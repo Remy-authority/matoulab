@@ -14,7 +14,12 @@ updatedAt: "2026-07-13"
 ymyl: false
 medLevel: none
 disclaimer: false
-affiliate: false
+affiliate: true
+products:
+  - partner: maxizoo
+    url: "https://www.maxizoo.fr/c/chat/hygiene-soin/litiere-pour-chat/"
+    label: "Voir les litières pour chat sur Maxi Zoo"
+    note: "Large choix de litières agglomérantes, minérales et végétales."
 tldr: "Pour contrôler les odeurs, surtout en appartement, la litière de silice (cristaux) est la plus performante, suivie d'une bonne agglomérante retirée chaque jour ; la végétale donne des résultats variables et la minérale non agglomérante est la moins efficace. Mais le type de litière ne fait pas tout : un bac retiré une à deux fois par jour, ouvert et dans une pièce aérée, assez grand, et sans parfum agressif limite bien plus les odeurs que n'importe quel produit. On évite les litières très parfumées, qui masquent sans régler et peuvent faire bouder le bac."
 faq:
   - q: "Quelle est la litière qui sent le moins mauvais ?"

@@ -14,7 +14,12 @@ updatedAt: "2026-07-12"
 ymyl: false
 medLevel: none
 disclaimer: false
-affiliate: false
+affiliate: true
+products:
+  - partner: maxizoo
+    url: "https://www.maxizoo.fr/c/chat/griffoirs/arbrechat/"
+    label: "Arbres à chat et griffoirs sur Maxi Zoo"
+    note: "Pour offrir au chat un support de griffades adapté."
 tldr: "Un chat griffe pour entretenir ses griffes, s'étirer et marquer son territoire : c'est un besoin, pas un caprice. On ne le supprime pas, on le redirige. Placez un griffoir stable, vertical et plus haut que le chat étiré, juste à côté de la zone griffée, rendez-le attractif (herbe-à-chat, jeu) et protégez temporairement le canapé. La punition est inutile et aggrave le problème."
 faq:
   - q: "Comment empêcher mon chat de griffer le canapé ?"

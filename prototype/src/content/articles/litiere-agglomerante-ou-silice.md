@@ -14,7 +14,12 @@ updatedAt: "2026-07-12"
 ymyl: false
 medLevel: none
 disclaimer: false
-affiliate: false
+affiliate: true
+products:
+  - partner: maxizoo
+    url: "https://www.maxizoo.fr/c/chat/hygiene-soin/litiere-pour-chat/"
+    label: "Voir les litières pour chat sur Maxi Zoo"
+    note: "Large choix de litières agglomérantes, minérales et végétales."
 tldr: "L'agglomérante et la silice sont les deux litières les plus répandues. L'agglomérante forme des blocs faciles à retirer, offre un entretien simple au quotidien, une texture fine que la plupart des chats aiment, et un prix modéré, au prix d'un peu de poussière. La silice (cristaux) est très absorbante, dure longtemps entre deux changements et contrôle bien les odeurs, mais coûte plus cher et sa texture rebute certains chats. En pratique, l'agglomérante fine non parfumée est le meilleur choix de départ ; la silice se justifie surtout pour les odeurs ou les absences de plusieurs jours."
 faq:
   - q: "Quelle est la meilleure litière entre l'agglomérante et la silice ?"

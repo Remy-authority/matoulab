@@ -14,7 +14,12 @@ updatedAt: "2026-07-13"
 ymyl: false
 medLevel: none
 disclaimer: false
-affiliate: false
+affiliate: true
+products:
+  - partner: maxizoo
+    url: "https://www.maxizoo.fr/c/chat/gamelle-pour-chat-abreuvoirs/fontaines/"
+    label: "Fontaines à eau pour chat sur Maxi Zoo"
+    note: "Encourage le chat à boire davantage."
 tldr: "La fontaine à eau pour chat stimule l'hydratation naturelle des félins, souvent réticents face à l'eau stagnante. Elle contribue activement à la prévention des troubles urinaires en incitant l'animal à boire davantage d'eau fraîche et filtrée. Pour bien la choisir, privilégiez des matériaux sains comme la céramique ou l'acier inoxydable, tout en veillant à la facilité de nettoyage. Cet équipement s'inscrit pleinement dans une démarche de prévention et de bien-être au quotidien."
 faq:
   - q: "Est-ce qu'une fontaine à eau consomme beaucoup d'électricité ?"

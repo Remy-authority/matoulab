@@ -14,7 +14,12 @@ updatedAt: "2026-07-12"
 ymyl: false
 medLevel: none
 disclaimer: false
-affiliate: false
+affiliate: true
+products:
+  - partner: maxizoo
+    url: "https://www.maxizoo.fr/c/chat/hygiene-soin/litiere-pour-chat/"
+    label: "Voir les litières pour chat sur Maxi Zoo"
+    note: "Large choix de litières agglomérantes, minérales et végétales."
 tldr: "Pour la plupart des chats, une litière agglomérante minérale, fine et non parfumée est le meilleur point de départ : texture douce appréciée, bon contrôle des odeurs, entretien simple. La végétale est plus écologique, la silice très absorbante, la minérale classique la moins chère mais la plus contraignante. Le plus important reste un bac propre : c'est la première cause de fidélité ou de rejet."
 faq:
   - q: "Quelle est la meilleure litière pour un chat ?"

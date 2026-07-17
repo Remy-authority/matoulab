@@ -40,7 +40,7 @@ export const AFFILIATES: Record<string, AffiliatePartner> = {
     id: 'zooplus',
     label: 'zooplus',
     network: 'awin',
-    enabled: true,
+    enabled: false,
     tracking: '2984845', // awinaffid = Publisher ID Awin de Rémy (Dyonisos Ltd), fourni 2026-07-14
     advertiserId: '7334', // zooplus FR (source: ui.awin.com/merchant-profile/7334)
     rel: 'sponsored nofollow noopener',

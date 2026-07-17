@@ -14,7 +14,12 @@ updatedAt: "2026-07-13"
 ymyl: false
 medLevel: none
 disclaimer: false
-affiliate: false
+affiliate: true
+products:
+  - partner: maxizoo
+    url: "https://www.maxizoo.fr/c/chat/griffoirs/arbrechat/"
+    label: "Arbres à chat et griffoirs sur Maxi Zoo"
+    note: "Pour offrir au chat un support de griffades adapté."
 tldr: "Un bon arbre à chat coche quatre critères : de la hauteur (le chat adore grimper et observer d'en haut), une vraie stabilité (base large et lestée qui ne bascule pas), une matière qui tient (du sisal pour griffer, pas de la corde qui s'effiloche) et un aménagement varié (plateformes, hamac, une cachette). La taille se choisit selon le chat et le logement : bas et sécurisé pour un chaton, grand et à plusieurs niveaux pour un adulte joueur, accès facile pour un senior, compact ou mural en petit appartement. Un arbre stable et assez haut est un arbre que le chat adopte vraiment."
 faq:
   - q: "Quelle hauteur pour un arbre à chat ?"
