@@ -14,7 +14,12 @@ updatedAt: "2026-07-13"
 ymyl: false
 medLevel: none
 disclaimer: false
-affiliate: false
+affiliate: true
+products:
+  - partner: maxizoo
+    url: "https://www.maxizoo.fr/c/chat/nourriture-pour-chat/"
+    label: "Voir la nourriture pour chat sur Maxi Zoo"
+    note: "Large choix de croquettes et pâtées pour chat."
 tldr: "Un chaton grandit vite et a des besoins élevés en énergie et en protéines : il lui faut un aliment spécifique de croissance, pas de la nourriture pour adulte. Jusqu'à 4 semaines, c'est le lait maternel (ou un lait maternisé pour chaton, jamais de lait de vache). Le sevrage se fait en douceur entre 4 et 8 semaines avec une pâtée pour chaton. De 2 à 12 mois, on donne un aliment de croissance en 3 à 4 petits repas par jour, avant de passer à l'alimentation adulte vers 12 mois. On garde toujours de l'eau à disposition et on évite les aliments toxiques."
 faq:
   - q: "Que donner à manger à un chaton ?"

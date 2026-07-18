@@ -14,7 +14,12 @@ updatedAt: "2026-07-13"
 ymyl: false
 medLevel: none
 disclaimer: false
-affiliate: false
+affiliate: true
+products:
+  - partner: maxizoo
+    url: "https://www.maxizoo.fr/c/chat/nourriture-pour-chat/"
+    label: "Voir la nourriture pour chat sur Maxi Zoo"
+    note: "Large choix de croquettes et pâtées pour chat."
 tldr: "Croquettes et pâtée ont chacune leurs atouts. Les croquettes sont pratiques à doser et à conserver, économiques et demandent au chat de mâcher, mais elles sont très pauvres en eau. La pâtée est riche en eau (précieuse pour un animal qui boit peu), très appétente et rassasiante à moindres calories, mais se conserve mal une fois ouverte et coûte plus cher. Pour beaucoup de chats, l'alimentation mixte, pâtée pour l'hydratation et croquettes pour la praticité, est le meilleur compromis. Le plus important reste une nourriture de qualité, adaptée à l'âge, et une transition en douceur."
 faq:
   - q: "Vaut-il mieux donner des croquettes ou de la pâtée à un chat ?"

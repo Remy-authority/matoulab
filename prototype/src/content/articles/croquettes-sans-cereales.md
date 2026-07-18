@@ -14,7 +14,12 @@ updatedAt: "2026-07-17"
 ymyl: false
 medLevel: none
 disclaimer: false
-affiliate: false
+affiliate: true
+products:
+  - partner: maxizoo
+    url: "https://www.maxizoo.fr/c/chat/nourriture-pour-chat/"
+    label: "Voir la nourriture pour chat sur Maxi Zoo"
+    note: "Large choix de croquettes et pâtées pour chat."
 tldr: "Les croquettes sans céréales pour chat répondent à une demande croissante des propriétaires soucieux de l'alimentation naturelle de leur animal. Bien qu'elles éliminent le blé ou le maïs, elles remplacent ces ingrédients par d'autres sources de glucides comme la pomme de terre ou les pois. L'important réside dans la qualité globale des protéines animales et l'équilibre nutritionnel de la recette. Avant tout changement majeur, l'avis d'un vétérinaire reste indispensable pour garantir la santé de votre compagnon."
 faq:
   - q: "Le sans céréales est-il obligatoire pour la santé du chat ?"
