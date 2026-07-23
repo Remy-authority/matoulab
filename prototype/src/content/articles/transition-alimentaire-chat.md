@@ -14,7 +14,12 @@ updatedAt: "2026-07-13"
 ymyl: false
 medLevel: none
 disclaimer: false
-affiliate: false
+affiliate: true
+products:
+  - partner: maxizoo
+    url: "https://www.maxizoo.fr/c/chat/nourriture-pour-chat/"
+    label: "Voir la nourriture pour chat sur Maxi Zoo"
+    note: "Large choix de croquettes et pâtées pour chat."
 tldr: "Changer l'alimentation d'un chat ne se fait jamais du jour au lendemain : un changement brutal provoque souvent diarrhée, vomissements ou refus. La bonne méthode est une transition progressive sur environ 7 jours, en mélangeant une part croissante de la nouvelle nourriture à l'ancienne (un quart, puis la moitié, puis les trois quarts, puis la totalité). Si des selles molles, des vomissements ou un refus apparaissent, on revient à l'étape précédente et on ralentit. Un chat difficile demande parfois une transition plus longue et de la patience."
 faq:
   - q: "Comment changer les croquettes de son chat sans le rendre malade ?"

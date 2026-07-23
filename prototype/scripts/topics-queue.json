@@ -2,13 +2,6 @@
   "_note": "File de sujets pour le robot auto-publish. Le robot prend le 1er dont le slug n'existe pas encore dans src/content/articles. Source = docs/12 (backlog SEO priorise). Quand il reste < 6 sujets, declencher un reapprovisionnement (recherche mots-cles).",
   "topics": [
     {
-      "slug": "gamelle-anti-glouton",
-      "title": "Gamelle anti-glouton : pour quels chats et comment la choisir",
-      "pillar": "alimentation",
-      "keyword": "gamelle anti glouton chat",
-      "scene": "un chat qui mange dans une gamelle anti-glouton à picots, cuisine claire, bien centré"
-    },
-    {
       "slug": "adopter-chat-appartement",
       "title": "Adopter un chat en appartement : est-ce une bonne idée ?",
       "pillar": "choisir-accueillir",
