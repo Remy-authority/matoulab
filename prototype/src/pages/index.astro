@@ -103,6 +103,7 @@ const topics = piliers
                 <span class="ac-body">
                   <h3>{a.data.title}</h3>
                   <p>{a.data.description}</p>
+                  {a.data.updatedAt && <time class="ac-date" datetime={a.data.updatedAt}>Mis à jour le {new Date(a.data.updatedAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</time>}
                 </span>
               </a>
             </li>

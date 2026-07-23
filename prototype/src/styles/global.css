@@ -210,6 +210,7 @@ article :where(p) img { display: block; margin: 1.6rem auto; box-shadow: var(--s
 .article-cards .ac-body { padding: 1rem 1.2rem 1.2rem; display: flex; flex-direction: column; flex: 1; }
 .article-cards h3 { font-family: var(--serif); font-size: 1.16rem; margin: 0 0 0.35rem; }
 .article-cards p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+.ac-date { display: block; margin-top: 0.7rem; font-size: 0.8rem; color: var(--muted); font-weight: 600; letter-spacing: 0.01em; }
 
 .article-list { list-style: none; padding: 0; margin: 1rem 0; }
 .article-list li { border-bottom: 1px solid var(--line); }

@@ -36,6 +36,7 @@ const d = entry.data;
               <span class="ac-body">
                 <h3>{c.title}</h3>
                 {c.description && <p>{c.description}</p>}
+                {c.updatedAt && <time class="ac-date" datetime={c.updatedAt}>Mis à jour le {new Date(c.updatedAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</time>}
               </span>
             </a>
           </li>
