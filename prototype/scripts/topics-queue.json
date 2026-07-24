@@ -2,13 +2,6 @@
   "_note": "File de sujets pour le robot auto-publish. Le robot prend le 1er dont le slug n'existe pas encore dans src/content/articles. Source = docs/12 (backlog SEO priorise). Quand il reste < 6 sujets, declencher un reapprovisionnement (recherche mots-cles).",
   "topics": [
     {
-      "slug": "adopter-chat-appartement",
-      "title": "Adopter un chat en appartement : est-ce une bonne idée ?",
-      "pillar": "choisir-accueillir",
-      "keyword": "adopter chat appartement",
-      "scene": "un chat serein et heureux dans un bel appartement lumineux, bien centré, arbre à chat en arrière-plan"
-    },
-    {
       "slug": "pourquoi-mon-chat-me-suit",
       "title": "Pourquoi mon chat me suit partout dans la maison ?",
       "pillar": "comportement",
