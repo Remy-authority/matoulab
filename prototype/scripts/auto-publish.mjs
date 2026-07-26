@@ -32,6 +32,8 @@ const TEXT_MODEL = 'gemini-flash-latest';
 const IMG_MODEL = 'gemini-2.5-flash-image';
 const exists = (p) => access(p).then(() => true).catch(() => false);
 const nodash = (s) => (s || '').replace(/[—–]/g, ', ').replace(/ ,/g, ',');
+// Slug 100% ASCII: fichiers/URLs/images sans accent -> pas d'image cassee ni de doublon accent vs ASCII.
+const asciiSlug = (s) => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
 async function geminiText(prompt) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${TEXT_MODEL}:generateContent?key=${KEY}`;
@@ -97,6 +99,9 @@ async function main() {
   // 1. Choisir le prochain sujet non produit (dedup)
   const topic = (queue.topics || []).find((t) => !existingSlugs.includes(t.slug));
   if (!topic) { console.error('STOP: file de sujets epuisee -> reapprovisionner (recherche mots-cles).'); process.exit(2); }
+  // Slug force en ASCII: fichiers/images/URL toujours sans accent -> pas d'image cassee ni de doublon (accent vs ASCII passe au travers du dedup).
+  topic.slug = asciiSlug(topic.slug);
+  if (existingSlugs.includes(topic.slug)) { console.error(`STOP: slug deja publie apres normalisation ASCII (${topic.slug}) -> doublon evite.`); process.exit(2); }
   console.log(`Sujet: ${topic.slug} (${topic.pillar})`);
   if (queue.topics.filter((t) => !existingSlugs.includes(t.slug)).length < 6) console.log('ALERTE: moins de 6 sujets restants -> prevoir un reapprovisionnement.');
 
@@ -167,6 +172,12 @@ Reponds STRICTEMENT en JSON avec ce schema :
     : 'affiliate: false';
   const fm = `---\ntitle: ${JSON.stringify(nodash(topic.title))}\ndescription: ${JSON.stringify(nodash(d.description))}\npillar: ${topic.pillar}\nkind: cluster\ncover: "/images/${topic.slug}-cover-v3.webp"\ncoverAlt: ${JSON.stringify(nodash(d.coverAlt))}\nclusterParent: "${topic.pillar}"\nauthor:\n  name: "Rémy Zaoui"\n  slug: "remy-zaoui"\n  credentials: "Fondateur de Matoulab, passionné de chats"\nupdatedAt: "${new Date().toISOString().slice(0, 10)}"\nymyl: false\nmedLevel: none\ndisclaimer: false\n${affBlock}\ntldr: ${JSON.stringify(nodash(d.tldr))}\nfaq:\n${faq}\nstatus: published\n---\n\n`;
   await writeFile(`${ART}${topic.slug}.md`, fm + body);
+
+  // 5b. Garde-fou images: toute image referencee (cover + inline) doit exister sur le disque, sinon on stoppe AVANT deploiement.
+  const refs = [...(fm + body).matchAll(/\/images\/([^\s"')]+)/g)].map((m) => m[1]);
+  for (const r of [...new Set(refs)]) {
+    if (!(await exists(`${IMG}${r}`))) { console.error(`STOP: image referencee absente -> ${r} (pas de deploiement avec une image cassee).`); process.exit(3); }
+  }
 
   // 6. (Le sommaire du pilier est desormais rendu automatiquement en cartes par
   //    PilierLayout a partir des articles du pilier : plus de liste manuelle a
