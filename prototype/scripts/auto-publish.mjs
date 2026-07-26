@@ -42,7 +42,16 @@ async function geminiText(prompt) {
     if (!r.ok) { last = new Error(`Gemini texte ${r.status}`); continue; }
     const j = await r.json();
     const txt = (j?.candidates?.[0]?.content?.parts || []).map((p) => p.text).join('').replace(/```json|```/g, '').trim();
-    try { return JSON.parse(txt); }
+    try {
+      const parsed = JSON.parse(txt);
+      // Garde-fou accents : Gemini renvoie parfois du texte ASCII sans accents.
+      // On rejette et regenere plutot que de publier un article non accentue.
+      const sample = `${parsed.intro || ''} ${(parsed.sections || []).map((s) => s.body).join(' ')} ${parsed.tldr || ''}`;
+      const acc = (sample.match(/[éèêàâçùûîôïë]/gi) || []).length;
+      const letters = (sample.match(/[a-z]/gi) || []).length;
+      if (letters > 300 && acc / letters < 0.02) { last = new Error('texte sans accents'); console.log(`Texte revenu sans accents (essai ${attempt}), on regenere...`); continue; }
+      return parsed;
+    }
     catch (e) { last = e; console.log(`JSON invalide (essai ${attempt}), on regenere...`); }
   }
   throw new Error(`JSON Gemini illisible apres 4 essais: ${last?.message}`);
