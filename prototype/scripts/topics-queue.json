@@ -2,13 +2,6 @@
   "_note": "File de sujets pour le robot auto-publish. Le robot prend le 1er dont le slug n'existe pas encore dans src/content/articles. Source = docs/12 (backlog SEO priorise). Quand il reste < 6 sujets, declencher un reapprovisionnement (recherche mots-cles).",
   "topics": [
     {
-      "slug": "pourquoi-mon-chat-me-suit",
-      "title": "Pourquoi mon chat me suit partout dans la maison ?",
-      "pillar": "comportement",
-      "keyword": "pourquoi mon chat me suit partout",
-      "scene": "un chat qui suit de près une personne dans un couloir lumineux, le chat bien centré"
-    },
-    {
       "slug": "croquettes-a-volonte",
       "title": "Peut-on laisser des croquettes à volonté à son chat ?",
       "pillar": "alimentation",
