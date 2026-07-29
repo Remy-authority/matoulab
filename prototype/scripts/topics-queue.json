@@ -2,13 +2,6 @@
   "_note": "File de sujets pour le robot auto-publish. Le robot prend le 1er dont le slug n'existe pas encore dans src/content/articles. Source = docs/12 (backlog SEO priorise). Quand il reste < 6 sujets, declencher un reapprovisionnement (recherche mots-cles).",
   "topics": [
     {
-      "slug": "croquettes-a-volonte",
-      "title": "Peut-on laisser des croquettes à volonté à son chat ?",
-      "pillar": "alimentation",
-      "keyword": "croquettes à volonté chat",
-      "scene": "un chat assis bien au centre près d'un distributeur de croquettes, cuisine lumineuse"
-    },
-    {
       "slug": "ou-adopter-un-chat",
       "title": "Où adopter un chat : refuge, éleveur ou particulier ?",
       "pillar": "choisir-accueillir",
