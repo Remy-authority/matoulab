@@ -1,12 +1,4 @@
 {
   "_note": "File de sujets pour le robot auto-publish. Le robot prend le 1er dont le slug n'existe pas encore dans src/content/articles. Source = docs/12 (backlog SEO priorise). Quand il reste < 6 sujets, declencher un reapprovisionnement (recherche mots-cles).",
-  "topics": [
-    {
-      "slug": "pourquoi-mon-chat-petrit",
-      "title": "Pourquoi mon chat pétrit avec ses pattes (fait sa patoune) ?",
-      "pillar": "comportement",
-      "keyword": "pourquoi mon chat pétrit",
-      "scene": "un chat qui pétrit une couverture douce sur un canapé clair, bien centré, air apaisé"
-    }
-  ]
+  "topics": []
 }
