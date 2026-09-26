@@ -174,7 +174,22 @@ async function main() {
       if (pb.length) bad++;
       console.log(`${pb.length ? 'KO' : 'OK'} ${f}${pb.length ? ' : ' + pb.join(' ; ') : ''}`);
     }
-    console.log(`VERDICT : ${drafts.length - bad}/${drafts.length} brouillons conformes`);
+    // Repetitions entre brouillons : suites de 6 mots communes (corps seul, hors bloc sources).
+    // Au-dela de 3 suites partagees avec un meme brouillon, les deux sont KO (empreinte visible).
+    const grams = {};
+    for (const f of drafts) {
+      const txt = (await readFile(DRAFTS + f, 'utf8')).split(/\n---\n/).slice(1).join('\n').split('## Pour aller plus loin (sources)')[0];
+      const w = txt.toLowerCase().replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[^a-zàâäçéèêëîïôöùûüœ0-9' ]+/g, ' ').split(/\s+/).filter(Boolean);
+      grams[f] = new Set(); for (let i = 0; i + 6 <= w.length; i++) grams[f].add(w.slice(i, i + 6).join(' '));
+    }
+    const rep = [];
+    for (let i = 0; i < drafts.length; i++) for (let j = i + 1; j < drafts.length; j++) {
+      const a = grams[drafts[i]], b = grams[drafts[j]]; const com = [...a].filter((g) => b.has(g));
+      if (com.length > 3) rep.push(`${drafts[i]} / ${drafts[j]} : ${com.length} suites communes (« ${com[0]} »)`);
+    }
+    for (const r of rep) console.log(`KO repetition ${r}`);
+    if (rep.length) bad += rep.length;
+    console.log(`VERDICT : ${drafts.length - bad < 0 ? 0 : drafts.length - bad}/${drafts.length} brouillons conformes${rep.length ? `, ${rep.length} paire(s) trop repetitive(s)` : ''}`);
     process.exit(bad ? 1 : 0);
   }
   if (drafts.length <= 6) console.log(`::warning title=Stock de brouillons bas::${S.domain} : ${drafts.length} brouillon(s) restant(s), dont celui d'aujourd'hui.`);
