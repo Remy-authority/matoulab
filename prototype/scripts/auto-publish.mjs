@@ -18,11 +18,12 @@
 import { readFile, writeFile, mkdir, readdir, access, unlink, appendFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { basename } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import yaml from 'js-yaml';
 
-const ROOT = new URL('../', import.meta.url).pathname;          // prototype/
-const REPO = new URL('../../', import.meta.url).pathname;       // racine du depot
+const ROOT = fileURLToPath(new URL('../', import.meta.url));      // prototype/ (fileURLToPath : chemins avec espaces)
+const REPO = fileURLToPath(new URL('../../', import.meta.url));   // racine du depot
 const DRAFTS = `${REPO}content/drafts/`;
 const ART = `${ROOT}src/content/articles/`;
 const IMG = `${ROOT}public/images/`;
