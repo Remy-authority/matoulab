@@ -12,6 +12,7 @@
     "@astrojs/rss": "^4.0.0",
     "@astrojs/sitemap": "^3.2.1",
     "astro": "^4.0.0",
+    "js-yaml": "^4.3.2",
     "sharp": "^0.33.0"
   },
   "_notes": "Dépendances OSS gratuites (MIT/Apache). CMS revue humaine = Decap CMS (à ajouter au build AUT-5). Hébergement cible = Cloudflare Pages (gratuit). Aucune installation/déploiement dans cette phase.",

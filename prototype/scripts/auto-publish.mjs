@@ -1,202 +1,273 @@
-// Robot de publication automatique Matoulab (100% gratuit : Gemini free tier + Cloudflare Pages).
-// 1 execution = 1 nouvel article (texte + couverture + 2 infographies) build + deploiement + verif.
-// Concu pour tourner en local ET dans GitHub Actions (cron 3x/semaine).
+// Robot de publication automatique Matoulab ET Reptilab (script IDENTIQUE dans les deux depots).
+// 1 execution = 1 article : le PREMIER brouillon de content/drafts/ (ordre par numero NN-slug.md),
+// couverture (fal.ai FLUX dev + controle Gemini), 2 schemas SVG, build Astro, deploiement
+// Cloudflare Pages, verification en ligne, journal. Brouillons ecrits d'avance (relance du 27/09/2026) :
+// Gemini ne fabrique plus d'images (quota gratuit a 0, mesure le 27/09), il ne sert plus qu'au controle.
 //
 // Variables d'env :
-//   GEMINI_API_KEY         (obligatoire) cle Gemini (offre gratuite)
-//   CLOUDFLARE_API_TOKEN   (obligatoire sauf DRYRUN) token Pages
-//   CLOUDFLARE_ACCOUNT_ID  (defaut = compte Matoulab)
-//   DRYRUN=1               genere + build, NE deploie PAS, ne modifie pas la file
+//   FAL_KEY                (obligatoire) couverture via fal.ai
+//   GEMINI_API_KEY         (facultatif) controle visuel de la couverture ; absent = pas de controle
+//   CLOUDFLARE_API_TOKEN   (obligatoire sauf DRYRUN) deploiement Pages
+//   CLOUDFLARE_ACCOUNT_ID  (defaut = compte des deux blogs)
+//   SITE                   (facultatif) matoulab | reptilab ; defaut = nom du dossier du depot
+//   DRYRUN=1               tout sauf deploiement : l'article et ses images sont retires apres le build,
+//                          le brouillon reste en place, rien n'est publie ni journalise.
 //
-// Garde-fous : aucune depense, E-E-A-T (pas de faux expert, sante non-diagnostique + renvoi veto,
-// sources citees, pas de stats inventees), dedup obligatoire, build vert avant deploiement.
+// Codes de sortie : 0 = publie (ou DRYRUN vert, ou stock vide annonce) ; 1 = echec, rien publie.
 
-import { readFile, writeFile, mkdir, readdir, access } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, readdir, access, unlink, appendFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
+import { basename } from 'node:path';
 import sharp from 'sharp';
+import yaml from 'js-yaml';
 
 const ROOT = new URL('../', import.meta.url).pathname;          // prototype/
+const REPO = new URL('../../', import.meta.url).pathname;       // racine du depot
+const DRAFTS = `${REPO}content/drafts/`;
 const ART = `${ROOT}src/content/articles/`;
-const PIL = `${ROOT}src/content/piliers/`;
 const IMG = `${ROOT}public/images/`;
-const QUEUE = `${ROOT}scripts/topics-queue.json`;
+const JOURNAL = `${REPO}tasks/journal-publication.tsv`;
 
-const KEY = process.env.GEMINI_API_KEY;
+const SITES = {
+  matoulab: {
+    domain: 'matoulab.com', project: 'matoulab', pages: 'matoulab.pages.dev',
+    pillars: ['comportement', 'alimentation', 'choisir-accueillir', 'hygiene-prevention'],
+    credentials: 'Fondateur de Matoulab, passionné de chats',
+    colors: { bg: ['#f7f5fd', '#fdf5f0'], dot: ['#7c5cff', '#b14bd6'], stroke: '#ece7fb' },
+    style: 'Premium editorial photograph, ultra realistic, soft natural light, shallow depth of field, magazine quality, wide landscape framing, the whole cat centered with space around it, modern tidy home interior.',
+    qc: 'pas un vrai chat, tete coupee/hors cadre, chat coupe de facon disgracieuse, anatomie irrealiste (pattes, yeux, oreilles), floue/deformee, texte/logo',
+  },
+  reptilab: {
+    domain: 'reptilab.fr', project: 'reptilab', pages: 'reptilab.pages.dev',
+    pillars: ['installer-equiper', 'nourrir', 'comprendre-observer', 'choisir-debuter'],
+    credentials: 'Fondateur de Reptilab, passionné de terrariophilie',
+    colors: { bg: ['#f2f8f4', '#fbf5ec'], dot: ['#2e8b63', '#d08a3e'], stroke: '#dcefe4' },
+    style: 'Premium editorial photograph, ultra realistic, soft natural light, shallow depth of field, magazine quality, wide landscape framing, the whole animal centered with space around it, clean modern well kept enclosure.',
+    qc: 'sujet absent ou hors sujet, animal coupe de facon disgracieuse/hors cadre, anatomie irrealiste (pattes, doigts, tete), image floue/deformee, texte/logo',
+  },
+};
+const SITE_ID = process.env.SITE || basename(REPO.replace(/\/$/, ''));
+const S = SITES[SITE_ID];
+if (!S) { console.error(`ECHEC: site inconnu "${SITE_ID}" (attendu : ${Object.keys(SITES).join(', ')}).`); process.exit(1); }
+
 const DRYRUN = process.env.DRYRUN === '1';
+const FAL = process.env.FAL_KEY;
+const GEM = process.env.GEMINI_API_KEY;
 const CF_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
 const CF_ACCOUNT = process.env.CLOUDFLARE_ACCOUNT_ID || '2edbbf024d9440e907f5fd74d174d0d3';
-if (!KEY) { console.error('STOP: GEMINI_API_KEY manquant'); process.exit(1); }
-if (!DRYRUN && !CF_TOKEN) { console.error('STOP: CLOUDFLARE_API_TOKEN manquant (token invalide/absent)'); process.exit(1); }
+const SUMMARY = process.env.GITHUB_STEP_SUMMARY;
+const QC_MODEL = 'gemini-flash-latest';
 
-const TEXT_MODEL = 'gemini-flash-latest';
-const IMG_MODEL = 'gemini-2.5-flash-image';
+const say = async (line) => { console.log(line); if (SUMMARY) await appendFile(SUMMARY, `${line}\n`); };
+const stop = async (msg) => { await say(`❌ ${msg}`); process.exit(1); };
 const exists = (p) => access(p).then(() => true).catch(() => false);
-const nodash = (s) => (s || '').replace(/[—–]/g, ', ').replace(/ ,/g, ',');
-// Slug 100% ASCII: fichiers/URLs/images sans accent -> pas d'image cassee ni de doublon accent vs ASCII.
-const asciiSlug = (s) => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const nodash = (s) => String(s ?? '').replace(/\s*[—–]\s*/g, ', ').replace(/ ,/g, ',');
+const esc = (s) => nodash(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-async function geminiText(prompt) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${TEXT_MODEL}:generateContent?key=${KEY}`;
-  let last;
-  for (let attempt = 1; attempt <= 4; attempt++) {
-    const body = { contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { temperature: 0.7, responseMimeType: 'application/json' } };
-    const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-    if (!r.ok) { last = new Error(`Gemini texte ${r.status}`); continue; }
-    const j = await r.json();
-    const txt = (j?.candidates?.[0]?.content?.parts || []).map((p) => p.text).join('').replace(/```json|```/g, '').trim();
-    try {
-      const parsed = JSON.parse(txt);
-      // Garde-fou accents : Gemini renvoie parfois du texte ASCII sans accents.
-      // On rejette et regenere plutot que de publier un article non accentue.
-      const sample = `${parsed.intro || ''} ${(parsed.sections || []).map((s) => s.body).join(' ')} ${parsed.tldr || ''}`;
-      const acc = (sample.match(/[éèêàâçùûîôïë]/gi) || []).length;
-      const letters = (sample.match(/[a-z]/gi) || []).length;
-      if (letters > 300 && acc / letters < 0.02) { last = new Error('texte sans accents'); console.log(`Texte revenu sans accents (essai ${attempt}), on regenere...`); continue; }
-      return parsed;
-    }
-    catch (e) { last = e; console.log(`JSON invalide (essai ${attempt}), on regenere...`); }
-  }
-  throw new Error(`JSON Gemini illisible apres 4 essais: ${last?.message}`);
+// ---------- Couverture : fal.ai FLUX dev ----------
+async function falBalance() {
+  const r = await fetch('https://rest.alpha.fal.ai/billing/user_balance', { headers: { Authorization: `Key ${FAL}` } });
+  if (!r.ok) throw new Error(`solde fal.ai illisible (HTTP ${r.status})`);
+  return Number(await r.text());
 }
-async function geminiImage(prompt) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${IMG_MODEL}:generateContent?key=${KEY}`;
-  const body = { contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { responseModalities: ['IMAGE'] } };
-  const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-  if (!r.ok) throw new Error(`Gemini image ${r.status}`);
-  const j = await r.json();
-  const img = (j?.candidates?.[0]?.content?.parts || []).find((p) => p.inlineData?.data);
-  if (!img) throw new Error('pas d image');
-  return Buffer.from(img.inlineData.data, 'base64');
+async function falImage(prompt) {
+  for (let essai = 1; essai <= 4; essai++) {
+    const r = await fetch('https://fal.run/fal-ai/flux/dev', {
+      method: 'POST', headers: { Authorization: `Key ${FAL}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt, image_size: { width: 1280, height: 720 }, num_inference_steps: 28, num_images: 1, enable_safety_checker: true }),
+    });
+    const t = await r.text();
+    if (r.status === 403 && /TOP_UP|balance|locked/i.test(t)) { console.log(`fal.ai verrou de solde (essai ${essai}), attente 90 s...`); await sleep(90000); continue; }
+    if (!r.ok) throw new Error(`fal.ai HTTP ${r.status}: ${t.slice(0, 200)}`);
+    const url = JSON.parse(t)?.images?.[0]?.url;
+    if (!url) throw new Error('fal.ai : pas d image dans la reponse');
+    const img = await fetch(url);
+    if (!img.ok) throw new Error(`telechargement image HTTP ${img.status}`);
+    return Buffer.from(await img.arrayBuffer());
+  }
+  throw new Error('fal.ai : verrou de solde persistant apres 4 essais');
 }
 async function qcImage(webp, scene) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${TEXT_MODEL}:generateContent?key=${KEY}`;
-  const q = `Banniere de couverture large. Reponds JSON {"ok":true|false,"raison":"..."}. ok=false si : pas un vrai chat, tete coupee/hors cadre, chat coupe de facon disgracieuse, floue/deformee, texte/logo, ou hors sujet (attendu: ${scene}). Tolere le bas des pattes au bord.`;
+  if (!GEM) return { ok: true, raison: 'controle Gemini absent' };
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${QC_MODEL}:generateContent?key=${GEM}`;
+  const q = `Banniere de couverture large d'un blog. Reponds JSON {"ok":true|false,"raison":"..."}. ok=false si : ${S.qc}, ou hors sujet (attendu: ${scene}). Tolere une marge serree.`;
   const body = { contents: [{ role: 'user', parts: [{ inlineData: { mimeType: 'image/webp', data: webp.toString('base64') } }, { text: q }] }] };
-  const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-  if (!r.ok) return { ok: true };
-  const j = await r.json();
-  const t = (j?.candidates?.[0]?.content?.parts || []).map((p) => p.text).join('');
-  try { return JSON.parse(t.replace(/```json|```/g, '').trim()); } catch { return { ok: true }; }
+  try {
+    const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    if (!r.ok) return { ok: true, raison: `controle indisponible (HTTP ${r.status})` };
+    const t = ((await r.json())?.candidates?.[0]?.content?.parts || []).map((p) => p.text).join('');
+    return JSON.parse(t.replace(/```json|```/g, '').trim());
+  } catch { return { ok: true, raison: 'controle illisible' }; }
 }
-const esc = (s) => nodash(String(s)).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-// Infographie templatisee de marque (carte 2x2 a puces).
+
+// ---------- Schemas SVG de marque (carte 2x2) ----------
 function infographic(spec) {
+  const c = S.colors;
   const pts = (spec.points || []).slice(0, 4);
   const pos = [[60, 86], [520, 86], [60, 224], [520, 224]];
   const cards = pts.map((p, i) => {
     const [x, y] = pos[i]; const cx = x + 60, cy = y + 60;
     const parts = String(p).split(':');
-    const h = esc(parts[0].trim()); const d = esc((parts.slice(1).join(':') || '').trim());
-    return `<g class="s"><rect x="${x}" y="${y}" width="420" height="120" rx="18" fill="#fff" stroke="#ece7fb" stroke-width="2"/><circle cx="${cx}" cy="${cy}" r="22" fill="url(#dot)"/><path d="M${cx - 10} ${cy} l7 8 l14 -16" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text class="t h" x="${cx + 40}" y="${cy - 6}">${h}</text><text class="t d" x="${cx + 40}" y="${cy + 24}">${d}</text></g>`;
+    const h = esc(parts[0].trim()); const dRaw = nodash((parts.slice(1).join(':') || '').trim());
+    // Explication sur 2 lignes au-dela de 34 caracteres (la carte laisse ~320 px de texte).
+    const lines = [];
+    for (const w of dRaw.split(/\s+/)) {
+      if (lines.length && (lines[lines.length - 1] + ' ' + w).length <= 34) lines[lines.length - 1] += ' ' + w; else lines.push(w);
+    }
+    const two = lines.length > 1;
+    const dy = two ? [cy + 16, cy + 36] : [cy + 24];
+    const dTxt = lines.slice(0, 2).map((l, k) => `<text class="t d" x="${cx + 40}" y="${dy[k]}">${esc(k === 1 && lines.length > 2 ? lines.slice(1).join(' ') : l)}</text>`).join('');
+    const hy = two ? cy - 12 : cy - 6;
+    const hSize = h.length > 24 ? ' style="font-size:17px"' : '';
+    return `<g class="s"><rect x="${x}" y="${y}" width="420" height="120" rx="18" fill="#fff" stroke="${c.stroke}" stroke-width="2"/><circle cx="${cx}" cy="${cy}" r="22" fill="url(#dot)"/><path d="M${cx - 10} ${cy} l7 8 l14 -16" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text class="t h" x="${cx + 40}" y="${hy}"${hSize}>${h}</text>${dTxt}</g>`;
   }).join('');
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="1000" height="400" role="img" aria-label="${esc(spec.title)}"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f5fd"/><stop offset="1" stop-color="#fdf5f0"/></linearGradient><linearGradient id="dot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#b14bd6"/></linearGradient><style>.t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}.title{font-weight:800;font-size:29px;fill:#21232b}.h{font-weight:800;font-size:19px;fill:#21232b}.d{font-weight:500;font-size:16px;fill:#5a616e}@keyframes pop{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:no-preference){.s{opacity:0;animation:pop .5s ease forwards}}</style></defs><rect width="1000" height="400" rx="24" fill="url(#bg)"/><text class="t title" x="500" y="52" text-anchor="middle">${esc(spec.title)}</text>${cards}<text class="t" x="880" y="384" font-size="14" fill="#6a7180" text-anchor="end">matoulab.com</text></svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="1000" height="400" role="img" aria-label="${esc(spec.title)}"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c.bg[0]}"/><stop offset="1" stop-color="${c.bg[1]}"/></linearGradient><linearGradient id="dot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c.dot[0]}"/><stop offset="1" stop-color="${c.dot[1]}"/></linearGradient><style>.t{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}.title{font-weight:800;font-size:29px;fill:#21232b}.h{font-weight:800;font-size:19px;fill:#21232b}.d{font-weight:500;font-size:16px;fill:#5a616e}@keyframes pop{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:no-preference){.s{opacity:0;animation:pop .5s ease forwards}}</style></defs><rect width="1000" height="400" rx="24" fill="url(#bg)"/><text class="t title" x="500" y="52" text-anchor="middle">${esc(spec.title)}</text>${cards}<text class="t" x="880" y="384" font-size="14" fill="#6a7180" text-anchor="end">${S.domain}</text></svg>`;
+}
+
+// ---------- Lecture et controle du brouillon ----------
+function parseDraft(txt, file) {
+  const m = txt.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  if (!m) throw new Error(`${file} : frontmatter introuvable`);
+  const fm = yaml.load(m[1]);
+  const body = m[2];
+  const manque = ['title', 'description', 'pillar', 'coverScene', 'coverAlt', 'tldr', 'faq', 'graphics'].filter((k) => !fm?.[k]);
+  if (manque.length) throw new Error(`${file} : champ(s) manquant(s) ${manque.join(', ')}`);
+  if (!S.pillars.includes(fm.pillar)) throw new Error(`${file} : rubrique "${fm.pillar}" hors liste (${S.pillars.join(', ')})`);
+  if (!Array.isArray(fm.faq) || fm.faq.length !== 4) throw new Error(`${file} : il faut exactement 4 questions`);
+  for (const g of ['g1', 'g2']) {
+    const pts = fm.graphics?.[g]?.points;
+    if (!fm.graphics?.[g]?.title || !Array.isArray(pts) || pts.length !== 4) throw new Error(`${file} : schema ${g} incomplet (titre + 4 points)`);
+    if ((body.match(new RegExp(`\\{\\{${g}\\}\\}`, 'g')) || []).length !== 1) throw new Error(`${file} : marqueur {{${g}}} absent ou double dans le corps`);
+  }
+  if (/[—–]/.test(txt)) throw new Error(`${file} : tiret long present`);
+  return { fm, body };
 }
 
 async function main() {
-  const queue = JSON.parse(await readFile(QUEUE, 'utf8'));
-  const existingFiles = (await readdir(ART)).filter((f) => f.endsWith('.md'));
-  const existingSlugs = existingFiles.map((f) => f.replace('.md', ''));
-  // 1. Choisir le prochain sujet non produit (dedup)
-  const topic = (queue.topics || []).find((t) => !existingSlugs.includes(t.slug));
-  if (!topic) { console.error('STOP: file de sujets epuisee -> reapprovisionner (recherche mots-cles).'); process.exit(2); }
-  // Slug force en ASCII: fichiers/images/URL toujours sans accent -> pas d'image cassee ni de doublon (accent vs ASCII passe au travers du dedup).
-  topic.slug = asciiSlug(topic.slug);
-  if (existingSlugs.includes(topic.slug)) { console.error(`STOP: slug deja publie apres normalisation ASCII (${topic.slug}) -> doublon evite.`); process.exit(2); }
-  console.log(`Sujet: ${topic.slug} (${topic.pillar})`);
-  if (queue.topics.filter((t) => !existingSlugs.includes(t.slug)).length < 6) console.log('ALERTE: moins de 6 sujets restants -> prevoir un reapprovisionnement.');
+  await say(`## Robot ${S.domain}${DRYRUN ? ' (essai a blanc, rien publie)' : ''}`);
+  await mkdir(DRAFTS, { recursive: true });
+  const drafts = (await readdir(DRAFTS)).filter((f) => /^\d{2,3}-[a-z0-9-]+\.md$/.test(f)).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+  if (!drafts.length) {
+    await say(`⚠️ STOCK VIDE : plus aucun brouillon dans content/drafts/. Rien n'a ete publie aujourd'hui. Ecrire de nouveaux brouillons pour relancer ${S.domain}.`);
+    console.log(`::warning title=Stock de brouillons vide::${S.domain} n'a plus de brouillon, rien publie.`);
+    return;
+  }
+  if (process.env.CHECK === '1') {
+    // Controle de TOUT le stock, sans rien fabriquer : node scripts/auto-publish.mjs avec CHECK=1
+    const pub = new Set((await readdir(ART)).map((f) => f.replace(/\.md$/, '')));
+    const seen = new Set(); let bad = 0;
+    for (const f of drafts) {
+      const sl = f.replace(/^\d+-/, '').replace(/\.md$/, ''); const pb = [];
+      try {
+        const { fm, body } = parseDraft(await readFile(DRAFTS + f, 'utf8'), f);
+        if (pub.has(sl)) pb.push('deja publie');
+        if (seen.has(sl)) pb.push('slug en double'); seen.add(sl);
+        const dl = String(fm.description).length; if (dl < 110 || dl > 160) pb.push(`description ${dl} car.`);
+        for (const g of ['g1', 'g2']) for (const p of fm.graphics[g].points) {
+          const [h, ...r] = String(p).split(':'); if (!r.length || h.trim().length > 26 || r.join(':').trim().length > 44) pb.push(`point trop long ou sans ":" (${p})`);
+        }
+        const mots = body.replace(/\{\{g[12]\}\}/g, '').split(/\s+/).filter(Boolean).length; if (mots < 650 || mots > 1100) pb.push(`${mots} mots`);
+        for (const [, s] of body.matchAll(/\]\(\/([a-z0-9-]+)\/?\)/g)) if (!pub.has(s) && !S.pillars.includes(s)) pb.push(`lien vers /${s} inexistant`);
+      } catch (e) { pb.push(e.message); }
+      if (pb.length) bad++;
+      console.log(`${pb.length ? 'KO' : 'OK'} ${f}${pb.length ? ' : ' + pb.join(' ; ') : ''}`);
+    }
+    console.log(`VERDICT : ${drafts.length - bad}/${drafts.length} brouillons conformes`);
+    process.exit(bad ? 1 : 0);
+  }
+  if (drafts.length <= 6) console.log(`::warning title=Stock de brouillons bas::${S.domain} : ${drafts.length} brouillon(s) restant(s), dont celui d'aujourd'hui.`);
+  if (!FAL) await stop('FAL_KEY manquant : impossible de fabriquer la couverture.');
+  if (!DRYRUN && !CF_TOKEN) await stop('CLOUDFLARE_API_TOKEN manquant.');
 
-  // Titres existants pour le maillage interne
-  const known = [];
-  for (const f of existingFiles) { const c = await readFile(ART + f, 'utf8'); const m = c.match(/^title:\s*"([^"]+)"/m); if (m) known.push({ slug: f.replace('.md', ''), title: m[1] }); }
+  const file = drafts[0];
+  const slug = file.replace(/^\d+-/, '').replace(/\.md$/, '');
+  const published = (await readdir(ART)).filter((f) => f.endsWith('.md')).map((f) => f.replace(/\.md$/, ''));
+  if (published.includes(slug)) await stop(`${file} : l'article "${slug}" existe deja, doublon refuse (retirer le brouillon).`);
+  let d;
+  try { d = parseDraft(await readFile(DRAFTS + file, 'utf8'), file); } catch (e) { await stop(e.message); }
+  const { fm } = d;
+  await say(`Brouillon : ${file} (${fm.pillar}), ${drafts.length - 1} restant(s) apres celui-ci.`);
 
-  // 2. Texte via Gemini (JSON structure)
-  const prompt = `Tu es Remy Zaoui, fondateur passionne de chats du blog Matoulab (100% chat, francais). Ecris un article de blog complet, utile, original et bien structure sur : "${topic.title}" (requete cible : "${topic.keyword}"), pilier ${topic.pillar}.
-REGLES ABSOLUES :
-- Francais. ~700 mots au total dans le corps.
-- TON sobre, informatif et premium, adresse au lecteur en "vous". N'ecris PAS d'introduction familiere ("Salut", "c'est Remy", "passionnes de felins"), pas de premiere personne, pas d'emoji.
-- N'inclus AUCUN lien markdown dans intro/sections (le maillage interne est ajoute automatiquement apres).
-- JAMAIS de tiret cadratin ni demi-cadratin. Utilise des virgules ou des parentheses.
-- Sante NON diagnostique : prevention/lifestyle uniquement, et renvoi au veterinaire pour tout symptome. Aucune stat inventee.
-- Tu n'es PAS veterinaire : jamais de fausse expertise.
-- Sources reelles et generiques : International Cat Care (icatcare.org) et ASPCA (aspca.org).
-- Maillage : propose 2 liens internes pertinents parmi cette liste (slug -> titre) : ${known.map((k) => k.slug).join(', ')}.
-Reponds STRICTEMENT en JSON avec ce schema :
-{"description":"meta description 150 car max","coverAlt":"alt de la photo de couverture","tldr":"resume 3-4 phrases","faq":[{"q":"...","a":"..."},{"q":"...","a":"..."},{"q":"...","a":"..."},{"q":"...","a":"..."}],"intro":"paragraphe d intro 2-3 phrases","sections":[{"h2":"titre section","body":"1-2 paragraphes"},{"h2":"...","body":"..."},{"h2":"...","body":"..."},{"h2":"...","body":"..."}],"graphic1":{"title":"titre infographie 1 (max 6 mots)","points":["Mot cle: courte explication","...","...","..."]},"graphic2":{"title":"titre infographie 2","points":["...","...","...","..."]},"internalLinks":[{"slug":"...","label":"texte du lien"},{"slug":"...","label":"..."}]}`;
-  const d = await geminiText(prompt);
-
-  // 3. Couverture (image + QC)
-  const STYLE = 'Photographie editoriale haut de gamme, ultra realiste, lumiere naturelle douce, faible profondeur de champ, qualite magazine. CADRAGE PAYSAGE large, chat ENTIER bien CENTRE, marge autour, jamais coupe. Sans texte ni logo.';
+  // 1. Couverture (solde lu AVANT, arret sous 2 $)
+  const solde = await falBalance().catch((e) => stop(e.message));
+  if (solde < 2) await stop(`solde fal.ai trop bas (${solde.toFixed(2)} $), recharge necessaire avant de publier.`);
   await mkdir(IMG, { recursive: true });
-  let coverOk = false;
-  for (let i = 1; i <= 5 && !coverOk; i++) {
+  const coverFile = `${slug}-cover-v3.webp`;
+  let coverOk = false, essais = 0;
+  for (let i = 1; i <= 4 && !coverOk; i++) {
+    essais = i;
     try {
-      const raw = await geminiImage(`${STYLE} Sujet : ${topic.scene}.`);
+      const raw = await falImage(`${fm.coverScene} ${S.style}`);
       const buf = await sharp(raw).rotate().resize(1200, 630, { fit: 'cover', position: 'centre' }).webp({ quality: 82 }).toBuffer();
-      const v = await qcImage(buf, topic.scene);
-      if (!v.ok) { console.log(`QC-rejet cover (essai ${i}): ${v.raison}`); continue; }
-      await writeFile(`${IMG}${topic.slug}-cover-v3.webp`, buf); coverOk = true;
-    } catch (e) { console.log(`cover essai ${i} echec: ${e.message}`); }
+      const v = await qcImage(buf, fm.coverScene);
+      if (!v.ok) { console.log(`Couverture refusee au controle (essai ${i}) : ${v.raison}`); continue; }
+      await writeFile(IMG + coverFile, buf); coverOk = true;
+      console.log(`Couverture OK (essai ${i})${v.raison ? ` : ${v.raison}` : ''}`);
+    } catch (e) { console.log(`Couverture essai ${i} en echec : ${e.message}`); }
   }
-  if (!coverOk) { console.error('STOP: couverture non generee (QC).'); process.exit(3); }
+  if (!coverOk) await stop(`couverture non obtenue apres ${essais} essais, rien publie (le brouillon reste en tete).`);
 
-  // 4. Infographies templatisees
-  await writeFile(`${IMG}${topic.slug}-g1.svg`, infographic(d.graphic1));
-  await writeFile(`${IMG}${topic.slug}-g2.svg`, infographic(d.graphic2));
+  // 2. Schemas
+  await writeFile(`${IMG}${slug}-g1.svg`, infographic(fm.graphics.g1));
+  await writeFile(`${IMG}${slug}-g2.svg`, infographic(fm.graphics.g2));
 
-  // 5. Assembler le markdown
-  const faq = d.faq.slice(0, 4).map((f) => `  - q: ${JSON.stringify(nodash(f.q))}\n    a: ${JSON.stringify(nodash(f.a))}`).join('\n');
-  const secs = d.sections || [];
-  let body = `${nodash(d.intro)}\n\n![${esc(d.graphic1.title)}](/images/${topic.slug}-g1.svg)\n\n`;
-  secs.forEach((s, i) => {
-    body += `## ${nodash(s.h2)}\n\n${nodash(s.body)}\n\n`;
-    if (i === Math.min(2, secs.length - 1)) body += `![${esc(d.graphic2.title)}](/images/${topic.slug}-g2.svg)\n\n`;
-  });
-  // Securite : corrige les liens internes sans slash que Gemini aurait glisses, puis retire tout lien du corps (on remaille proprement)
-  body = body.replace(/\]\((?!https?:|\/|#)([a-z0-9-]+)\)/g, '](/$1)');
-  const links = (d.internalLinks || []).filter((l) => existingSlugs.includes(l.slug)).slice(0, 2)
-    .map((l) => `[${nodash(l.label)}](/${l.slug})`).join(' et ');
-  if (links) body += `Pour aller plus loin, voyez aussi ${links}.\n\n`;
-  body += `## Pour aller plus loin (sources)\n\n- **International Cat Care** : [icatcare.org](https://icatcare.org/)\n- **ASPCA, cat care** : [aspca.org](https://www.aspca.org/pet-care/cat-care)\n\n*Ce guide est informatif et ne remplace pas l'avis d'un vétérinaire.*\n`;
+  // 3. Corps : schemas a leur place, liens internes vers des pages qui existent seulement
+  const valid = new Set([...published, ...S.pillars]);
+  let body = d.body
+    .replace('{{g1}}', `![${esc(fm.graphics.g1.title)}](/images/${slug}-g1.svg)`)
+    .replace('{{g2}}', `![${esc(fm.graphics.g2.title)}](/images/${slug}-g2.svg)`)
+    .replace(/\[([^\]]+)\]\(\/([a-z0-9-]+)\/?\)/g, (all, txt, s) => (valid.has(s) ? `[${txt}](/${s})` : txt));
+  body = nodash(body.trim()) + '\n';
 
-  // Affiliation auto : Maxi Zoo (Awin) selon l'intention d'achat de l'article. Lien
-  // vers une CATEGORIE (honnete, jamais de faux avis). Rien sur les articles
-  // comportement/sante. Zooplus/Amazon a ajouter plus tard.
-  const asig = `${topic.slug} ${topic.keyword} ${topic.title}`.toLowerCase();
-  let affTarget = null;
-  if (/litiere|litière|bac a|maison de toilette/.test(asig)) affTarget = { url: 'https://www.maxizoo.fr/c/chat/hygiene-soin/litiere-pour-chat/', label: 'Litières et accessoires sur Maxi Zoo', note: 'Litières agglomérantes, minérales et végétales.' };
-  else if (/griffoir|arbre a chat|arbre à chat|griffade/.test(asig)) affTarget = { url: 'https://www.maxizoo.fr/c/chat/griffoirs/arbrechat/', label: 'Arbres à chat et griffoirs sur Maxi Zoo', note: 'Pour offrir au chat un support de griffades adapté.' };
-  else if (/fontaine|abreuvoir|gamelle|(boire)/.test(asig)) affTarget = { url: 'https://www.maxizoo.fr/c/chat/gamelle-pour-chat-abreuvoirs/fontaines/', label: 'Fontaines et gamelles sur Maxi Zoo', note: 'Encourage le chat à boire davantage.' };
-  else if (/croquette|patee|pâtée|nourriture|alimentation|manger|ration/.test(asig)) affTarget = { url: 'https://www.maxizoo.fr/c/chat/nourriture-pour-chat/', label: 'Nourriture pour chat sur Maxi Zoo', note: 'Croquettes et pâtées adaptées.' };
-  const affBlock = affTarget
-    ? `affiliate: true\nproducts:\n  - partner: maxizoo\n    url: "${affTarget.url}"\n    label: "${affTarget.label}"\n    note: "${affTarget.note}"`
-    : 'affiliate: false';
-  const fm = `---\ntitle: ${JSON.stringify(nodash(topic.title))}\ndescription: ${JSON.stringify(nodash(d.description))}\npillar: ${topic.pillar}\nkind: cluster\ncover: "/images/${topic.slug}-cover-v3.webp"\ncoverAlt: ${JSON.stringify(nodash(d.coverAlt))}\nclusterParent: "${topic.pillar}"\nauthor:\n  name: "Rémy Zaoui"\n  slug: "remy-zaoui"\n  credentials: "Fondateur de Matoulab, passionné de chats"\nupdatedAt: "${new Date().toISOString().slice(0, 10)}"\nymyl: false\nmedLevel: none\ndisclaimer: false\n${affBlock}\ntldr: ${JSON.stringify(nodash(d.tldr))}\nfaq:\n${faq}\nstatus: published\n---\n\n`;
-  await writeFile(`${ART}${topic.slug}.md`, fm + body);
+  // 4. Frontmatter final (schema de src/content.config.ts)
+  const today = new Date().toISOString().slice(0, 10);
+  const products = (fm.products || []).filter((p) => p?.partner && p?.url && p?.label);
+  const out = {
+    title: nodash(fm.title), description: nodash(fm.description), pillar: fm.pillar, kind: 'cluster',
+    cover: `/images/${coverFile}`, coverAlt: nodash(fm.coverAlt), clusterParent: fm.pillar,
+    author: { name: 'Rémy Zaoui', slug: 'remy-zaoui', credentials: S.credentials },
+    updatedAt: today, ymyl: false, medLevel: 'none', disclaimer: false,
+    affiliate: products.length > 0, ...(products.length ? { products } : {}),
+    tldr: nodash(fm.tldr), faq: fm.faq.map((f) => ({ q: nodash(f.q), a: nodash(f.a) })), status: 'published',
+  };
+  const md = `---\n${yaml.dump(out, { lineWidth: -1, quotingType: '"', forceQuotes: true })}---\n\n${body}`;
+  const artPath = `${ART}${slug}.md`;
+  await writeFile(artPath, md);
 
-  // 5b. Garde-fou images: toute image referencee (cover + inline) doit exister sur le disque, sinon on stoppe AVANT deploiement.
-  const refs = [...(fm + body).matchAll(/\/images\/([^\s"')]+)/g)].map((m) => m[1]);
-  for (const r of [...new Set(refs)]) {
-    if (!(await exists(`${IMG}${r}`))) { console.error(`STOP: image referencee absente -> ${r} (pas de deploiement avec une image cassee).`); process.exit(3); }
+  // 5. Toute image referencee doit exister
+  for (const r of new Set([...md.matchAll(/\/images\/([^\s"')]+)/g)].map((x) => x[1]))) {
+    if (!(await exists(IMG + r))) { await unlink(artPath); await stop(`image referencee absente (${r}), rien publie.`); }
   }
 
-  // 6. (Le sommaire du pilier est desormais rendu automatiquement en cartes par
-  //    PilierLayout a partir des articles du pilier : plus de liste manuelle a
-  //    maintenir dans le .md du pilier.)
+  // 6. Build obligatoire vert
+  try { execFileSync('npm', ['run', 'build'], { cwd: ROOT, stdio: 'inherit' }); }
+  catch { await unlink(artPath); await stop('build en echec, rien publie (le brouillon reste en tete).'); }
+  if (!(await exists(`${ROOT}dist/${slug}/index.html`))) { await unlink(artPath); await stop(`build vert mais page dist/${slug}/ absente, rien publie.`); }
+  await say(`✅ Build vert : ${slug}`);
 
-  // 7. Build (obligatoire vert)
-  console.log('Build...');
-  execFileSync('npm', ['run', 'build'], { cwd: ROOT, stdio: 'inherit' });
-  console.log(`Article genere: ${topic.slug} (build vert).`);
+  if (DRYRUN) {
+    for (const f of [artPath, IMG + coverFile, `${IMG}${slug}-g1.svg`, `${IMG}${slug}-g2.svg`]) await unlink(f).catch(() => {});
+    await say(`DRYRUN : rien deploye ; article et images retires, brouillon ${file} garde en tete.`);
+    return;
+  }
 
-  if (DRYRUN) { console.log('DRYRUN: pas de deploiement, file inchangee.'); return; }
-
-  // 8. Deploiement
-  execFileSync('npx', ['wrangler', 'pages', 'deploy', 'dist', '--project-name', 'matoulab', '--branch', 'main'],
+  // 7. Deploiement
+  execFileSync('npx', ['wrangler', 'pages', 'deploy', 'dist', '--project-name', S.project, '--branch', 'main', '--commit-dirty=true'],
     { cwd: ROOT, stdio: 'inherit', env: { ...process.env, CLOUDFLARE_API_TOKEN: CF_TOKEN, CLOUDFLARE_ACCOUNT_ID: CF_ACCOUNT } });
 
-  // 9. Retirer le sujet de la file
-  queue.topics = queue.topics.filter((t) => t.slug !== topic.slug);
-  await writeFile(QUEUE, JSON.stringify(queue, null, 2));
-  console.log(`PUBLIE: https://matoulab.com/${topic.slug}/`);
+  // 8. Brouillon consomme + journal (commites par le workflow)
+  await unlink(DRAFTS + file);
+  if (!(await exists(JOURNAL))) await writeFile(JOURNAL, 'date\tslug\turl\tcouverture\tbrouillons_restants\n');
+  const url = `https://${S.domain}/${slug}/`;
+  await appendFile(JOURNAL, `${today}\t${slug}\t${url}\tfal-flux-dev (${essais} essai(s))\t${drafts.length - 1}\n`);
+
+  // 9. Verification en ligne sur l'URL technique (jamais l'apex juste apres un deploiement)
+  const check = `https://${S.pages}/${slug}/`;
+  let code = 0;
+  for (let i = 1; i <= 10 && code !== 200; i++) { code = (await fetch(check).catch(() => ({ status: 0 }))).status; if (code !== 200) await sleep(6000); }
+  const cov = (await fetch(`https://${S.pages}/images/${coverFile}`).catch(() => ({ status: 0 }))).status;
+  if (code !== 200 || cov !== 200) await stop(`deploye mais verification en ligne ratee (page ${code}, couverture ${cov}) : ${check}`);
+  await say(`✅ PUBLIE : ${url} (page 200 et couverture 200 sur ${S.pages}), ${drafts.length - 1} brouillon(s) restant(s).`);
 }
-main().catch((e) => { console.error('ECHEC:', e.message); process.exit(1); });
+main().catch(async (e) => { await say(`❌ ECHEC : ${e.message}`); process.exit(1); });
