@@ -1,0 +1,23 @@
+# Deploiement seul (sans nouvel article) : reconstruit main et le pousse sur Cloudflare Pages.
+# Ajoute le 26/09/2026 pour servir la cle IndexNow ; lancement manuel uniquement.
+name: Deploiement seul
+on:
+  workflow_dispatch: {}
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: prototype
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install
+      - run: npm run build
+      - run: test -f dist/d4b3ba5914615ff87722f6e0e49b6b43.txt
+      - run: npx wrangler pages deploy dist --project-name matoulab --branch main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: "2edbbf024d9440e907f5fd74d174d0d3"
