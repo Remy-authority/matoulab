@@ -7,7 +7,7 @@ brouillons écrits d'avance dans `content/drafts/`, suivi dans Rank OS. Kickoff 
 - [x] État des lieux vérifié (27/09) : file de sujets épuisée ; Gemini écrit encore mais ne fabrique plus d'images (quota gratuit à 0) ; images par fal.ai
 - [x] 39 sujets choisis sur les recherches Google réelles (DataForSEO, France, 27/09), volumes exacts mesurés : `tasks/mots-cles/`
 - [x] GO de Rémy sur les sujets et ~3 $ d'images fal.ai (« oui go », 27/09)
-- [ ] 39 brouillons écrits (3 lots de 13) dans `content/drafts/NN-slug.md`, relecture à froid
+- [x] 39 brouillons écrits (3 lots de 13) et relus à froid (27/09), CHECK=1 « 39/39 conformes » ; en attente sur la branche `brouillons-27-09` (fusion dans main = début des publications, APRÈS le GO)
 - [x] Robot adapté (27/09, script identique dans les deux dépôts, CHECK=1 contrôle tout le stock, FAL_KEY posé, workflow Matoulab réactivé : il était « désactivé à la main »)  : premier brouillon, images fal.ai, arrêt propre quand le stock est vide
 - [ ] Essai à blanc DRYRUN=1, puis GO de Rémy, puis 1 publication réelle prouvée (page 200 + photo, journal, run vert)
 - [ ] Rank OS : fiche complétée, capture refaite ; docs/ETAT.md ; secrets vérifiés
