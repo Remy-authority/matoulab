@@ -1,0 +1,39 @@
+maine-coon-caractere-entretien	choisir-accueillir	chat maine coon	/c/chat/griffoirs/arbrechat/	Maine coon : caractère, taille et entretien avant d'adopter	40500	0.96
+chat-bengal-caractere	choisir-accueillir	chat bengal	/c/chat/jouetspourchat/	Chat bengal : un félin très actif, pour quel foyer ?	49500	1.01
+chat-ragdoll-caractere	choisir-accueillir	chat ragdoll	/c/chat/couchettes-pour-chat/	Ragdoll : le chat « poupée de chiffon », calme et câlin ?	22200	1.00
+chat-chartreux-caractere	choisir-accueillir	chat chartreux	/c/chat/hygiene-soin/pelage-entretien-du-corps/	Chartreux : caractère et besoins de ce chat au pelage bleu	18100	0.67
+chat-sphynx-entretien	choisir-accueillir	chat sphynx	/c/chat/couchettes-pour-chat/	Sphynx, le chat sans poils : soins de peau et besoin de chaleur	27100	0.84
+british-shorthair-caractere	choisir-accueillir	chaton british	/c/chat/hygiene-soin/pelage-entretien-du-corps/	British shorthair : le chat nounours, caractère et entretien	14800	0.89
+sacre-de-birmanie-caractere	choisir-accueillir	chaton sacré de birmanie	/c/chat/hygiene-soin/pelage-entretien-du-corps/	Sacré de Birmanie : caractère, pelage et vie en appartement	12100	0.09
+chat-hypoallergenique	choisir-accueillir	chat hypoallergénique	/c/chat/hygiene-soin/pelage-entretien-du-corps/	Chat hypoallergénique : ce qui est vrai et ce qui ne l'est pas	14800	0.81
+chat-poil-long-races-entretien	choisir-accueillir	chat poil long	/c/chat/hygiene-soin/pelage-entretien-du-corps/	Chat à poil long : quelles races et combien d'entretien ?	6600	0.28
+sevrage-chaton-age-adoption	choisir-accueillir	sevrage chaton	/c/chat/chatons/nourriture/	Sevrage du chaton : à quel âge peut-il quitter sa mère ?	5400	0.29
+caisse-transport-chat	choisir-accueillir	caisse de transport pour chat	/c/chat/transport/caisse-de-transport/	Caisse de transport pour chat : laquelle choisir et comment l'y habituer	5400	0.29
+chatiere-electronique	choisir-accueillir	chatiere electronique	/c/chat/securite/chatieres-portes/	Chatière électronique : comment elle marche et laquelle choisir	5400	0.34
+croquettes-chat-sterilise	alimentation	croquettes chat stérilisé	/c/chat/nourriture-pour-chat/nourriture-seche/	Croquettes pour chat stérilisé : pourquoi changer et comment choisir	9900	2.08
+distributeur-croquettes-automatique	alimentation	distributeur de croquettes pour chat	/c/chat/gamelle-pour-chat-abreuvoirs/distributeurs/	Distributeur de croquettes automatique : pour quels chats ?	12100	0.36
+croquettes-chat-senior	alimentation	croquettes chat senior	/c/chat/nourriture-pour-chat/	Croquettes pour chat senior : à partir de quel âge et pourquoi	1300	1.85
+friandises-chat	alimentation	friandise pour chat	/c/chat/nourriture-pour-chat/friandises/	Friandises pour chat : combien en donner sans déséquilibrer sa ration	4400	1.92
+gamelle-chat-surelevee	alimentation	gamelle chat surélevée	/c/chat/gamelle-pour-chat-abreuvoirs/gamelles-a-nourriture/	Gamelle surélevée pour chat : utile ou gadget ?	1600	0.27
+chat-ne-mange-plus	alimentation	mon chat ne mange plus	/c/chat/nourriture-pour-chat/nourriture-humide/	Mon chat ne mange plus : les causes et quand consulter vite	1600	0.50
+chat-vomit-ses-croquettes	alimentation	chat qui vomit	/c/chat/gamelle-pour-chat-abreuvoirs/gamelles-a-nourriture/	Chat qui vomit ses croquettes : pourquoi et que changer	5400	0.27
+boite-conservation-croquettes	alimentation	boîte à croquettes pour chat	/c/chat/gamelle-pour-chat-abreuvoirs/stockagedesaliments/	Conserver les croquettes du chat : boîte, sac d'origine et durée	1300	0.29
+croquettes-hypoallergeniques-chat	alimentation	croquettes hypoallergéniques pour chat	/c/chat/nourriture-pour-chat/nourriture-seche/	Croquettes hypoallergéniques pour chat : dans quels cas ?	1600	1.74
+herbe-a-chat	comportement	herbe a chat	/c/chat/jouetspourchat/jouets-valeriane-catnip/	Herbe à chat : pourquoi elle rend votre chat fou (et est-ce sans risque ?)	14800	0.20
+jouet-interactif-chat	comportement	jouet interactif chat	/c/chat/jouetspourchat/jeu-dintelligence/	Jouets interactifs pour chat : lesquels l'occupent vraiment	1600	0.37
+harnais-chat-promener	comportement	harnais chat	/c/chat/transport/harnais-laisses/	Promener son chat en harnais : comment l'habituer pas à pas	14800	0.26
+pourquoi-mon-chat-me-leche	comportement	pourquoi mon chat me lèche	/c/chat/jouetspourchat/	Pourquoi mon chat me lèche : affection, marquage ou stress ?	2900	0.17
+chat-miaule-tout-le-temps	comportement	pourquoi mon chat miaule tout le temps	/c/chat/jouetspourchat/jeu-dintelligence/	Mon chat miaule tout le temps : que cherche-t-il à dire ?	1900	0.12
+chat-dort-sur-moi	comportement	pourquoi mon chat dort sur moi	/c/chat/couchettes-pour-chat/	Pourquoi mon chat dort sur moi : ce que ça veut dire	720	0.34
+chien-et-chaton-cohabitation	comportement	chien et chaton	/c/chat/securite/	Chien et chaton : réussir la première rencontre et la cohabitation	12100	3.06
+jouer-avec-un-chaton	comportement	jeux pour chaton	/c/chat/chatons/jouets/	Jouer avec un chaton : les bons jeux (et ceux qui apprennent à mordre)	6600	0.37
+puces-chat	hygiene-prevention	puce chat	/c/chat/hygiene-soin/protection-contre-tiques-parasites/	Puces du chat : les repérer, traiter le chat et la maison	18100	0.41
+vermifuger-chat	hygiene-prevention	vermifuge chat	/c/chat/hygiene-soin/protection-contre-tiques-parasites/	Vermifuger son chat : pourquoi, quand et à quel rythme	33100	0.60
+tique-chat	hygiene-prevention	tique chat	/c/chat/hygiene-soin/protection-contre-tiques-parasites/	Tique sur un chat : la retirer sans risque et prévenir	8100	0.43
+litiere-automatique-chat	hygiene-prevention	litiere chat automatique	/c/chat/hygiene-soin/bacs-et-accessoires-litiere/	Litière automatique pour chat : avantages, limites et pour qui	12100	0.52
+litiere-vegetale-chat	hygiene-prevention	litiere vegetale chat	/c/chat/hygiene-soin/litiere-pour-chat/	Litière végétale pour chat : maïs, bois, tofu, laquelle choisir	1600	0.55
+meuble-litiere-chat	hygiene-prevention	meuble litiere chat	/c/chat/hygiene-soin/bacs-et-accessoires-litiere/	Meuble à litière : cacher le bac sans gêner le chat	8100	0.21
+couper-griffes-chat	hygiene-prevention	coupe griffe chaton	/c/chat/hygiene-soin/pelage-entretien-du-corps/	Couper les griffes de son chat : quand et comment sans le blesser	5400	0.25
+vaccins-chaton	hygiene-prevention	vaccins chaton	/c/chat/chatons/soin/	Vaccins du chaton : lesquels et à quel âge	5400	1.20
+sterilisation-chat-age	hygiene-prevention	sterilisation chaton	/c/chat/nourriture-pour-chat/nourriture-seche/	Stériliser son chat : à quel âge et ce qui change ensuite	6600	1.81
+age-chat-age-humain	hygiene-prevention	âge chat humain	/c/chat/nourriture-pour-chat/	Âge d'un chat en âge humain : le tableau et les étapes de vie	18100	0.05
