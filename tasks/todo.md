@@ -58,3 +58,9 @@ brouillons écrits d'avance dans `content/drafts/`, suivi dans Rank OS. Kickoff 
 
 Source des volumes : `tasks/mots-cles/sujets-volumes.tsv` (Google Ads, France, 27/09/2026). Aucune propriété Search Console
 n'existe pour ce domaine côté compte de service : les sujets viennent donc de DataForSEO (suggestions + volumes exacts).
+
+## Défauts vus à l'état des lieux (27/09), à corriger avec la relance
+- Articles publiés par l'ancien robot SANS apostrophes (« l enfance ») : Matoulab 3 (gamelle-anti-glouton, pourquoi-mon-chat-me-suit, pourquoi-mon-chat-petrit), Reptilab 4 (amenager-terrarium-gecko-a-crete, gecko-a-crete-a-perdu-sa-queue, gecko-leopard-reste-cache, pogona-fait-le-salut-avec-la-patte).
+- Reptilab : `gecko-a-crete-ou-gecko-leopard-debutant` porte la rubrique « choisir-débuter » (accent, hors liste) : à passer en `choisir-debuter`, vérifier au build.
+- Reptilab : schémas signés « reptilab.pages.dev » au lieu de reptilab.fr.
+- Reptilab : Maxi Zoo a un rayon terrarium (/c/terra/), l'ancien robot le croyait absent.
