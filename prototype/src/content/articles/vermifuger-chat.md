@@ -1,12 +1,22 @@
 ---
 title: "Vermifuger son chat : pourquoi, quand et à quel rythme"
 description: "Vermifuge chat : pourquoi traiter même un chat qui semble en forme, à quel âge commencer et à quel rythme, d'après ESCCAP France et International Cat Care."
-pillar: hygiene-prevention
-keyword: "vermifuge chat"
-coverScene: "A healthy tabby cat sitting upright on a light oak floor in a bright modern living room, whole body centered, calm expression, soft daylight."
+pillar: "hygiene-prevention"
+kind: "cluster"
+cover: "/images/vermifuger-chat-cover-v3.webp"
 coverAlt: "Un chat tigré en bonne santé assis bien droit sur un parquet clair, dans un salon lumineux."
+clusterParent: "hygiene-prevention"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-09-26"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/hygiene-soin/protection-contre-tiques-parasites/"
     label: "Voir les soins antiparasitaires pour chat sur Maxi Zoo"
     note: "Le produit et le rythme se décident avec votre vétérinaire, selon l'âge, le poids et le mode de vie du chat."
@@ -20,26 +30,12 @@ faq:
     a: "Certains, oui. ESCCAP France rappelle que les ascaris du chat peuvent contaminer l'homme, et surtout les jeunes enfants, qui avalent des œufs présents sur le pelage ou dans l'environnement. Une vermifugation régulière et le lavage des mains après le bac limitent ce risque."
   - q: "Un seul vermifuge agit-il contre tous les vers ?"
     a: "Non. Tous les vermifuges ne sont pas efficaces contre le ténia transmis par les puces, et International Cat Care conseille un protocole couvrant à la fois les vers ronds et les vers plats. Le choix du produit revient au vétérinaire."
-graphics:
-  g1:
-    title: "Le calendrier du chaton (ESCCAP France)"
-    points:
-      - "3 semaines: premier vermifuge du chaton"
-      - "5 et 7 semaines: deux traitements de plus"
-      - "De 7 semaines à 6 mois: un traitement chaque mois"
-      - "Après 6 mois: rythme adapté à son mode de vie"
-  g2:
-    title: "Le rythme d'un chat adulte"
-    points:
-      - "Repère général: au moins 4 fois par an (ESCCAP)"
-      - "Chat qui sort et chasse: tous les 1 à 3 mois (iCatCare)"
-      - "Enfants ou personnes âgées: chaque mois selon ESCCAP France"
-      - "Puces repérées: traiter aussi contre le ténia"
+status: "published"
 ---
 
 Un chat peut héberger des vers sans montrer le moindre signe, et c'est précisément pour cela que la vermifugation se pense en prévention, pas en réaction. Le bon rythme dépend de son âge et de sa façon de vivre bien plus que d'une règle unique. Les repères des organismes vétérinaires permettent pourtant de s'y retrouver sans difficulté.
 
-{{g1}}
+![Le calendrier du chaton (ESCCAP France)](/images/vermifuger-chat-g1.svg)
 
 ## Pourquoi vermifuger un chat qui semble en pleine forme ?
 
@@ -64,7 +60,7 @@ Ce dernier cas est très concret. De petits segments blancs, semblables à des g
 
 **Le chat adulte** suit un rythme calé sur son mode de vie. ESCCAP France fixe un minimum de quatre traitements par an contre les ascaris, et conseille un traitement mensuel dans les foyers avec de jeunes enfants, des personnes âgées ou fragiles. International Cat Care situe la fourchette entre un et trois mois selon le risque, qui dépend surtout de la chasse et de l'accès à l'extérieur. Un chat d'appartement qui ne chasse jamais se trouve plutôt dans le bas de l'échelle, sans être à l'abri pour autant.
 
-{{g2}}
+![Le rythme d'un chat adulte](/images/vermifuger-chat-g2.svg)
 
 ## Les gestes qui rendent la vermifugation vraiment utile
 
