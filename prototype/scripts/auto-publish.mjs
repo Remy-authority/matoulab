@@ -39,7 +39,7 @@ const SITES = {
     qc: 'pas un vrai chat, tete coupee/hors cadre, chat coupe de facon disgracieuse, anatomie irrealiste (pattes, yeux, oreilles), floue/deformee, texte/logo',
   },
   reptilab: {
-    domain: 'reptilab.fr', project: 'reptilab', pages: 'reptilab.pages.dev',
+    domain: 'reptilab.fr', project: 'reptilab', pages: 'reptilab-985.pages.dev', // reptilab.pages.dev appartient a un AUTRE site (Terra Keeper)
     pillars: ['installer-equiper', 'nourrir', 'comprendre-observer', 'choisir-debuter'],
     credentials: 'Fondateur de Reptilab, passionné de terrariophilie',
     colors: { bg: ['#f2f8f4', '#fbf5ec'], dot: ['#2e8b63', '#d08a3e'], stroke: '#dcefe4' },
@@ -287,12 +287,20 @@ async function main() {
   const url = `https://${S.domain}/${slug}/`;
   await appendFile(JOURNAL, `${today}\t${slug}\t${url}\tfal-flux-dev (${essais} essai(s))\t${drafts.length - 1}\n`);
 
-  // 9. Verification en ligne sur l'URL technique (jamais l'apex juste apres un deploiement)
+  // 9. Verification en ligne sur l'URL technique du PROJET (jamais l'apex juste apres un deploiement) :
+  // la page doit contenir le titre de l'article et la couverture doit etre une vraie image webp.
   const check = `https://${S.pages}/${slug}/`;
-  let code = 0;
-  for (let i = 1; i <= 10 && code !== 200; i++) { code = (await fetch(check).catch(() => ({ status: 0 }))).status; if (code !== 200) await sleep(6000); }
-  const cov = (await fetch(`https://${S.pages}/images/${coverFile}`).catch(() => ({ status: 0 }))).status;
-  if (code !== 200 || cov !== 200) await stop(`deploye mais verification en ligne ratee (page ${code}, couverture ${cov}) : ${check}`);
-  await say(`✅ PUBLIE : ${url} (page 200 et couverture 200 sur ${S.pages}), ${drafts.length - 1} brouillon(s) restant(s).`);
+  let pageOk = false, html = '';
+  for (let i = 1; i <= 10 && !pageOk; i++) {
+    const r = await fetch(check).catch(() => null);
+    html = r && r.ok ? await r.text() : '';
+    const norm = html.replace(/&#39;|&#x27;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+    pageOk = norm.includes(out.title.slice(0, 40));
+    if (!pageOk) await sleep(6000);
+  }
+  const cr = await fetch(`https://${S.pages}/images/${coverFile}`).catch(() => null);
+  const covOk = !!cr && cr.ok && /image\/webp/.test(cr.headers.get('content-type') || '');
+  if (!pageOk || !covOk) await stop(`deploye mais verification en ligne ratee (titre trouve : ${pageOk}, couverture webp : ${covOk}) : ${check}`);
+  await say(`✅ PUBLIE : ${url} (titre de l'article et couverture webp verifies sur ${S.pages}), ${drafts.length - 1} brouillon(s) restant(s).`);
 }
 main().catch(async (e) => { await say(`❌ ECHEC : ${e.message}`); process.exit(1); });
