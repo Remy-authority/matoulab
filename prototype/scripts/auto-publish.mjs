@@ -146,6 +146,15 @@ function parseDraft(txt, file) {
 }
 
 async function main() {
+  if (process.env.DEPLOY_ONLY === '1') {
+    // Remise en ligne SANS nouvel article (image ou texte corrige a la main puis commite) : build + deploiement.
+    await say(`## Robot ${S.domain} : remise en ligne sans nouvel article`);
+    execFileSync('npm', ['run', 'build'], { cwd: ROOT, stdio: 'inherit' });
+    execFileSync('npx', ['wrangler', 'pages', 'deploy', 'dist', '--project-name', S.project, '--branch', 'main', '--commit-dirty=true'],
+      { cwd: ROOT, stdio: 'inherit', env: { ...process.env, CLOUDFLARE_API_TOKEN: CF_TOKEN, CLOUDFLARE_ACCOUNT_ID: CF_ACCOUNT } });
+    await say(`✅ Site reconstruit et redeploye (${S.pages}).`);
+    return;
+  }
   await say(`## Robot ${S.domain}${DRYRUN ? ' (essai a blanc, rien publie)' : ''}`);
   await mkdir(DRAFTS, { recursive: true });
   const drafts = (await readdir(DRAFTS)).filter((f) => /^\d{2,3}-[a-z0-9-]+\.md$/.test(f)).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
