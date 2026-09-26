@@ -10,6 +10,8 @@ import AffiliateLink from '../components/AffiliateLink.astro';
 // L'ordre reflète les garde-fous : disclosure + disclaimer AVANT le corps.
 const { entry } = Astro.props;
 const d = entry.data;
+// Nom lisible de la rubrique (comme dans le menu), au lieu de son identifiant technique.
+const pillarLabel = ({ comportement: 'Comportement', alimentation: 'Alimentation', 'hygiene-prevention': 'Hygiène & prévention', 'choisir-accueillir': 'Choisir & accueillir' })[d.pillar] ?? d.pillar;
 
 // URLs absolues (recommandé par Google pour les données structurées).
 const abs = (path) => (Astro.site ? new URL(path, Astro.site).href : path);
@@ -37,7 +39,7 @@ const jsonLd = {
 
 // SEO/GEO : fil d'Ariane structuré (rich result Google + structure lisible par les IA).
 const crumbs = [{ name: 'Accueil', url: abs('/') }];
-if (d.clusterParent) crumbs.push({ name: d.pillar, url: abs(`/${d.clusterParent}`) });
+if (d.clusterParent) crumbs.push({ name: pillarLabel, url: abs(`/${d.clusterParent}`) });
 crumbs.push({ name: d.title, url: articleUrl });
 const breadcrumbLd = {
   '@context': 'https://schema.org',
@@ -116,7 +118,7 @@ const faqLd = d.faq && d.faq.length ? {
   {/* Maillage interne / cocon : lien remontant vers la page pilier */}
   {d.clusterParent && (
     <nav class="cocon-up" aria-label="Guide complet">
-      <a href={`/${d.clusterParent}`}>← Retour au guide complet : {d.pillar}</a>
+      <a href={`/${d.clusterParent}`}>← Retour au guide complet : {pillarLabel}</a>
     </nav>
   )}
 
