@@ -1,12 +1,22 @@
 ---
 title: "Chat bengal : un félin très actif, pour quel foyer ?"
 description: "Chat bengal : origine, caractère vif, besoins de jeu et d'espace, points de santé. Les repères du standard LOOF pour savoir s'il convient à votre foyer."
-pillar: choisir-accueillir
-keyword: "chat bengal"
-coverScene: "A spotted Bengal cat standing alert on a sturdy modern cat tree beside a large window, whole body centered, warm natural light."
+pillar: "choisir-accueillir"
+kind: "cluster"
+cover: "/images/chat-bengal-caractere-cover-v3.webp"
 coverAlt: "Un chat bengal à la robe tachetée, debout sur un arbre à chat près d'une grande fenêtre."
+clusterParent: "choisir-accueillir"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-09-28"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/jouetspourchat/"
     label: "Voir les jouets pour chat sur Maxi Zoo"
     note: "Un bengal a besoin de jeux variés au quotidien : cannes à plumes, balles, jeux de recherche."
@@ -20,26 +30,12 @@ faq:
     a: "Beaucoup de bengals sont proches de leur famille, mais leur affection passe souvent par le jeu et la présence plus que par de longues séances sur les genoux. Le caractère varie d'un individu à l'autre : rencontrer les parents et le chaton avant de s'engager reste la meilleure indication."
   - q: "Le bengal s'entend-il avec les enfants et les autres animaux ?"
     a: "Il s'intègre souvent bien dans une famille, à condition que les présentations soient progressives et que les enfants respectent ses moments de retrait. Avec un autre animal, les mêmes règles s'appliquent qu'avec n'importe quel chat : du temps, des espaces séparés au début, de la patience."
-graphics:
-  g1:
-    title: "Le bengal en quatre traits"
-    points:
-      - "Origine: croisement avec le chat léopard d'Asie"
-      - "Énergie: joueur et sportif jusqu'à l'âge adulte"
-      - "Curiosité: explore, grimpe, ouvre les placards"
-      - "Pelage: court, doux, peu d'entretien"
-  g2:
-    title: "Ce qu'il faut prévoir avant d'adopter"
-    points:
-      - "Jeu quotidien: plusieurs séances actives"
-      - "Hauteurs: arbre à chat stable, étagères"
-      - "Sécurité: fenêtres et balcon protégés"
-      - "Éleveur: pedigree LOOF et tests de santé"
+status: "published"
 ---
 
 Sa robe tachetée attire l'œil, mais c'est son énergie qui rythme la vie avec un bengal. Avant d'adopter, il vaut la peine de savoir ce que ce chat demande en temps, en espace et en jeu. Le standard de race et les organismes félins aident à savoir à quel foyer il convient vraiment.
 
-{{g1}}
+![Le bengal en quatre traits](/images/chat-bengal-caractere-g1.svg)
 
 ## D'où vient le bengal, et pourquoi c'est important
 
@@ -68,7 +64,7 @@ Un bengal s'épanouit quand son environnement lui offre de quoi dépenser son é
 
 Côté santé, le bengal peut, comme d'autres races, être concerné par des maladies héréditaires. Demandez à l'éleveur quels tests génétiques ont été réalisés sur les parents, et prévoyez une première visite vétérinaire peu après l'adoption.
 
-{{g2}}
+![Ce qu'il faut prévoir avant d'adopter](/images/chat-bengal-caractere-g2.svg)
 
 ## Pour quel foyer le bengal est-il fait ?
 
