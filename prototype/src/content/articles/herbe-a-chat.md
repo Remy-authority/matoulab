@@ -1,12 +1,22 @@
 ---
 title: "Herbe à chat : pourquoi elle rend votre chat fou, et est-ce sûr ?"
 description: "Herbe a chat : pourquoi la cataire excite tant de chats, pourquoi certains n'y réagissent pas, et comment l'utiliser sans risque selon les sources félines."
-pillar: comportement
-keyword: "herbe a chat"
-coverScene: "A relaxed grey cat lying on its side, rubbing its cheek on a small catnip toy, wool rug, bright modern living room, whole body centered."
+pillar: "comportement"
+kind: "cluster"
+cover: "/images/herbe-a-chat-cover-v3.webp"
 coverAlt: "Un chat gris couché sur le flanc qui frotte sa joue contre un petit jouet à la cataire, sur un tapis en laine."
+clusterParent: "comportement"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-09-30"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/jouetspourchat/jouets-valeriane-catnip/"
     label: "Voir les jouets à la cataire et à la valériane sur Maxi Zoo"
     note: "Si votre chat reste indifférent à la cataire, la valériane est une autre piste à essayer."
@@ -20,26 +30,12 @@ faq:
     a: "Un peu, oui. Humane World for Animals indique que la cataire avalée a plutôt un effet calmant et qu'en manger de grandes quantités peut provoquer de légers troubles digestifs. Si des vomissements ou une diarrhée durent, demandez à votre vétérinaire."
   - q: "Quelle différence entre herbe à chat et herbe à brouter ?"
     a: "L'herbe à chat au sens strict est la cataire, une plante aromatique qui agit par son odeur. L'herbe à brouter est une jeune pousse de céréale, comme l'avoine, que beaucoup de chats aiment mâchonner. International Cat Care décrit ce broutage comme un comportement normal, qui aiderait à évacuer les poils."
-graphics:
-  g1:
-    title: "Ce que provoque l'herbe à chat"
-    points:
-      - "Flairer et lécher: le chat approche la plante"
-      - "Frottements: joues et menton contre l'objet"
-      - "Roulades: il se roule sur le dos, excité"
-      - "Retour au calme: l'effet retombe vite"
-  g2:
-    title: "Bien l'utiliser à la maison"
-    points:
-      - "Avec parcimonie: quelques séances par semaine"
-      - "Au bon endroit: griffoir, caisse, panier"
-      - "Bien conservée: boîte fermée, au congélateur"
-      - "Chat tendu: s'abstenir s'il devient agressif"
+status: "published"
 ---
 
 Un chat qui renifle un jouet, se frotte le menton dessus puis se roule sur le dos en ronronnant : la scène amuse autant qu'elle intrigue. Derrière ce numéro se cache une plante, la cataire, et une réaction que les chercheurs commencent à bien décrire. Tous les chats ne sont pourtant pas concernés, et la plante gagne à être utilisée avec discernement.
 
-{{g1}}
+![Ce que provoque l'herbe à chat](/images/herbe-a-chat-g1.svg)
 
 ## Deux plantes pour un même nom
 
@@ -62,7 +58,7 @@ La sensibilité à la cataire est héréditaire. International Cat Care estime q
 
 Une étude publiée en 2017 dans la revue *BMC Veterinary Research* par Bol et ses collègues a testé 100 chats domestiques avec plusieurs plantes. La cataire a fait réagir 68 % d'entre eux, la vigne argentée 79 % et la racine de valériane 47 %. Surtout, parmi les 31 chats insensibles à la cataire, 22 ont réagi à la vigne argentée. Pour un chat indifférent, tester une autre plante a donc du sens.
 
-{{g2}}
+![Bien l'utiliser à la maison](/images/herbe-a-chat-g2.svg)
 
 ## Est-ce sans risque, et comment bien l'utiliser ?
 
