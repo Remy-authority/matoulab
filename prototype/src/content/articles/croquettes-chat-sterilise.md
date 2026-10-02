@@ -1,12 +1,22 @@
 ---
 title: "Croquettes pour chat stérilisé : pourquoi changer et comment choisir"
 description: "Croquettes chat stérilisé : pourquoi les besoins baissent après l'opération, comment lire l'étiquette et doser la ration pour éviter la prise de poids."
-pillar: alimentation
-keyword: "croquettes chat stérilisé"
-coverScene: "A slim ginger cat eating calmly from a shallow ceramic bowl on a pale kitchen floor, modern minimalist interior, whole body centered, soft morning light."
+pillar: "alimentation"
+kind: "cluster"
+cover: "/images/croquettes-chat-sterilise-cover-v3.webp"
 coverAlt: "Un chat roux à la silhouette fine qui mange dans une gamelle en céramique, dans une cuisine claire."
+clusterParent: "alimentation"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-10-02"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/nourriture-pour-chat/nourriture-seche/"
     label: "Voir les croquettes pour chat sur Maxi Zoo"
     note: "Comparez les apports caloriques indiqués sur les emballages avant de choisir une gamme pour chat stérilisé."
@@ -20,26 +30,12 @@ faq:
     a: "C'est un effet connu de la stérilisation, qui augmente l'appétit. Fractionnez la ration pesée en plusieurs petits repas, utilisez un jouet distributeur pour qu'il travaille pour manger, et réduisez les friandises. Ne cédez pas aux demandes en ajoutant des croquettes hors ration."
   - q: "Comment savoir si mon chat stérilisé est trop gros ?"
     a: "Passez la main sur ses flancs : les côtes doivent se sentir sous une fine couche de graisse, et une taille doit se dessiner vue d'en haut. International Cat Care décrit le chat obèse par des côtes difficiles à sentir, une absence de taille et un ventre qui pend. Au moindre doute, faites-le peser chez le vétérinaire."
-graphics:
-  g1:
-    title: "Pourquoi un chat stérilisé grossit"
-    points:
-      - "Dépense: le métabolisme baisse (iCatCare)"
-      - "Appétit: il réclame et mange davantage"
-      - "Régulation: il gère mal seul sa ration"
-      - "Résultat: prise de poids si rien ne change"
-  g2:
-    title: "Choisir et doser la bonne croquette"
-    points:
-      - "Aliment complet: mention lisible sur le sac"
-      - "Calories: comparer les apports entre gammes"
-      - "Ration pesée: balance de cuisine, pas à l'œil"
-      - "Suivi: pesée et silhouette régulières"
+status: "published"
 ---
 
 La stérilisation change peu de choses au caractère d'un chat, mais elle modifie nettement son rapport à la gamelle. C'est pour cette raison que les rayons proposent des croquettes « chat stérilisé ». Ce changement a de vraies raisons, à condition de bien choisir l'aliment et de doser la ration.
 
-{{g1}}
+![Pourquoi un chat stérilisé grossit](/images/croquettes-chat-sterilise-g1.svg)
 
 ## Ce que la stérilisation change dans ses besoins
 
@@ -62,7 +58,7 @@ La WSAVA, l'association mondiale des vétérinaires pour petits animaux, a publi
 - **Se méfier des mots vagues.** Des termes comme « premium » ou « holistique » ne sont pas réglementés et, pour la WSAVA, n'apportent presque rien pour juger un aliment.
 - **Regarder qui formule l'aliment.** Une marque qui emploie un nutritionniste qualifié et contrôle la qualité de ses produits offre plus de garanties.
 
-{{g2}}
+![Choisir et doser la bonne croquette](/images/croquettes-chat-sterilise-g2.svg)
 
 ## Doser la ration et suivre la silhouette
 
