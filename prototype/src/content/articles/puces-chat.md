@@ -1,12 +1,22 @@
 ---
 title: "Puces du chat : les repérer, traiter le chat et la maison"
 description: "Puce chat : les signes d'une infestation, le test du papier humide, et pourquoi traiter la maison autant que le chat pour en venir à bout."
-pillar: hygiene-prevention
-keyword: "puce chat"
-coverScene: "A fluffy cream cat sitting on a white linen sofa beside a fine metal flea comb, bright modern apartment, whole body centered."
+pillar: "hygiene-prevention"
+kind: "cluster"
+cover: "/images/puces-chat-cover-v3.webp"
 coverAlt: "Un chat crème assis sur un canapé blanc, à côté d'un peigne fin en métal."
+clusterParent: "hygiene-prevention"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-10-12"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/hygiene-soin/protection-contre-tiques-parasites/"
     label: "Voir les antiparasitaires pour chat sur Maxi Zoo"
     note: "Choisissez toujours un produit prévu pour le chat, et demandez conseil à votre vétérinaire pour un chaton ou un chat malade."
@@ -20,26 +30,12 @@ faq:
     a: "Plusieurs semaines, rarement moins. Les cocons résistent aux traitements et éclosent par vagues : ESCCAP France indique que les futures puces peuvent attendre plus de 6 mois des conditions favorables. D'où l'intérêt de poursuivre le traitement du chat et de la maison sans s'arrêter aux premiers résultats."
   - q: "Mon chat a des puces, faut-il aussi le vermifuger ?"
     a: "C'est à envisager avec votre vétérinaire. En se toilettant, le chat avale des puces qui peuvent lui transmettre un ténia, le Dipylidium, selon ESCCAP France. De petits segments blancs près de l'anus en sont le signe typique."
-graphics:
-  g1:
-    title: "Les signes qui doivent alerter"
-    points:
-      - "Grattage: cou, dos, base de la queue"
-      - "Toilettage excessif: léchage, poils arrachés"
-      - "Petits points noirs: dans le pelage, au peigne"
-      - "Croûtes et rougeurs: signe d'allergie possible"
-  g2:
-    title: "Traiter en même temps, pas à tour de rôle"
-    points:
-      - "Le chat: un produit prévu pour le chat"
-      - "Les autres animaux: tous traités le même jour"
-      - "La maison: aspirer sols, canapés, recoins"
-      - "La durée: poursuivre plusieurs semaines"
+status: "published"
 ---
 
 Quelques grattages ne suffisent pas à conclure, mais un chat qui se gratte et se lèche sans relâche mérite qu'on vérifie. Les puces sont fréquentes, y compris chez les chats d'appartement, et elles ne se combattent pas seulement sur l'animal. Les repérer avec certitude est la première étape ; traiter le chat et la maison dans le bon ordre est la seconde.
 
-{{g1}}
+![Les signes qui doivent alerter](/images/puces-chat-g1.svg)
 
 ## Comment savoir si votre chat a des puces
 
@@ -68,7 +64,7 @@ Le traitement du chat se choisit avec soin, et de préférence avec le vétérin
 
 Si le chat a des plaies, se gratte au sang, semble abattu ou si un chaton paraît pâle et faible, ne vous contentez pas d'un antipuces : consultez rapidement.
 
-{{g2}}
+![Traiter en même temps, pas à tour de rôle](/images/puces-chat-g2.svg)
 
 ## Traiter la maison, étape par étape
 
