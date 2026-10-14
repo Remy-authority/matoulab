@@ -1,12 +1,22 @@
 ---
 title: "Maine coon : caractère, taille et entretien avant d'adopter"
 description: "Chat maine coon : un géant au caractère réputé doux, mais qui demande de l'espace, un brossage régulier et un suivi du cœur et des hanches. Les repères."
-pillar: choisir-accueillir
-keyword: "chat maine coon"
-coverScene: "A large brown tabby Maine Coon with tufted ears sitting on a tall sturdy cat tree, spacious modern living room, whole body centered."
+pillar: "choisir-accueillir"
+kind: "cluster"
+cover: "/images/maine-coon-caractere-entretien-cover-v3.webp"
 coverAlt: "Un grand maine coon tigré brun aux oreilles à plumets, assis sur un arbre à chat haut et stable."
+clusterParent: "choisir-accueillir"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-10-14"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/griffoirs/arbrechat/"
     label: "Voir les arbres à chat sur Maxi Zoo"
     note: "Pour un maine coon, privilégiez un arbre à chat lourd, à large base et à plateaux spacieux."
@@ -20,26 +30,12 @@ faq:
     a: "Oui, s'il dispose d'assez d'espace et de hauteur : un arbre à chat stable, des zones de repos larges, du jeu chaque jour. Son gabarit rend un petit logement vite encombré, et son matériel doit être dimensionné pour lui."
   - q: "Le maine coon est-il un chat calme ?"
     a: "Il est souvent décrit comme doux, sociable et facile à éduquer, mais ce sont des tendances de race, pas des garanties. Beaucoup restent joueurs longtemps. La rencontre avec les parents et le chaton reste la meilleure façon de se faire une idée."
-graphics:
-  g1:
-    title: "Le maine coon en un coup d'œil"
-    points:
-      - "Gabarit: une des plus grandes races"
-      - "Croissance: lente, adulte vers trois ans (CFA)"
-      - "Pelage: mi-long, plus long sur le ventre"
-      - "Caractère: souvent sociable et doux"
-  g2:
-    title: "Équiper la maison pour un grand chat"
-    points:
-      - "Arbre à chat: lourd, base large, plateaux amples"
-      - "Litière: bac long, adapté à sa taille"
-      - "Griffoir: haut et lesté pour ne pas basculer"
-      - "Couchage: grand panier ou plateau large"
+status: "published"
 ---
 
 Des plumets au bout des oreilles, une queue en panache et un gabarit qui impressionne : le maine coon ne passe pas inaperçu. Derrière l'image du « gentil géant », il y a un chat aux besoins concrets, qui pèsent sur l'aménagement du logement, l'entretien et le suivi de santé. Autant les connaître avant de se décider.
 
-{{g1}}
+![Le maine coon en un coup d'œil](/images/maine-coon-caractere-entretien-g1.svg)
 
 ## Un grand chat de ferme devenu race
 
@@ -66,7 +62,7 @@ Un chat de cette taille use et renverse le matériel standard. Quelques points m
 
 Côté pelage, le LOOF décrit une fourrure courte sur les épaules, qui s'allonge pour atteindre sa pleine longueur sur le ventre et les culottes, avec un sous-poil fin. La CFA conseille de le peigner deux ou trois fois par semaine, lors de séances qui n'ont pas besoin de dépasser cinq à dix minutes, pour limiter la mue, les boules de poils et les nœuds. Insistez sur le ventre, l'arrière des cuisses et le dessous des pattes, où les nœuds se forment en premier.
 
-{{g2}}
+![Équiper la maison pour un grand chat](/images/maine-coon-caractere-entretien-g2.svg)
 
 ## Santé : les points à vérifier avant et après l'adoption
 
