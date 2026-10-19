@@ -1,12 +1,22 @@
 ---
 title: "Promener son chat en harnais : comment l'habituer pas à pas"
 description: "Harnais chat : savoir si votre chat est fait pour la promenade, l'habituer au harnais pas à pas à l'intérieur, puis sortir en sécurité sans le stresser."
-pillar: comportement
-keyword: "harnais chat"
-coverScene: "A calm tabby cat wearing a snug fabric harness, sitting on green lawn in a tidy modern garden, whole body centered, soft light."
+pillar: "comportement"
+kind: "cluster"
+cover: "/images/harnais-chat-promener-cover-v3.webp"
 coverAlt: "Un chat tigré calme, équipé d'un harnais en tissu, assis sur la pelouse d'un jardin soigné."
+clusterParent: "comportement"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-10-19"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/transport/harnais-laisses/"
     label: "Voir les harnais et laisses pour chat sur Maxi Zoo"
     note: "Choisissez un harnais conçu pour le chat, réglable, et essayez-le d'abord à la maison."
@@ -20,26 +30,12 @@ faq:
     a: "Cela dépend entièrement du chat : quelques jours pour certains, plusieurs semaines pour d'autres, et jamais pour quelques-uns. La règle est de ne passer à l'étape suivante que lorsque le chat est détendu à l'étape en cours."
   - q: "Peut-on laisser le harnais sur le chat à la maison ?"
     a: "Non. Cats Protection conseille de retirer le harnais dès le retour à la maison. Laissé en permanence, il peut s'accrocher à un meuble ou gêner le chat, et il perd son lien avec les moments de sortie."
-graphics:
-  g1:
-    title: "Votre chat est-il un bon candidat ?"
-    points:
-      - "Plutôt oui: curieux, confiant, habitué jeune"
-      - "Plutôt non: craintif, âgé ou malade"
-      - "Chez vous: calme, sans chiens ni circulation"
-      - "Vous: patient, prêt à rentrer au moindre stress"
-  g2:
-    title: "Les étapes de l'apprentissage"
-    points:
-      - "Découverte: harnais posé près de lui, récompense"
-      - "Essayage: quelques instants, puis retiré"
-      - "Laisse: traînée puis tenue, dans la maison"
-      - "Dehors: jardin calme, sortie courte"
+status: "published"
 ---
 
 Des photos de chats en randonnée circulent partout, et l'idée séduit : offrir un peu d'extérieur à un chat d'appartement. Dans la réalité, la promenade en harnais convient à certains chats et en angoisse beaucoup d'autres. Tout commence par une question honnête : votre chat fait-il partie des premiers ?
 
-{{g1}}
+![Votre chat est-il un bon candidat ?](/images/harnais-chat-promener-g1.svg)
 
 ## D'abord, se demander si c'est une bonne idée
 
@@ -64,7 +60,7 @@ Cats Protection conseille de commencer par habituer le chat à être doucement m
 
 À chaque étape, observez son langage : un chat qui se fige, se couche à plat, rabat les oreilles ou tente de se dégager n'est pas prêt pour la suite. Revenez à l'étape précédente.
 
-{{g2}}
+![Les étapes de l'apprentissage](/images/harnais-chat-promener-g2.svg)
 
 ## Les premières sorties, en sécurité
 
