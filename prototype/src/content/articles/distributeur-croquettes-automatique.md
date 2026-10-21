@@ -1,12 +1,22 @@
 ---
 title: "Distributeur de croquettes automatique : pour quels chats ?"
 description: "Distributeur de croquettes pour chat : à qui il rend service, quand il pose problème, et comment le choisir et le régler sans nuire à sa santé."
-pillar: alimentation
-keyword: "distributeur de croquettes pour chat"
-coverScene: "A slender black cat eating from the tray of a sleek white automatic feeder on a light wooden floor, bright modern kitchen, whole cat centered."
+pillar: "alimentation"
+kind: "cluster"
+cover: "/images/distributeur-croquettes-automatique-cover-v3.webp"
 coverAlt: "Un chat noir qui mange dans le plateau d'un distributeur de croquettes blanc, dans une cuisine claire."
+clusterParent: "alimentation"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-10-21"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/gamelle-pour-chat-abreuvoirs/distributeurs/"
     label: "Voir les distributeurs de nourriture pour chat sur Maxi Zoo"
     note: "Vérifiez la précision du dosage, la facilité de nettoyage et la présence d'une alimentation de secours."
@@ -20,26 +30,12 @@ faq:
     a: "Le distributeur garde les petits repas fréquents que permet le libre-service, tout en contrôlant la quantité. International Cat Care note qu'un chat qui a accès à la nourriture sans limite peut trop manger, ce qui mène à l'obésité."
   - q: "Comment régler la quantité distribuée ?"
     a: "Pesez la ration du jour sur une balance de cuisine, divisez-la par le nombre de repas programmés, puis vérifiez ce que l'appareil délivre réellement en pesant une portion. Les réglages annoncés en « portions » varient selon la taille des croquettes."
-graphics:
-  g1:
-    title: "Pour qui c'est utile, pour qui ça l'est moins"
-    points:
-      - "Chat qui réclame la nuit: repas à heure fixe"
-      - "Foyer absent le jour: ration fractionnée"
-      - "Chat à rationner: quantité maîtrisée"
-      - "Plusieurs chats: risque qu'un seul mange tout"
-  g2:
-    title: "Bien l'installer et le régler"
-    points:
-      - "Ration pesée: divisée en petits repas"
-      - "Emplacement: calme, loin de la litière"
-      - "Transition: garder un temps l'ancienne gamelle"
-      - "Contrôle: vérifier chaque jour qu'il mange"
+status: "published"
 ---
 
 Programmer les repas de son chat à l'avance a quelque chose de rassurant. Mais un distributeur automatique n'est pas un gadget neutre : bien utilisé, il rapproche l'alimentation du rythme naturel du chat ; mal utilisé, il masque un chat qui mange trop ou plus du tout. Tout dépend du chat, du foyer et du réglage.
 
-{{g1}}
+![Pour qui c'est utile, pour qui ça l'est moins](/images/distributeur-croquettes-automatique-g1.svg)
 
 ## Ce que le distributeur apporte vraiment
 
@@ -62,7 +58,7 @@ Un distributeur ne voit pas le chat. Il continue de servir des repas même si le
 
 La mécanique a aussi ses faiblesses : croquettes coincées, coupure de courant, réserve humide qui colle. Et l'appareil n'a de sens qu'avec la bonne quantité : International Cat Care rappelle qu'un chat nourri sans limite peut trop manger et devenir obèse. Programmer de nombreuses portions sans peser la ration totale revient au même.
 
-{{g2}}
+![Bien l'installer et le régler](/images/distributeur-croquettes-automatique-g2.svg)
 
 ## Choisir et installer le bon modèle
 
