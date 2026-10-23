@@ -1,12 +1,22 @@
 ---
 title: "Âge d'un chat en âge humain : le tableau et les étapes de vie"
 description: "Âge chat humain : la règle de calcul d'International Cat Care, le tableau de correspondance et ce qui change pour votre chat à chaque étape de sa vie."
-pillar: hygiene-prevention
-keyword: "âge chat humain"
-coverScene: "A calm senior grey cat resting on a wide cream cushion, bright modern living room, whole body centered, soft light."
+pillar: "hygiene-prevention"
+kind: "cluster"
+cover: "/images/age-chat-age-humain-cover-v3.webp"
 coverAlt: "Un chat gris âgé et paisible, allongé sur un grand coussin crème."
+clusterParent: "hygiene-prevention"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-10-23"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/nourriture-pour-chat/"
     label: "Voir la nourriture pour chat par âge sur Maxi Zoo"
     note: "Les gammes chaton, adulte et senior répondent à des besoins différents : changez-en progressivement."
@@ -20,26 +30,12 @@ faq:
     a: "Parce que le chat mûrit très vite au début de sa vie, puis vieillit plus régulièrement. À un an, il a déjà atteint sa taille adulte selon International Cat Care, ce qu'un calcul par sept ne reflète pas. La courbe d'International Cat Care tient compte de cette croissance rapide."
   - q: "Mon chat âgé dort beaucoup, est-ce normal ?"
     a: "Un chat âgé est souvent moins actif, mais certains changements méritent une visite : perte de poids ou d'appétit, soif accrue, raideur, difficulté à sauter, accidents hors de la litière, désorientation. International Cat Care les cite parmi les signes à signaler au vétérinaire."
-graphics:
-  g1:
-    title: "La règle de calcul (International Cat Care)"
-    points:
-      - "1 an de chat: environ 15 ans humains"
-      - "2 ans de chat: environ 24 ans humains"
-      - "Chaque année ensuite: plus 4 ans humains"
-      - "Exemple, 10 ans de chat: environ 56 ans humains"
-  g2:
-    title: "Les étapes de vie (International Cat Care)"
-    points:
-      - "Chaton: de la naissance à 6 mois"
-      - "Junior et adulte: de 7 mois à 6 ans"
-      - "Mature: de 7 à 10 ans"
-      - "Senior: dès 11 ans, super senior dès 15 ans"
+status: "published"
 ---
 
 « Un an de chat, sept ans d'homme » : la formule circule depuis longtemps, mais elle ne correspond pas à la façon dont un chat grandit et vieillit. Les organismes vétérinaires utilisent une correspondance plus fine, et surtout des étapes de vie qui guident les soins. Ces étapes comptent bien plus que le chiffre lui-même.
 
-{{g1}}
+![La règle de calcul (International Cat Care)](/images/age-chat-age-humain-g1.svg)
 
 ## La bonne règle de calcul
 
@@ -78,7 +74,7 @@ D'autres découpages existent. Les recommandations communes de l'AAHA et de l'AA
 
 **Mature.** International Cat Care compare cette étape à celle d'un humain entre le milieu de la quarantaine et le milieu de la cinquantaine. Le chat est souvent moins actif. Les visites chez le vétérinaire prennent de l'importance, car les chats cachent bien la douleur et la maladie.
 
-{{g2}}
+![Les étapes de vie (International Cat Care)](/images/age-chat-age-humain-g2.svg)
 
 ## Accompagner un chat qui prend de l'âge
 
