@@ -1,12 +1,22 @@
 ---
 title: "Sphynx, le chat sans poils : soins de peau et besoin de chaleur"
 description: "Chat sphynx : entretien de la peau, oreilles, chaleur et soleil, points de santé et caractère. Ce qu'implique au quotidien un chat sans fourrure."
-pillar: choisir-accueillir
-keyword: "chat sphynx"
-coverScene: "A pink-skinned Sphynx cat curled on a thick grey fleece blanket inside a round heated cat bed, cosy modern bedroom, whole body centered, warm light."
+pillar: "choisir-accueillir"
+kind: "cluster"
+cover: "/images/chat-sphynx-entretien-cover-v3.webp"
 coverAlt: "Un chat sphynx à la peau rosée, lové sur une couverture polaire grise dans un panier rond."
+clusterParent: "choisir-accueillir"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-10-26"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/couchettes-pour-chat/"
     label: "Voir les couchettes pour chat sur Maxi Zoo"
     note: "Un sphynx apprécie un couchage douillet et abrité des courants d'air, garni d'un plaid lavable."
@@ -20,26 +30,12 @@ faq:
     a: "Il est plus sensible au froid qu'un chat à fourrure et recherche les endroits chauds : sous la couette, près d'un radiateur, contre vous. Prévoyez un couchage douillet à l'abri des courants d'air, et un logement bien chauffé en hiver."
   - q: "Un sphynx peut-il sortir au soleil ?"
     a: "Avec beaucoup de prudence. VCA Animal Hospitals conseille de limiter son exposition au soleil, car sa peau peut brûler. Un rebord de fenêtre très ensoleillé en été pose le même problème qu'une sortie."
-graphics:
-  g1:
-    title: "Ce que sa peau demande au quotidien"
-    points:
-      - "Nettoyage: éponge humide pour le gras"
-      - "Oreilles: nettoyage chaque semaine (VCA)"
-      - "Chaleur: couchage douillet, pièce chauffée"
-      - "Soleil: limiter l'exposition directe"
-  g2:
-    title: "Les points de santé à surveiller"
-    points:
-      - "Peau: rougeurs, boutons, zones grasses"
-      - "Oreilles: odeur, dépôts, grattage"
-      - "Cœur: dépistage conseillé dans la race"
-      - "Suivi: vétérinaire familier de la race"
+status: "published"
 ---
 
 Sa silhouette fascine ou déroute, mais elle ne laisse personne indifférent. Avant de craquer pour un sphynx, il faut savoir qu'un chat sans fourrure vit avec une peau exposée, qui demande des soins que les autres chats n'exigent pas. Ces soins font partie du quotidien, et ils se préparent avant l'adoption.
 
-{{g1}}
+![Ce que sa peau demande au quotidien](/images/chat-sphynx-entretien-g1.svg)
 
 ## Un chat « nu » qui ne l'est pas tout à fait
 
@@ -65,7 +61,7 @@ Sans fourrure, le sphynx perd facilement sa chaleur. VCA Animal Hospitals note q
 
 À l'inverse, sa peau n'a aucune protection contre les rayons. VCA Animal Hospitals conseille de limiter son exposition au soleil, car elle peut brûler. Méfiez-vous des rebords de fenêtre très ensoleillés en été et des balcons exposés.
 
-{{g2}}
+![Les points de santé à surveiller](/images/chat-sphynx-entretien-g2.svg)
 
 ## Santé et caractère : ce qu'il faut savoir avant d'adopter
 
