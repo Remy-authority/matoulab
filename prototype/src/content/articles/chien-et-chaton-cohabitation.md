@@ -1,12 +1,22 @@
 ---
 title: "Chien et chaton : réussir la première rencontre et la cohabitation"
 description: "Chien et chaton : préparer la maison, échanger les odeurs, organiser une première rencontre sûre et installer une cohabitation sereine, pas à pas."
-pillar: comportement
-keyword: "chien et chaton"
-coverScene: "A small tabby kitten sitting calmly beside a relaxed golden retriever lying on a light rug, bright modern living room, both whole and centered."
+pillar: "comportement"
+kind: "cluster"
+cover: "/images/chien-et-chaton-cohabitation-cover-v3.webp"
 coverAlt: "Un chaton tigré assis calmement à côté d'un golden retriever couché sur un tapis clair."
+clusterParent: "comportement"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-10-28"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/securite/"
     label: "Voir les équipements de sécurité pour chat sur Maxi Zoo"
     note: "Barrières, chatières et filets aident à créer des zones où le chaton reste hors d'atteinte du chien."
@@ -20,26 +30,12 @@ faq:
     a: "Non. International Cat Care précise qu'un chat ne doit jamais être placé dans une caisse lors des présentations avec un chien. Enfermé, il ne peut pas fuir, ce qui augmente sa peur. C'est le chien qui doit être tenu en laisse."
   - q: "Où placer la litière et la gamelle du chaton ?"
     a: "Hors de portée du chien, dans un endroit calme où le chaton peut manger et faire ses besoins sans être dérangé. Une barrière, une porte entrebâillée à hauteur de chat ou une chatière intérieure permettent de lui réserver cet espace."
-graphics:
-  g1:
-    title: "Avant la rencontre"
-    points:
-      - "Pièce du chaton: tout ce qu'il lui faut, sans chien"
-      - "Refuges en hauteur: étagères, arbre à chat"
-      - "Odeurs: échanger un plaid entre les deux"
-      - "Chien: ordres de base, attention préservée"
-  g2:
-    title: "Les étapes de la présentation"
-    points:
-      - "Odeurs: le chaton explore la maison seul"
-      - "Vue: à travers une barrière ou une vitre"
-      - "Rencontre: chien en laisse, chaton libre"
-      - "Liberté: seulement quand tout est calme"
+status: "published"
 ---
 
 Un chaton qui se blottit contre un grand chien, c'est l'image que chacun espère. Elle est souvent possible, mais elle se construit : un chaton est petit, fragile et prompt à détaler, ce qui peut réveiller l'instinct de poursuite du chien. La patience des premières semaines décide souvent de la suite.
 
-{{g1}}
+![Avant la rencontre](/images/chien-et-chaton-cohabitation-g1.svg)
 
 ## Préparer la maison avant l'arrivée du chaton
 
@@ -69,7 +65,7 @@ Pendant la rencontre, observez les deux animaux :
 
 Répétez ces séances sur plusieurs jours, en restant bref, et terminez toujours sur une note calme.
 
-{{g2}}
+![Les étapes de la présentation](/images/chien-et-chaton-cohabitation-g2.svg)
 
 ## Installer une cohabitation durable
 
