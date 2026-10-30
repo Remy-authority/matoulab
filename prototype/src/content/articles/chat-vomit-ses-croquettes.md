@@ -1,12 +1,22 @@
 ---
 title: "Chat qui vomit ses croquettes : pourquoi et que changer"
 description: "Chat qui vomit ses croquettes : régurgitation ou vomissement, causes liées au repas, ce qu'il faut changer et les signes qui imposent de consulter."
-pillar: alimentation
-keyword: "chat qui vomit"
-coverScene: "A healthy tuxedo cat eating slowly from a wide shallow ceramic bowl on a clean pale floor, calm modern kitchen corner, whole body centered."
+pillar: "alimentation"
+kind: "cluster"
+cover: "/images/chat-vomit-ses-croquettes-cover-v3.webp"
 coverAlt: "Un chat noir et blanc qui mange lentement dans une gamelle large et peu profonde, dans une cuisine calme."
+clusterParent: "alimentation"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-10-30"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/gamelle-pour-chat-abreuvoirs/gamelles-a-nourriture/"
     label: "Voir les gamelles pour chat sur Maxi Zoo"
     note: "Une gamelle large et peu profonde, ou un modèle anti-glouton, aide certains chats à manger plus calmement."
@@ -20,26 +30,12 @@ faq:
     a: "Pas en urgence, et jamais brutalement, car un changement brusque peut lui-même provoquer des troubles digestifs. Si les vomissements persistent, votre vétérinaire pourra rechercher une intolérance et conseiller un aliment adapté, à introduire progressivement."
   - q: "Quand un chat qui vomit doit-il voir un vétérinaire en urgence ?"
     a: "Sans attendre s'il vomit plusieurs fois dans la journée, s'il y a du sang, s'il est abattu, s'il fait des efforts sans rien rejeter, ou s'il a pu avaler un objet, une ficelle ou un produit toxique. Pour un chaton, un chat âgé ou déjà malade, ne tardez pas non plus."
-graphics:
-  g1:
-    title: "Régurgitation ou vomissement ?"
-    points:
-      - "Régurgitation: croquettes entières, sans effort"
-      - "Moment: souvent juste après le repas"
-      - "Vomissement: contractions du ventre, nausée"
-      - "Contenu: aliments digérés, liquide, bile"
-  g2:
-    title: "Consulter sans tarder si..."
-    points:
-      - "Fréquence: plus d'une fois par semaine (Cornell)"
-      - "Sang: dans le vomi ou les selles"
-      - "Abattement: chat fatigué, caché, faible"
-      - "Appétit: il refuse de manger ou maigrit"
+status: "published"
 ---
 
 Retrouver un petit tas de croquettes sur le tapis n'a rien de rare, mais ce n'est pas anodin pour autant. Tout dépend de ce que le chat rejette, du moment où il le fait et de la fréquence. Quelques observations simples permettent de faire la part entre un repas avalé trop vite et un vrai signal d'alerte.
 
-{{g1}}
+![Régurgitation ou vomissement ?](/images/chat-vomit-ses-croquettes-g1.svg)
 
 ## Régurgiter ou vomir : deux choses différentes
 
@@ -69,7 +65,7 @@ Quand le rejet suit le repas et que le chat va bien par ailleurs, quelques ajust
 - **Changer d'aliment progressivement**, sur plusieurs jours, si un changement est nécessaire.
 - **Brosser le chat régulièrement**, surtout pendant la mue ou s'il a le poil long, pour limiter les poils avalés.
 
-{{g2}}
+![Consulter sans tarder si...](/images/chat-vomit-ses-croquettes-g2.svg)
 
 ## Quand consulter, et quand c'est urgent
 
