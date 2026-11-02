@@ -1,12 +1,22 @@
 ---
 title: "Litière automatique pour chat : avantages, limites et pour qui"
 description: "Litière chat automatique : ce qu'elle apporte, pourquoi certains chats la refusent, à qui elle convient et comment l'introduire sans le braquer."
-pillar: hygiene-prevention
-keyword: "litiere chat automatique"
-coverScene: "A confident grey tabby cat stepping out of a large modern self-cleaning litter box in a bright tidy laundry room, whole body centered, soft daylight."
+pillar: "hygiene-prevention"
+kind: "cluster"
+cover: "/images/litiere-automatique-chat-cover-v3.webp"
 coverAlt: "Un chat tigré gris qui sort d'une grande litière automatique moderne, dans une buanderie claire et rangée."
+clusterParent: "hygiene-prevention"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-11-02"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/hygiene-soin/bacs-et-accessoires-litiere/"
     label: "Voir les bacs et accessoires de litière sur Maxi Zoo"
     note: "Quel que soit le modèle, vérifiez que le bac est assez grand pour votre chat adulte."
@@ -20,26 +30,12 @@ faq:
     a: "Revenez à une étape plus douce : appareil éteint, utilisé comme un bac ordinaire, avec la litière qu'il connaît. Gardez son ancien bac à côté. S'il fait ses besoins ailleurs, retirez la machine, car un chat qui associe le bac à la peur peut prendre de mauvaises habitudes."
   - q: "Une litière automatique supprime-t-elle les odeurs ?"
     a: "Elle les réduit, puisque les selles sont retirées rapidement, mais le bac et le réceptacle doivent tout de même être vidés et lavés. Un appareil mal entretenu sent aussi mauvais qu'un bac négligé."
-graphics:
-  g1:
-    title: "Ce qu'elle apporte, ce qu'elle coûte"
-    points:
-      - "Plus: moins d'odeurs, moins de ramassage"
-      - "Moins: bruits et mouvements qui effraient"
-      - "Taille: souvent trop petite pour le chat"
-      - "Suivi: on voit moins l'urine et les selles"
-  g2:
-    title: "L'introduire sans le braquer"
-    points:
-      - "Éteinte d'abord: utilisée comme un bac simple"
-      - "Même litière: celle qu'il connaît déjà"
-      - "Ancien bac: gardé à côté quelque temps"
-      - "Mise en route: en son absence, sans surprise"
+status: "published"
 ---
 
 Ne plus ramasser la litière chaque jour : la promesse est séduisante, et les modèles automatiques se multiplient. Mais un bac à litière est d'abord un lieu où le chat doit se sentir en sécurité. Une machine qui bouge et fait du bruit n'est pas toujours rassurante pour lui.
 
-{{g1}}
+![Ce qu'elle apporte, ce qu'elle coûte](/images/litiere-automatique-chat-g1.svg)
 
 ## Ce que la litière automatique apporte
 
@@ -71,7 +67,7 @@ L'introduction se fait sans précipitation :
 
 Le nombre de bacs ne change pas : International Cat Care recommande un bac par chat, plus au moins un supplémentaire.
 
-{{g2}}
+![L'introduire sans le braquer](/images/litiere-automatique-chat-g2.svg)
 
 ## Les signes que ça ne fonctionne pas
 
