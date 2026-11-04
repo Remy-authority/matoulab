@@ -1,12 +1,22 @@
 ---
 title: "Ragdoll : le chat « poupée de chiffon », calme et câlin ?"
 description: "Chat ragdoll : d'où vient son surnom de poupée de chiffon, son caractère réputé paisible, sa taille, l'entretien de sa fourrure et sa santé."
-pillar: choisir-accueillir
-keyword: "chat ragdoll"
-coverScene: "A large seal point Ragdoll cat with bright blue eyes lying relaxed on a wide cream cushion, serene modern living room, whole body centered."
+pillar: "choisir-accueillir"
+kind: "cluster"
+cover: "/images/chat-ragdoll-caractere-cover-v3.webp"
 coverAlt: "Un grand ragdoll aux yeux bleus, allongé tranquillement sur un large coussin crème."
+clusterParent: "choisir-accueillir"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-11-04"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/couchettes-pour-chat/"
     label: "Voir les couchettes pour chat sur Maxi Zoo"
     note: "Un ragdoll adulte est grand : choisissez une couchette assez large pour qu'il s'y allonge de tout son long."
@@ -20,26 +30,12 @@ faq:
     a: "C'est l'une des grandes races : selon la CFA, un mâle adulte dépasse fréquemment 20 livres, un peu plus de 9 kilos, et les femelles restent plus légères. Elle précise qu'il n'atteint sa taille et son poids adultes que vers quatre ans."
   - q: "Le ragdoll a-t-il besoin de beaucoup de toilettage ?"
     a: "Moins qu'on ne l'imagine pour un poil mi-long. La fiche de race du LOOF indique que, dans la plupart des cas, un brossage hebdomadaire suffit, et la CFA conseille un peigne en métal une à deux fois par semaine. Insistez sur les zones de frottement, comme derrière les oreilles et sous les pattes avant."
-graphics:
-  g1:
-    title: "Le ragdoll en quatre traits"
-    points:
-      - "Allure: grand, yeux bleus, robe colourpoint"
-      - "Caractère: souvent calme, doux, sociable"
-      - "Croissance: lente, adulte vers quatre ans (CFA)"
-      - "Pelage: mi-long, peu de sous-poil"
-  g2:
-    title: "Avant d'adopter un chaton ragdoll"
-    points:
-      - "Pedigree: chaton inscrit au LOOF"
-      - "Cœur: dépistage des parents à demander"
-      - "Espace: matériel à la taille d'un grand chat"
-      - "Poids: ration pesée, jeu chaque jour"
+status: "published"
 ---
 
 Pourquoi un chat se laisserait-il porter comme un jouet en tissu ? C'est la promesse que suggère son nom, et elle attire beaucoup de familles vers le ragdoll. La réalité est plus nuancée : un grand chat au tempérament souvent paisible, mais un chat avant tout. Son caractère, son gabarit et sa santé méritent d'être connus avant de craquer.
 
-{{g1}}
+![Le ragdoll en quatre traits](/images/chat-ragdoll-caractere-g1.svg)
 
 ## D'où vient le ragdoll, et d'où vient sa réputation
 
@@ -70,7 +66,7 @@ Au quotidien, prévoyez :
 
 La CFA note aussi que le ragdoll aime manger. Pesez sa ration et limitez les friandises pour qu'il reste mince.
 
-{{g2}}
+![Avant d'adopter un chaton ragdoll](/images/chat-ragdoll-caractere-g2.svg)
 
 ## Santé : ce qu'il faut demander à l'éleveur
 
