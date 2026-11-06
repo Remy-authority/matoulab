@@ -1,12 +1,22 @@
 ---
 title: "Jouer avec un chaton : les bons jeux (et ceux qui apprennent à mordre)"
 description: "Jeux pour chaton : les jouets qui l'aident à grandir, la bonne durée des séances, les jeux avec les mains à bannir et les objets dangereux à éviter."
-pillar: comportement
-keyword: "jeux pour chaton"
-coverScene: "A playful tabby kitten leaping toward a feather wand toy above a light oak floor in a bright modern living room, whole kitten centered."
+pillar: "comportement"
+kind: "cluster"
+cover: "/images/jouer-avec-un-chaton-cover-v3.webp"
 coverAlt: "Un chaton tigré qui bondit vers une plume au bout d'une canne à pêche, sur un parquet clair."
+clusterParent: "comportement"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-11-06"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/chatons/jouets/"
     label: "Voir les jouets pour chaton sur Maxi Zoo"
     note: "Privilégiez les cannes à plumes et les balles légères, qui gardent vos mains à distance."
@@ -20,26 +30,12 @@ faq:
     a: "Il l'excite beaucoup, mais il ne lui permet jamais d'attraper sa proie. Si vous l'utilisez, terminez la séance sur un jouet réel qu'il peut saisir, pour qu'il puisse conclure sa chasse. Ne dirigez jamais le faisceau vers ses yeux."
   - q: "Un chaton peut-il jouer avec l'herbe à chat ?"
     a: "Il peut, mais il n'y réagira probablement pas encore. International Cat Care précise que les chatons de moins de trois mois ne répondent en général pas à la cataire. Les jouets qui bougent l'intéressent bien davantage à cet âge."
-graphics:
-  g1:
-    title: "Les bons jeux pour un chaton"
-    points:
-      - "Canne à plume: la proie vole, les mains restent loin"
-      - "Balle légère: à pousser, poursuivre, rattraper"
-      - "Jouet à saisir: pour mordiller et donner des coups"
-      - "Carton ouvert: cachette, affût et escalade"
-  g2:
-    title: "Les jeux à éviter"
-    points:
-      - "Mains et pieds: il les attaquera adulte"
-      - "Ficelle et laine: danger s'il les avale"
-      - "Chahut à mains nues: apprend à griffer"
-      - "Fin brutale: frustration et embuscades"
+status: "published"
 ---
 
 Votre chaton bondit sur vos orteils sous la couette, s'accroche à votre manche, attaque votre main dès qu'elle bouge : c'est drôle aujourd'hui, beaucoup moins chez le chat adulte qu'il deviendra, avec des griffes et des dents bien formées. Le jeu n'est pas un simple passe-temps pour lui, c'est un apprentissage. Autant qu'il apprenne les bons gestes, avec les bons objets.
 
-{{g1}}
+![Les bons jeux pour un chaton](/images/jouer-avec-un-chaton-g1.svg)
 
 ## Pourquoi le jeu compte autant pour un chaton
 
@@ -70,7 +66,7 @@ Quelques gestes rendent le jeu plus efficace :
 2. **Laissez-le attraper.** Un chaton qui ne capture jamais finit frustré. Plusieurs prises par séance entretiennent sa motivation.
 3. **Terminez en douceur.** International Cat Care conseille de ralentir progressivement le jeu, puis de détourner l'attention du chaton vers autre chose, par exemple un repas, pour éviter la frustration et les embuscades.
 
-{{g2}}
+![Les jeux à éviter](/images/jouer-avec-un-chaton-g2.svg)
 
 ## Les jeux qui apprennent à mordre, et les objets dangereux
 
