@@ -1,12 +1,22 @@
 ---
 title: "Friandises pour chat : combien en donner sans déséquilibrer sa ration"
 description: "Friandise pour chat : la limite de 10 % des calories fixée par la WSAVA, les repères selon le poids, les aliments toxiques et les bons usages au quotidien."
-pillar: alimentation
-keyword: "friandise pour chat"
-coverScene: "A sleek grey cat sitting beside a small dish of treats on a light sofa, cosy modern living room, whole cat centered."
+pillar: "alimentation"
+kind: "cluster"
+cover: "/images/friandises-chat-cover-v3.webp"
 coverAlt: "Un chat gris qui prend délicatement une petite friandise dans une main tendue, sur un canapé clair."
+clusterParent: "alimentation"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-11-09"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/nourriture-pour-chat/friandises/"
     label: "Voir les friandises pour chat sur Maxi Zoo"
     note: "Regardez l'apport calorique sur l'emballage : c'est lui qui détermine combien de friandises votre chat peut recevoir."
@@ -20,26 +30,12 @@ faq:
     a: "Oui, si elles s'ajoutent à la ration sans être comptées. La WSAVA souligne qu'un excès de friandises peut déséquilibrer l'alimentation et faire prendre du poids, et International Cat Care conseille de les réduire chez un chat qui doit maigrir."
   - q: "Quelles friandises éviter absolument ?"
     a: "La WSAVA cite les os, crus ou cuits, qui peuvent causer des blessures graves, et les aliments toxiques : oignon, poireau, échalote, ail, ciboulette, raisin, chocolat, xylitol, alcool, pâte à pain crue, boissons caféinées. Sans oublier les produits crus d'origine animale, qui peuvent transmettre des germes."
-graphics:
-  g1:
-    title: "Maximum de friandises par jour (WSAVA)"
-    points:
-      - "Chat de 3 kg: environ 20 kcal de friandises"
-      - "Chat de 4 kg: environ 22 kcal de friandises"
-      - "Chat de 5 kg: environ 25 kcal de friandises"
-      - "Chat de 6 kg: environ 26 kcal de friandises"
-  g2:
-    title: "Les bons réflexes avec les friandises"
-    points:
-      - "Compter: moins de 10 % des calories du jour"
-      - "Déduire: retirer l'équivalent de la ration"
-      - "Choisir: taille adaptée, jamais d'os"
-      - "Varier: jeu et câlins comme récompense"
+status: "published"
 ---
 
 Une friandise tendue au retour du travail, une autre pour le faire entrer dans sa caisse, une troisième parce qu'il réclame devant le placard : à la fin de la journée, combien de calories cela représente-t-il ? La question mérite d'être posée, car les friandises pèsent plus lourd qu'on ne le croit dans la ration d'un chat. La WSAVA a justement fixé un plafond simple à retenir.
 
-{{g1}}
+![Maximum de friandises par jour (WSAVA)](/images/friandises-chat-g1.svg)
 
 ## La règle des 10 %, et ce qu'elle représente vraiment
 
@@ -74,7 +70,7 @@ La WSAVA insiste sur la sécurité autant que sur les calories. Elle déconseill
 
 Elle ajoute que la friandise doit avoir une taille et une forme adaptées pour limiter le risque d'étouffement, et que le chat doit être surveillé avec les friandises à mâcher. Pour un chat sous régime vétérinaire ou sensible sur le plan digestif, demandez conseil avant d'introduire une nouvelle friandise.
 
-{{g2}}
+![Les bons réflexes avec les friandises](/images/friandises-chat-g2.svg)
 
 ## Les bons usages : récompenser, occuper, créer du lien
 
