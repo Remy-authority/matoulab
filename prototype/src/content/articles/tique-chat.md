@@ -1,12 +1,22 @@
 ---
 title: "Tique sur un chat : la retirer sans risque et prévenir"
 description: "Tique chat : la repérer, la retirer au tire-tique sans laisser la tête, les gestes à éviter et les bons réflexes de prévention au fil des saisons."
-pillar: hygiene-prevention
-keyword: "tique chat"
-coverScene: "A calm tabby cat lying on a white towel while a hand checks the fur behind its ear, bright modern bathroom, whole cat centered."
+pillar: "hygiene-prevention"
+kind: "cluster"
+cover: "/images/tique-chat-cover-v3.webp"
 coverAlt: "Un chat tigré calme allongé sur une serviette blanche pendant qu'une main inspecte le pelage derrière son oreille."
+clusterParent: "hygiene-prevention"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-11-11"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/hygiene-soin/protection-contre-tiques-parasites/"
     label: "Voir les soins contre les tiques et parasites sur Maxi Zoo"
     note: "Un tire-tique à crochet se garde dans la trousse de soins ; le traitement préventif se choisit avec le vétérinaire."
@@ -20,26 +30,12 @@ faq:
     a: "Elles le peuvent. ESCCAP France cite la piroplasmose, l'ehrlichiose et l'anaplasmose, tout en précisant qu'il est exceptionnel que ces agents provoquent une véritable maladie chez le chat. Un retrait rapide et correct reste le meilleur réflexe."
   - q: "Peut-on utiliser un produit antitiques pour chien sur un chat ?"
     a: "Non, jamais. Certains antiparasitaires pour chien sont toxiques pour le chat. Utilisez uniquement un produit conçu pour le chat, choisi avec votre vétérinaire selon son âge, son poids et son mode de vie."
-graphics:
-  g1:
-    title: "Où chercher les tiques sur un chat"
-    points:
-      - "Tête et cou: autour des oreilles, sous le menton"
-      - "Pattes avant: aisselles et entre les doigts"
-      - "Aspect: petite bosse brune, noire ou grise"
-      - "Quand: au retour de chaque sortie"
-  g2:
-    title: "Retirer une tique en quatre gestes"
-    points:
-      - "Crochet: glissé sous la tête, au ras de la peau"
-      - "Rotation: tourner dans un seul sens"
-      - "Désinfection: nettoyer la zone de la morsure"
-      - "Surveillance: rougeur, gonflement, abattement"
+status: "published"
 ---
 
 En caressant votre chat, vos doigts rencontrent une petite bosse ferme près de l'oreille. Grain de peau ou tique ? Si c'est une tique, pas de panique : elle se retire facilement, à condition d'avoir le bon outil et d'éviter les recettes de grand-mère. Le bon geste s'apprend en quelques minutes.
 
-{{g1}}
+![Où chercher les tiques sur un chat](/images/tique-chat-g1.svg)
 
 ## Reconnaître une tique et savoir où chercher
 
@@ -72,7 +68,7 @@ Plusieurs réflexes répandus aggravent la situation :
 
 Si une partie de la tique reste en place, n'insistez pas avec une aiguille. International Cat Care explique que des pièces buccales restées dans la peau peuvent provoquer une infection : Cats Protection conseille alors de demander l'avis du vétérinaire.
 
-{{g2}}
+![Retirer une tique en quatre gestes](/images/tique-chat-g2.svg)
 
 ## Prévenir et surveiller au fil des saisons
 
