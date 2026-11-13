@@ -1,12 +1,22 @@
 ---
 title: "Chartreux : caractère et besoins de ce chat au pelage bleu"
 description: "Chat chartreux : histoire de cette vieille race française, caractère vif et discret, pelage bleu laineux à entretenir pendant la mue, et points de santé."
-pillar: choisir-accueillir
-keyword: "chat chartreux"
-coverScene: "A sturdy blue-grey Chartreux cat with copper eyes sitting upright on a light stone windowsill, calm modern apartment, whole body centered, soft daylight."
+pillar: "choisir-accueillir"
+kind: "cluster"
+cover: "/images/chat-chartreux-caractere-cover-v3.webp"
 coverAlt: "Un chartreux robuste au pelage gris-bleu et aux yeux cuivrés, assis sur un rebord de fenêtre clair."
+clusterParent: "choisir-accueillir"
+author:
+  name: "Rémy Zaoui"
+  slug: "remy-zaoui"
+  credentials: "Fondateur de Matoulab, passionné de chats"
+updatedAt: "2026-11-13"
+ymyl: false
+medLevel: "none"
+disclaimer: false
+affiliate: true
 products:
-  - partner: maxizoo
+  - partner: "maxizoo"
     url: "https://www.maxizoo.fr/c/chat/hygiene-soin/pelage-entretien-du-corps/"
     label: "Voir les accessoires d'entretien du pelage sur Maxi Zoo"
     note: "Un peigne en métal à dents espacées convient bien au pelage dense et laineux du chartreux, surtout en période de mue."
@@ -20,26 +30,12 @@ faq:
     a: "Les deux races ont longtemps été confondues, rappelle le LOOF, qui raconte que des éleveurs ont recherché des lignées sans british pour préserver le chartreux. Le standard du LOOF n'accepte que la couleur bleue et des yeux du jaune à l'orange, avec une tête en forme de trapèze, plus large à la base."
   - q: "Combien pèse un chartreux ?"
     a: "La Cat Fanciers' Association indique que les mâles atteignent environ 14 livres, soit un peu plus de 6 kg, les femelles étant nettement plus petites. Le standard du LOOF souligne aussi que les femelles sont notablement plus légères tout en gardant une allure robuste."
-graphics:
-  g1:
-    title: "Le chartreux en quatre traits"
-    points:
-      - "Origine: race française très ancienne"
-      - "Robe: bleue uniquement, dense et laineuse"
-      - "Yeux: du jaune à l'orange"
-      - "Voix: souvent très discrète (CFA)"
-  g2:
-    title: "Entretenir son pelage dense"
-    points:
-      - "Outil: peigne en métal à dents espacées"
-      - "Mue: brossages plus fréquents en saison"
-      - "Sous-poil: démêler sans tirer ni arracher"
-      - "Poids: surveiller la silhouette adulte"
+status: "published"
 ---
 
 Faut-il vraiment un chat au caractère de nounours pour aller avec cette silhouette ronde et ce pelage bleu ? Le chartreux déjoue souvent les attentes. Derrière son allure de peluche se cache un chat vif, robuste et plutôt discret, héritier d'une longue histoire française. Son histoire éclaire en partie son tempérament.
 
-{{g1}}
+![Le chartreux en quatre traits](/images/chat-chartreux-caractere-g1.svg)
 
 ## Une vieille race française, sauvée de justesse
 
@@ -67,7 +63,7 @@ Quelques gestes simples :
 - **Augmenter la fréquence** pendant les périodes de mue, pour limiter les poils dans la maison et les boules de poils.
 - **Profiter du brossage** pour vérifier la peau, les oreilles et repérer d'éventuels parasites.
 
-{{g2}}
+![Entretenir son pelage dense](/images/chat-chartreux-caractere-g2.svg)
 
 ## Croissance, santé et foyer idéal
 
